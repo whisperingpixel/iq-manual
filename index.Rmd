@@ -1,0 +1,14 @@
+---
+title: "Sen2Cube.at Manual"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+output: bookdown::gitbook
+github-repo: whisperingpixel/iq-manual
+---
+
+# Hello World
+
+Hi.
+
+Bye.
