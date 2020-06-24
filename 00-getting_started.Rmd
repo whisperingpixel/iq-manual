@@ -1,0 +1,5 @@
+# Getting started
+
+- Where to find the web frontend.
+- What are the different parts of the interface.
+- ...
