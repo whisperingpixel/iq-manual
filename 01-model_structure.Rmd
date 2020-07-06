@@ -1,0 +1,14 @@
+# Model structure
+
+The query model formulates the desired output. Besides choosing from pre-constructed ones, new models can be constructed from scratch. There are two main components that define a model:
+
+- The **semantic concept dictionary** serves as a translator between descriptions of real-world entities and raw image data. For example, if we want to know which observations can be identified as *water*, we need to specify *how* we define water given the data that we have. What does *water* mean in terms of our raw data values? Creating a semantic concept dictionary requires expert knowledge and is usually not a task that non-experts take on by themselves.
+- The **application** component is then used to formulate the query by using the defined semantic concepts directly. It is defined what *water* means in terms of the raw data, so we don't have to worry about the raw data anymore, but can use common language to describe our desired output. For example "how many observations where defined as water inside my area of interest, during July 2020". Such a question forms a single result. A model can contain multiple results.
+
+For model construction, the web-frontend of Sen2Cube provides an interface to Google's [Blockly library](https://developers.google.com/blockly). This enables to construct a model intuitively by putting together several *building blocks*, that all represent a distinct, clearly defined task or value. The starting point is an *empty model*:
+
+<center>
+![](img/emptymodel.png){width=50%}
+</center>
+
+The following chapters will explain in detail how to fill up such an empty model step by step, using the provided building blocks.

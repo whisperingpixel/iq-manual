@@ -1,4 +1,5 @@
 rmd_files: 
     - "index.Rmd"
     - "00-getting_started.Rmd"
+    - "01-model_structure.Rmd"
 delete_merged_file: true
