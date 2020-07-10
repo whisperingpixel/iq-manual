@@ -1,6 +1,7 @@
 rmd_files: 
     - "index.Rmd"
-    - "00-getting_started.Rmd"
-    - "01-model_structure.Rmd"
-    - "02-building_blocks.Rmd"
+    - "getting_started.Rmd"
+    - "model_structure.Rmd"
+    - "building_blocks.Rmd"
+    - "examples.Rmd"
 delete_merged_file: true

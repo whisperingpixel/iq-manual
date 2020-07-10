@@ -15,11 +15,11 @@ github-repo: whisperingpixel/iq-manual
 
 &nbsp;
 
-Sen2Cube.at is the first operational semantic Earth Observation data cube, allowing users to extract information from satellite imagery on a higher semantic level. That means, getting answers to questions as *< put some examples here >*, without the need for an expert understanding of the raw image data.
+Sen2Cube.at is the first operational semantic Earth Observation data cube, allowing users to extract information from satellite imagery on a higher semantic level. That means, getting answers to questions as *<span style="color: red;"> insert examples </span>*, without the need for an expert understanding of the raw image data.
 
-The Sen2Cube.at semantic image querying system is accessible through a [web-interface](https://demo.sen2cube.at/app), in which queries can be formulated by intuitively combining several building blocks, that each represent a unique, distinct part of the querying process. This manual contains the reference documentation of that interface.
+The Sen2Cube.at semantic image querying system is accessible through a [web-interface](https://demo.sen2cube.at/app), in which queries can be formulated by intuitively combining several building blocks, that each represent a distinct, clearly defined task or value inside the querying process. This manual contains the reference documentation of that interface.
 
-Sen2cube.at is provided by **Z_GIS**, the Department of Geoinformatics at the University of Salzburg, in collaboration with project partners.
+Sen2cube.at is provided by [Z_GIS](https://www.zgis.at/), the Department of Geoinformatics at the University of Salzburg, in collaboration with project partners.
 
 &nbsp;
 
