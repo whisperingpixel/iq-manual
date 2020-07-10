@@ -5,3 +5,4 @@ rmd_files:
     - "building_blocks.Rmd"
     - "examples.Rmd"
 delete_merged_file: true
+output_dir: "docs"

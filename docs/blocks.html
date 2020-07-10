@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4 Building blocks | Sen2Cube.at Manual</title>
+  <meta name="description" content="4 Building blocks | Sen2Cube.at Manual" />
+  <meta name="generator" content="bookdown 0.19.4 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4 Building blocks | Sen2Cube.at Manual" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="whisperingpixel/iq-manual" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 Building blocks | Sen2Cube.at Manual" />
+  
+  
+  
+
+
+
+<meta name="date" content="2020-07-10" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="model.html"/>
+<link rel="next" href="examples.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Sen2Cube.at Manual</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a></li>
+<li class="chapter" data-level="2" data-path="start.html"><a href="start.html"><i class="fa fa-check"></i><b>2</b> Getting started</a><ul>
+<li class="chapter" data-level="2.1" data-path="start.html"><a href="start.html#components"><i class="fa fa-check"></i><b>2.1</b> Components</a></li>
+<li class="chapter" data-level="2.2" data-path="start.html"><a href="start.html#workflow"><i class="fa fa-check"></i><b>2.2</b> Workflow</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="start.html"><a href="start.html#selecting-the-model"><i class="fa fa-check"></i><b>2.2.1</b> Selecting the model</a></li>
+<li class="chapter" data-level="2.2.2" data-path="start.html"><a href="start.html#selecting-the-area-of-interest"><i class="fa fa-check"></i><b>2.2.2</b> Selecting the area of interest</a></li>
+<li class="chapter" data-level="2.2.3" data-path="start.html"><a href="start.html#selecting-the-time-interval"><i class="fa fa-check"></i><b>2.2.3</b> Selecting the time interval</a></li>
+<li class="chapter" data-level="2.2.4" data-path="start.html"><a href="start.html#executing-the-query"><i class="fa fa-check"></i><b>2.2.4</b> Executing the query</a></li>
+<li class="chapter" data-level="2.2.5" data-path="start.html"><a href="start.html#viewing-the-results"><i class="fa fa-check"></i><b>2.2.5</b> Viewing the results</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="model.html"><a href="model.html"><i class="fa fa-check"></i><b>3</b> Model structure</a></li>
+<li class="chapter" data-level="4" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>4</b> Building blocks</a><ul>
+<li class="chapter" data-level="4.1" data-path="blocks.html"><a href="blocks.html#definitions"><i class="fa fa-check"></i><b>4.1</b> Definitions</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="blocks.html"><a href="blocks.html#entity"><i class="fa fa-check"></i><b>4.1.1</b> Entities and properties</a></li>
+<li class="chapter" data-level="4.1.2" data-path="blocks.html"><a href="blocks.html#result"><i class="fa fa-check"></i><b>4.1.2</b> Results</a></li>
+<li class="chapter" data-level="4.1.3" data-path="blocks.html"><a href="blocks.html#partition"><i class="fa fa-check"></i><b>4.1.3</b> Seasons and partitions</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="blocks.html"><a href="blocks.html#data"><i class="fa fa-check"></i><b>4.2</b> Data</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="blocks.html"><a href="blocks.html#appearance"><i class="fa fa-check"></i><b>4.2.1</b> Appearance</a></li>
+<li class="chapter" data-level="4.2.2" data-path="blocks.html"><a href="blocks.html#atmosphere"><i class="fa fa-check"></i><b>4.2.2</b> Atmosphere</a></li>
+<li class="chapter" data-level="4.2.3" data-path="blocks.html"><a href="blocks.html#reflectance"><i class="fa fa-check"></i><b>4.2.3</b> Reflectance</a></li>
+<li class="chapter" data-level="4.2.4" data-path="blocks.html"><a href="blocks.html#topography"><i class="fa fa-check"></i><b>4.2.4</b> Topography</a></li>
+<li class="chapter" data-level="4.2.5" data-path="blocks.html"><a href="blocks.html#artifacts"><i class="fa fa-check"></i><b>4.2.5</b> Artifacts</a></li>
+<li class="chapter" data-level="4.2.6" data-path="blocks.html"><a href="blocks.html#metadata"><i class="fa fa-check"></i><b>4.2.6</b> Metadata</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="blocks.html"><a href="blocks.html#verbs"><i class="fa fa-check"></i><b>4.3</b> Verbs</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="blocks.html"><a href="blocks.html#evaluate"><i class="fa fa-check"></i><b>4.3.1</b> Evaluate</a></li>
+<li class="chapter" data-level="4.3.2" data-path="blocks.html"><a href="blocks.html#filter"><i class="fa fa-check"></i><b>4.3.2</b> Filter</a></li>
+<li class="chapter" data-level="4.3.3" data-path="blocks.html"><a href="blocks.html#group"><i class="fa fa-check"></i><b>4.3.3</b> Groupby and ungroup</a></li>
+<li class="chapter" data-level="4.3.4" data-path="blocks.html"><a href="blocks.html#invert"><i class="fa fa-check"></i><b>4.3.4</b> Invert</a></li>
+<li class="chapter" data-level="4.3.5" data-path="blocks.html"><a href="blocks.html#label"><i class="fa fa-check"></i><b>4.3.5</b> Label</a></li>
+<li class="chapter" data-level="4.3.6" data-path="blocks.html"><a href="blocks.html#mask"><i class="fa fa-check"></i><b>4.3.6</b> Mask</a></li>
+<li class="chapter" data-level="4.3.7" data-path="blocks.html"><a href="blocks.html#reduce"><i class="fa fa-check"></i><b>4.3.7</b> Reduce</a></li>
+<li class="chapter" data-level="4.3.8" data-path="blocks.html"><a href="blocks.html#replace"><i class="fa fa-check"></i><b>4.3.8</b> Replace</a></li>
+<li class="chapter" data-level="4.3.9" data-path="blocks.html"><a href="blocks.html#select"><i class="fa fa-check"></i><b>4.3.9</b> Select</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="blocks.html"><a href="blocks.html#combiners"><i class="fa fa-check"></i><b>4.4</b> Combiners</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="blocks.html"><a href="blocks.html#concatenate"><i class="fa fa-check"></i><b>4.4.1</b> Concatenate</a></li>
+<li class="chapter" data-level="4.4.2" data-path="blocks.html"><a href="blocks.html#compose"><i class="fa fa-check"></i><b>4.4.2</b> Compose</a></li>
+<li class="chapter" data-level="4.4.3" data-path="blocks.html"><a href="blocks.html#merge"><i class="fa fa-check"></i><b>4.4.3</b> Merge</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="blocks.html"><a href="blocks.html#time"><i class="fa fa-check"></i><b>4.5</b> Time</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="blocks.html"><a href="blocks.html#instant"><i class="fa fa-check"></i><b>4.5.1</b> Time instant</a></li>
+<li class="chapter" data-level="4.5.2" data-path="blocks.html"><a href="blocks.html#period"><i class="fa fa-check"></i><b>4.5.2</b> Time periods</a></li>
+<li class="chapter" data-level="4.5.3" data-path="blocks.html"><a href="blocks.html#collection"><i class="fa fa-check"></i><b>4.5.3</b> Time collection</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="blocks.html"><a href="blocks.html#space"><i class="fa fa-check"></i><b>4.6</b> Space</a></li>
+<li class="chapter" data-level="4.7" data-path="blocks.html"><a href="blocks.html#comments"><i class="fa fa-check"></i><b>4.7</b> Comments</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="examples.html"><a href="examples.html"><i class="fa fa-check"></i><b>5</b> Examples</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Sen2Cube.at Manual</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="blocks" class="section level1">
+<h1><span class="header-section-number">4</span> Building blocks</h1>
+<p>Models are constructed by connecting several <em>building blocks</em>, that each represent a distinct, clearly defined task or value. There are different classes of blocks, which are described in detail below.</p>
+<div id="definitions" class="section level2">
+<h2><span class="header-section-number">4.1</span> Definitions</h2>
+<p>Definition blocks store the output of a collection of other blocks, such that it can be accessed anywhere else in the model. Several types of definitions exist.</p>
+<div class="rmdcaution">
+<p>
+All definitions have to be named. Bear in mind that these names should be unique!
+</p>
+</div>
+<div id="entity" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> Entities and properties</h3>
+<p>An entity is an identifiable phenomenon of interest in the real world that is not further subdivided into phenomena of the same kind. For example, <em>a lake</em> or <em>a field</em>. In the current implementation of Sen2Cube, however, we refer to entities also at a lower, more general level, for example <em>water</em> or <em>vegetation</em>. Entity definitions describe for each observation in the spatio-temporal extent of the query if it is identified as being part of the entity or not. For example, when we define the entity <em>water</em>, the entity definition will store a set of boolean observations, having a value of <code>True</code> when it was identified as being water, and <code>False</code> otherwise. These observations are aligned along two spatial dimensions, i.e. the X and Y coordinates of the observations geographical locations, and one temporal dimension, i.e. the timestamps at which the observations were made. Therefore, we call this data structure a <em>cube</em>. See the illustration below, where blue blocks represent observations that were identified as water, and grey blocks represent observations that were not identified as water.</p>
+<center>
+<p><img src="img/entitycube.png" style="width:50.0%" /></p>
+</center>
+<p>Entities are always defined by means of one or more <strong>properties</strong> they have. For example, a property of water is its blueish color, but for larger water bodies also its approximate flatness (i.e. a slope of approximately 0%). An entity definition block thus <em>has</em> to be followed by one or more property definition blocks.</p>
+<p>Entity definition blocks - and their corresponding property definition blocks - are exclusively used inside the <strong>semantic concept dictionary</strong> component of the model. In the application component, stored entity definitions can be retrieved, wrangled and exported.</p>
+</div>
+<div id="result" class="section level3">
+<h3><span class="header-section-number">4.1.2</span> Results</h3>
+<p>A result is the output of a single semantic query. Depending on the processes that are used in the query, results can be single values, one-dimensional cubes or multi-dimensional cubes. Result definition blocks are exclusively used inside the <strong>application</strong> component of the model. Stored result definitions can be retrieved at any place within other result definitions inside the same model. Not every result definition <em>has</em> to be exported. That is, a result definition can also be used as a preliminary outcome, that serves only as a first step towards the final output of the query.</p>
+</div>
+<div id="partition" class="section level3">
+<h3><span class="header-section-number">4.1.3</span> Seasons and partitions</h3>
+<p>When performing analyses over time, splitting the temporal dimension is a common task. For example, instead of the <em>overall water count</em>, we are interested to know the <em>average water count per season</em>, or the <em>ratio of summer water counts and winter water counts</em>. Seasons like <em>summer</em> and <em>winter</em> are specified, distinct subsets of the temporal dimension. In Sen2Cube, there is the option to customly define <strong>seasons</strong>. For example:</p>
+<ul>
+<li>The harvesting season as the time period from August to October.</li>
+<li>The sowing season as the time period from March to May.</li>
+<li>The rain season as the time period from December to May.</li>
+<li>The dry season as the time period from August to November.</li>
+</ul>
+<p>Distinct, but related seasons can then be combined into a <strong>partition</strong> of the temporal dimension. Just like summer, autumn, winter and spring together form the <em>meteorological seasons</em>, the defined harvesting and sowing seasons can together form the <em>agricultural seasons</em>, and the rain and dry season the <em>tropical seasons</em>. As can be seen, the customly defined partition does not have to fill up a full year. You are free to define any desired partition, as long as the included seasons span distinct time ranges.</p>
+<p>Season and partition definition blocks are considered semantic concepts, and are therefore exlusively used inside the <strong>semantic concept dictionary</strong> component of the model. Unlike entities and results, the seasons and partition definitions are <em>not</em> evaluated at the moment they are defined. The temporal dimension of a cube is only split at the moment a specific season or partition is referenced inside the application component of the model.</p>
+</div>
+</div>
+<div id="data" class="section level2">
+<h2><span class="header-section-number">4.2</span> Data</h2>
+<p>Data blocks enable to access the source data of the semantic querying system. This is important when defining entities, but also, for example, when returning cloud-free mosaics. Several data sources can be accessed.</p>
+<div id="appearance" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> Appearance</h3>
+<p><em><span style="color: red;"> Explain in one or two sentences </span></em></p>
+</div>
+<div id="atmosphere" class="section level3">
+<h3><span class="header-section-number">4.2.2</span> Atmosphere</h3>
+<p><em><span style="color: red;"> Explain in one or two sentences </span></em></p>
+</div>
+<div id="reflectance" class="section level3">
+<h3><span class="header-section-number">4.2.3</span> Reflectance</h3>
+<p><em><span style="color: red;"> Explain in one or two sentences </span></em></p>
+</div>
+<div id="topography" class="section level3">
+<h3><span class="header-section-number">4.2.4</span> Topography</h3>
+<p><em><span style="color: red;"> Explain in one or two sentences </span></em></p>
+</div>
+<div id="artifacts" class="section level3">
+<h3><span class="header-section-number">4.2.5</span> Artifacts</h3>
+<p><em><span style="color: red;"> Explain in one or two sentences </span></em></p>
+</div>
+<div id="metadata" class="section level3">
+<h3><span class="header-section-number">4.2.6</span> Metadata</h3>
+<p>Metadata refers to the metadata of the satellite images from which the data were taken. For example, you can replace all observed values in a cube by the timestamps at which those observations were made.</p>
+<div class="rmdwarning">
+<p>
+Currently, timestamps are the only supported metadata return value.
+</p>
+</div>
+</div>
+</div>
+<div id="verbs" class="section level2">
+<h2><span class="header-section-number">4.3</span> Verbs</h2>
+<p>The core processing blocks are called <em>verbs</em>. Each verb represents a specific <em>action</em> that can be applied to a data cube. The verb blocks are therefore labelled with a single action word (i.e. a <em>verb</em>) that describes what the process is doing.</p>
+<p>Such an action is always applied to a specific cube, like a stored entity or result definition, or some retrieved source data. In terms of blocks, this is modelled by a <em>with-do</em> structure, where a cube is referenced in the <em>with</em> part, and the action to be applied to it in the <em>do</em> part. For example, a single reduction over time applied to our defined <em>water</em> entity cube will look like this:</p>
+<center>
+<p><img src="img/withdosingle.png" style="width:50.0%" /></p>
+</center>
+<p>Often, it is desired to apply more than one action to the same cube. This is possible by providing a <em>chain of verbs</em>, where the output of the first process forms the input for the second process, et cetera. For example, start with the water entity cube, invert the <code>True</code> and <code>False</code> values, then keep only the <code>True</code> values, and then reduce that filtered cube over time. Hence, the processing chain is arranged in the logical order of how you also think about the task.</p>
+<center>
+<p><img src="img/withdochain.png" style="width:50.0%" /></p>
+</center>
+<p>Each <em>verb</em> block is described in more detail below.</p>
+<div id="evaluate" class="section level3">
+<h3><span class="header-section-number">4.3.1</span> Evaluate</h3>
+<p>The <em>evaluate</em> verb evaluates an expression for <em>each</em> observation in the input cube. An expression is structured as follows:</p>
+<p><span class="math display">\[
+Expression = (Value, Math Operator, Value)
+\]</span></p>
+<p>In our case, the left hand value is an observation from the input cube to which the verb is applied. The right hand value can be a corresponding observation from another cube, a list of numbers, or even a single number. Since the expression is evaluated for each observation in the input cube, the output of the evaluate block is a new cube with the <em>same dimensions</em> as the input cube.</p>
+<p>This is illustrated in the figure below. The blue cube on the left forms the left hand side of the expression, the red cube in the middle forms the right hand side of the expression. The cube on the right with mixed colors is the output of the evaluation. In this case, the blue and red cube have exactly the same dimensions, meaning that each observations in the blue cube has a corresponding observation in the red cube. Lets say we use the mathematical operator <code>+</code> as our operator. Then, the value of observation #1 - lets say that is the one on the bottom-left edge - in the output cube equals the value of observation #1 in the blue cube <em>added to</em> the value of observation #1 in the red cube. The same yields for all other observations.</p>
+<center>
+<p><img src="img/evaluate.png" style="width:100.0%" /></p>
+</center>
+<p>However, the cube on right hand side of the expression does not have to have the same dimensions as the one on the left hand side. For example, when our cube on the right hand side <em>only</em> has spatial dimensions, the right hand side values are <em>duplicated</em> for each timestamp in the left hand side cube. This also works the other way around. In jargon, this is called <a href="https://machinelearningmastery.com/broadcasting-with-numpy-arrays/">array broadcasting</a>.</p>
+<center>
+<p><img src="img/evaluate2.png" style="width:100.0%" /></p>
+</center>
+<p>The same principle applies when the right hand side is only a single value. Then, this value is <em>duplicated</em> for each observation in the left hand side cube.</p>
+<center>
+<p><img src="img/evaluate3.png" style="width:100.0%" /></p>
+</center>
+<p>Sen2Cube has several built-in operators that can be used to build expressions.</p>
+<ul>
+<li><strong>Comparison operators</strong>: operators that compare values and return either <code>True</code> or <code>False</code>. These are <code>=</code>, <code>in</code>, <code>&gt;</code>, <code>&lt;</code>, <code>≥</code> and <code>≤</code>.</li>
+<li><strong>Logical operators</strong>: operators that combine boolean values (i.e. <code>True</code> and <code>False</code>). These are <code>and</code> and <code>or</code>.</li>
+<li><strong>Algebraic operators</strong>: operators that combine numerical values. These are <code>+</code>, <code>-</code>, <code>*</code> and <code>\</code>.</li>
+</ul>
+<p>The functionality of each supported operator is illustrated with toy examples below.</p>
+<div class="rmdnote">
+<p>
+The <strong>in</strong> operator is special, in the sense that each observation in the input cube is compared to a <strong>list</strong> of values, rather than to a single value. If the observed value is <em>in</em> the given list, the result will be <em>True</em>. If not, the result will be <em>False</em>. The same list of values is used for each observation in the input cube.
+</p>
+</div>
+<div class="rmdcaution">
+<p>
+Be aware what type of data both sides of the expression contain. For example, the logical operators are only useful when both sides of the expression contain boolean values (i.e. <em>True</em> or <em>False</em>). The algebraic operators only make sense for numerical values, and not for categories. Et cetera.
+</p>
+</div>
+<center>
+<p><img src="img/eq.png" style="width:24.0%" /> <img src="img/in.png" style="width:24.0%" /> <img src="img/gt.png" style="width:24.0%" /> <img src="img/lt.png" style="width:24.0%" /></p>
+<p><img src="img/ge.png" style="width:24.0%" /> <img src="img/le.png" style="width:24.0%" /> <img src="img/and.png" style="width:24.0%" /> <img src="img/or.png" style="width:24.0%" /></p>
+<p><img src="img/add.png" style="width:24.0%" /> <img src="img/sub.png" style="width:24.0%" /> <img src="img/mul.png" style="width:24.0%" /> <img src="img/div.png" style="width:24.0%" /></p>
+</center>
+</div>
+<div id="filter" class="section level3">
+<h3><span class="header-section-number">4.3.2</span> Filter</h3>
+<p>The <em>filter</em> verb should only be applied to cubes that contain boolean data values. It then keeps <em>only</em> those values that are <code>True</code>, and removes the values that are <code>False</code>. Technically, this is the same as masking (see <a href="blocks.html#mask">4.3.6</a>) a boolean cube by itself.</p>
+<center>
+<p><img src="img/filter.png" style="width:67.0%" /></p>
+</center>
+</div>
+<div id="group" class="section level3">
+<h3><span class="header-section-number">4.3.3</span> Groupby and ungroup</h3>
+<p>The <em>groupby</em> verb splits the input cube into distinct groups, based on a given grouping variable. All subsequent operations will the be applied to each group <em>separately</em>, until the <em>ungroup</em> verb is called. At that point, the groups will be combined back together into a single cube. This workflow is also known as <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html">Split-Apply-Combine</a>. For example, the input cube can be split into groups such that each group contains <em>exclusively</em> observations from a specific year. Then, these observations can be reduced over time and over space. What is left is a single value for each year. These values can be combined together along a new time dimension, in which each time coordinate refers to a year.</p>
+<center>
+<p><img src="img/group.png" style="width:100.0%" /></p>
+</center>
+<p>The Sen2Cube interface offers several pre-defined grouping variables:</p>
+<ul>
+<li><strong>Temporal grouping variables</strong>: grouping variables that will split the temporal dimension, such that each group contains <em>exclusively</em> observations taken within a specific time period. The variables to choose from are <code>year</code>, <code>season</code>, <code>month</code>, <code>week</code>, <code>dayofyear</code> and <code>dayofweek</code>.</li>
+<li><strong>Spatial grouping variables</strong>: grouping variables that will split the spatial dimensions, such that each group contains <em>exclusively</em> observations taken within a specific sub-area inside the defined area of interest. Currently, only a single variable is supported, named <code>spatialfeature</code>. This requires the area of interest to consist of multiple, distinct spatial features (point, lines or polygons) that do not intersect with each other. Each of these distinct features will then form a group.</li>
+</ul>
+<p>It is also possible to group based on <em>multiple</em> grouping variables. For example, when having two years of data with at least one observation each month, grouping by <code>month</code> will result in 12 different groups. Observations from January in the first year, will end up in the same group as observations from January in the second year. However, when grouping by <code>month</code> <em>and</em> <code>year</code>, there will be 24 different groups. Such multiple grouping operations are enabled in the block interface by means of a <em>group list</em> block.</p>
+<p>Thirdly, you can also provide a defined custom partition (see <a href="blocks.html#partition">4.1.3</a>) of the time dimension as a grouping variable.</p>
+<center>
+<p><img src="img/group_single.png" style="width:32.0%" /> <img src="img/group_multi.png" style="width:32.0%" /> <img src="img/group_custom.png" style="width:32.0%" /></p>
+</center>
+<div class="rmdcaution">
+<p>
+Currently, the Sen2Cube interface does not support cubes that have <em>more than one</em> temporal dimension, or <em>more than two</em> spatial dimensions. When grouping with a temporal grouping variable, each group represents a specific time period like a year, season or month. When combined back together into a single cube during ungrouping, a <em>new</em> time dimension is created in which each time coordinate refers to one of those groups. Since multiple time dimensions are not allowed, the <em>original</em> time dimension <em>has</em> to be reduced before ungrouping. The same yields for spatial grouping operations. The <em>original</em> spatial dimensions have to be reduced before ungrouping.
+</p>
+</div>
+</div>
+<div id="invert" class="section level3">
+<h3><span class="header-section-number">4.3.4</span> Invert</h3>
+<p>The <em>invert</em> verb should only be applied to cubes that contain boolean data values. It then replaces all <code>True</code> values by <code>False</code> values, and vice versa.</p>
+<center>
+<p><img src="img/invert.png" style="width:67.0%" /></p>
+</center>
+</div>
+<div id="label" class="section level3">
+<h3><span class="header-section-number">4.3.5</span> Label</h3>
+<p>The <em>label</em> verb does not influence the data values in any way. It simply stores a label for the entire input cube. This is useful for example before concatenating (see <a href="blocks.html#concatenate">4.4.1</a>) several cubes over a new dimension. The label of each cube will then serve as coordinate value of the new dimension.</p>
+</div>
+<div id="mask" class="section level3">
+<h3><span class="header-section-number">4.3.6</span> Mask</h3>
+<p>The <em>mask</em> verb applies a boolean value mask to the input cube. A boolean value mask is a cube with boolean data values (i.e. <code>True</code> and <code>False</code>). When an observation in the input cube corresponds to a <code>True</code> value in the mask, the observation is kept. However, when an observation in the input cube corresponds to a <code>False</code> value in the mask, the observation is removed.</p>
+<center>
+<p><img src="img/mask.png" style="width:100.0%" /></p>
+</center>
+<p>Similar to the <em>evaluate</em> verb, the boolean mask in a masking operation does not have to have the same dimensions as the input cube. For example, when the mask only has spatial dimensions, its values will be <em>duplicated</em> for each timestamp in the input cube. When the mask only has a temporal dimension, its values will be <em>duplicated</em> for each spatial location in the input cube.</p>
+<center>
+<p><img src="img/mask_space.png" style="width:100.0%" /></p>
+</center>
+<center>
+<p><img src="img/mask_time.png" style="width:100.0%" /></p>
+</center>
+</div>
+<div id="reduce" class="section level3">
+<h3><span class="header-section-number">4.3.7</span> Reduce</h3>
+<p>The <em>reduce</em> verb applies a reduction function over a certain dimension or set of dimensions. That means that for each unique combination of coordinate values of all other dimension in the input cube, the values of the dimension(s) to be reduced over are summarized to a single value, based on some function. For example, assume a input cube with one temporal and two spatial dimensions. Basically, this means that for a each location in space, we have multiple observations, each made at a different moment in time. When we reduce this cube over the time dimension, using <em>mean</em> as reduction function, we reduce our observed values to only <em>a single</em> value per spatial location, equal to the <em>average</em> of all observed values at that location. This removes the time dimension, leaving us with a cube that only has spatial dimensions.</p>
+<center>
+<p><img src="img/reduce_time.png" style="width:67.0%" /></p>
+</center>
+<p>Similarly, we can also reduce the spatial dimensions instead, ending up with a single value per timestamp. The Sen2Cube interface only supports reduction of the two spatial dimensions at once, and not of either the X or Y dimension separately.</p>
+<center>
+<p><img src="img/reduce_space.png" style="width:67.0%" /></p>
+</center>
+<p>Sen2Cube has several built-in reduction functions that can be used.</p>
+<div class="rmdcaution">
+<p>
+Be aware what type of data and what dimensions both the input cube contains. Some reduction functions are only useful when applied to boolean values (i.e. <em>True</em> and <em>False</em>). Others, for example calculation of the mean or the sum, make sense for numerical data, but not for categorical or boolean data. Et cetera. Also, some reduction functions are only meant to be applied to the time dimension, while others are only meant to be applied to the spatial dimensions.
+</p>
+</div>
+<p><em><span style="color: red;"> Insert toy examples for all reduction functions </span></em></p>
+</div>
+<div id="replace" class="section level3">
+<h3><span class="header-section-number">4.3.8</span> Replace</h3>
+<p>The <em>replace</em> verb replaces the values of the <em>valid</em> observations of the input cube (so <em>not</em> the missing values!) by the values of the corresponding observations in another cube.</p>
+<center>
+<p><img src="img/replace.png" style="width:100.0%" /></p>
+</center>
+</div>
+<div id="select" class="section level3">
+<h3><span class="header-section-number">4.3.9</span> Select</h3>
+<p>The <em>select</em> verb selects a subset of the coordinates of a certain dimension, and keeps only the observations in the input cube that align to those coordinate values. Currently, only subsetting the temporal dimension is possible. To do so, you can use one or more of the time value blocks (see <a href="blocks.html#time">4.5</a>), which represent either a <em>time instant</em>, <em>time collection</em> or <em>time period</em>. For example, a select operation could be to only keep those observations that were made within the time period between March 2020 and June 2020.</p>
+<center>
+<p><img src="img/select.png" style="width:67.0%" /></p>
+</center>
+<div class="rmdnote">
+<p>
+Selection is similar to masking, in the sense that they both take a subset of the data. During masking, the subset is defined by another cube containing boolean values. During selection, however, the subset is defined by addressing coordinate values directly.
+</p>
+</div>
+</div>
+</div>
+<div id="combiners" class="section level2">
+<h2><span class="header-section-number">4.4</span> Combiners</h2>
+<p>Verbs are applied to a single input cube, such as a stored entity or result definition, or some retrieved source data. However, it is also possible to first combine several cubes together into a single one, and apply verbs to that combined cube. The <em>combiner</em> blocks that facilitate this are described below.</p>
+<div id="concatenate" class="section level3">
+<h3><span class="header-section-number">4.4.1</span> Concatenate</h3>
+<p>The <em>concatenate</em> combiner combines multiple input cubes along an existing or a new dimension into a single, larger cube. When combining along an existing dimension, this dimension has to be present in all input cubes, and all input cubes need to have <em>different</em> coordinate values for that dimension. For example, input cube A has a time dimension with 01-01-2020 and 02-01-2020 as coordinate values. Input cube B has a time dimension with 03-01-2020 as coordinate values. Concatenating the two along the time dimension, results in a single cube with a time dimension of length 3, containing 01-01-20, 02-01-2020 <em>and</em> 03-01-2020 as coordinate values.</p>
+<center>
+<p><img src="img/concatenate_exs.png" style="width:100.0%" /></p>
+</center>
+<p>Conatenating along a new dimension will create an output cube with a new dimension, for which observations coming from input cube A will have a coordinate value A, observations coming from input cube B a coordinate value B, et cetera. What we here refer to as A and B, will in practice be the label (see <a href="blocks.html#label">4.3.5</a>) associated with the input cube.</p>
+<center>
+<p><img src="img/concatenate_new.png" style="width:100.0%" /></p>
+</center>
+<div class="rmdcaution">
+<p>
+Except the dimension to be concatenated over, all cubes provided to the concatenate combiner are expected to have <em>matching shapes</em>.
+</p>
+</div>
+</div>
+<div id="compose" class="section level3">
+<h3><span class="header-section-number">4.4.2</span> Compose</h3>
+<p>The <em>compose</em> combines multiple cubes with <em>boolean</em> data values, into a single cube with <em>categorical</em> data values. It requires the input cubes to be <em>distinct</em>. With that we mean, when an observation in input cube A is <code>True</code>, the corresponding observations (i.e. having the same coordinates) in the other input cubes can <em>not</em> be <code>True</code>. Then, the output cube will assign category value 1 to all True-observations of input cube A, category value 2 to all True-observations of input cube B, et cetera.</p>
+<center>
+<p><img src="img/compose.png" style="width:100.0%" /></p>
+</center>
+</div>
+<div id="merge" class="section level3">
+<h3><span class="header-section-number">4.4.3</span> Merge</h3>
+<p>The <em>merge</em> combiner works the same as the <em>evaluate</em> verb (see <a href="blocks.html#evaluate">4.3.1</a>), but allows for an expression with more than two variables. For example, <em>cube A + cube B + … + cube n</em>. It offers only the logical and algebraic operators. The output cube will always have the same dimensions as the <em>first</em> input cube.</p>
+</div>
+</div>
+<div id="time" class="section level2">
+<h2><span class="header-section-number">4.5</span> Time</h2>
+<p>Time value blocks refer to the temporal dimension of the query. They allow to subuset cubes by time, customly define seasons, et cetera. There are three different time value blocks.</p>
+<div id="instant" class="section level3">
+<h3><span class="header-section-number">4.5.1</span> Time instant</h3>
+<p>A <em>time instant</em> is a specific moment in time. It can be modelled with three components: the <em>year</em>, the <em>month</em> and the <em>day</em>. That is, a fully specified time instant can be 2020-07-23. However, not all components have to be specified. One can also leave out the year, and create the time instant XXXX-07-23, which will refer to <em>all</em> 23rd of July dates in the overall time interval of the query. Similarly, 2020-07-XX will refer to all days in July 2020, and XXXX-07-XX to all days in July, for all years in the time interval.</p>
+</div>
+<div id="period" class="section level3">
+<h3><span class="header-section-number">4.5.2</span> Time periods</h3>
+<p>A <em>time period</em> is a consecutive period of time, defined with a <em>from</em> time instant and a <em>to</em> time instant. The interval is closed at both sides, so both the from and to time instants are included in the time period. It is also possible to use not fully specified time instants. For example, the time period from XXXX-05-XX to XXXX-08-XX is the time period from May to August, no matter the year. Thus, when subsetting the time dimension of a cube with this time period, all timestamps that are in either May, June, July or August will be selected, for each year in the overall time interval.</p>
+<div class="rmdwarning">
+<p>
+In a time period, the <em>from</em> time instant should always preceed the <em>to</em> time instant. Currently, that means it is not possible to create time periods like [from XXXX-11-XX to XXXX-01-XX], meaning from November to January. If you want to model such a period of time, you can use a time collection instead
+</p>
+</div>
+</div>
+<div id="collection" class="section level3">
+<h3><span class="header-section-number">4.5.3</span> Time collection</h3>
+<p>A <em>time collection</em> is a list of time instants, that do <em>not</em> have to be consecutive. For example, the time collection [XXXX-05-XX, XXXX-08-XX] refers to all timestamps in May and August.</p>
+</div>
+</div>
+<div id="space" class="section level2">
+<h2><span class="header-section-number">4.6</span> Space</h2>
+<div class="rmdwarning">
+<p>
+Currently there is <em>no</em> support for spatial subsetting of cubes, or customly defining areas that divide the overall area of interest. Such functionalities might be added in the future.
+</p>
+</div>
+</div>
+<div id="comments" class="section level2">
+<h2><span class="header-section-number">4.7</span> Comments</h2>
+<p>The comment block allows you to add comments to parts of your model, such that both your future self and others can better understand what is happening. Comment blocks can be added anywhere in the model, and will be ignored during evaluation.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="model.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="examples.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/whisperingpixel/iq-manual/edit/master/building_blocks.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
