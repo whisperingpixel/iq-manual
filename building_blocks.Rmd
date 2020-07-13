@@ -49,21 +49,31 @@ Data blocks enable to access the source data of the semantic querying system. Th
 
 *<span style="color: red;"> Explain in one or two sentences </span>*
 
+This data block refers to information about how a measurement looks based on some sort of interpretation of what it represents. This can be calculated indices (e.g. multi-spectral greenness indices, multi-spectral brightness values) or categories (e.g. multi-spectral color spaces/categories) with some level of semantic association. In the case of the sen2cube.at project, SIAM semantic enrichment generates color types with low-level semantic association that are accessible using these blocks.
+
 ### Atmosphere
 
 *<span style="color: red;"> Explain in one or two sentences </span>*
+
+This data block accesses all interpretations of measurements or additional information associated with atmospheric phenomena or influences of an image (e.g. not the Earth's surface). This includes estimates of haze, cloud cover, fog, airborne particulates, etc. that inhibit Earth surface applications, or are of specific interest to atmospheric applications.
 
 ### Reflectance
 
 *<span style="color: red;"> Explain in one or two sentences </span>*
 
+The calibrated reflectance values (e.g. top-of-atmosphere, bottom-of-atmosphere) of satellite imagery can be directly accessed using this data block on an individual band basis for a given sensor (i.e. calibrated pixel values in each captured band for a given sensor/platform).
+
 ### Topography
 
 *<span style="color: red;"> Explain in one or two sentences </span>*
 
+Any data or information related to the Earth's topography can be accessed using this data block (e.g. digital elevation models with derived aspect and slope).
+
 ### Artifacts
 
 *<span style="color: red;"> Explain in one or two sentences </span>*
+
+This data block includes all measurements or interpretations of measurements that may be associated with imagery artifacts (e.g. perceived/detected measurement errors, differences in quality across an image, edges of acquisition swaths).
 
 ### Metadata
 
@@ -131,7 +141,7 @@ The same principle applies when the right hand side is only a single value. Then
 
 Sen2Cube has several built-in operators that can be used to build expressions.
 
-- **Comparison operators**: operators that compare values and return either `True` or `False`. These are `=`, `in`, `>`, `<`, `≥` and  `≤`. 
+- **Comparison operators**: operators that compare values and return either `True` or `False`. These are `=`, `in`, `>`, `<`, `≥` and  `≤`.
 - **Logical operators**: operators that combine boolean values (i.e. `True` and `False`). These are `and` and `or`.
 - **Algebraic operators**: operators that combine numerical values. These are `+`, `-`, `*` and `\`.
 
@@ -210,7 +220,7 @@ The *label* verb does not influence the data values in any way. It simply stores
 
 ### Mask {#mask}
 
-The *mask* verb applies a boolean value mask to the input cube. A boolean value mask is a cube with boolean data values (i.e. `True` and `False`). When an observation in the input cube corresponds to a `True` value in the mask, the observation is kept. However, when an observation in the input cube corresponds to a `False` value in the mask, the observation is removed. 
+The *mask* verb applies a boolean value mask to the input cube. A boolean value mask is a cube with boolean data values (i.e. `True` and `False`). When an observation in the input cube corresponds to a `True` value in the mask, the observation is kept. However, when an observation in the input cube corresponds to a `False` value in the mask, the observation is removed.
 
 <center>
 
@@ -288,7 +298,7 @@ Verbs are applied to a single input cube, such as a stored entity or result defi
 
 ### Concatenate {#concatenate}
 
-The *concatenate* combiner combines multiple input cubes along an existing or a new dimension into a single, larger cube. When combining along an existing dimension, this dimension has to be present in all input cubes, and all input cubes need to have *different* coordinate values for that dimension.  For example, input cube A has a time dimension with 01-01-2020 and 02-01-2020 as coordinate values. Input cube B has a time dimension with 03-01-2020 as coordinate values. Concatenating the two along the time dimension, results in a single cube with a time dimension of length 3, containing 01-01-20, 02-01-2020 *and* 03-01-2020 as coordinate values. 
+The *concatenate* combiner combines multiple input cubes along an existing or a new dimension into a single, larger cube. When combining along an existing dimension, this dimension has to be present in all input cubes, and all input cubes need to have *different* coordinate values for that dimension.  For example, input cube A has a time dimension with 01-01-2020 and 02-01-2020 as coordinate values. Input cube B has a time dimension with 03-01-2020 as coordinate values. Concatenating the two along the time dimension, results in a single cube with a time dimension of length 3, containing 01-01-20, 02-01-2020 *and* 03-01-2020 as coordinate values.
 
 <center>
 
@@ -296,7 +306,7 @@ The *concatenate* combiner combines multiple input cubes along an existing or a 
 
 </center>
 
-Conatenating along a new dimension will create an output cube with a new dimension, for which observations coming from input cube A will have a coordinate value A, observations coming from input cube B a coordinate value B, et cetera. What we here refer to as A and B, will in practice be the label (see \@ref(label)) associated with the input cube. 
+Conatenating along a new dimension will create an output cube with a new dimension, for which observations coming from input cube A will have a coordinate value A, observations coming from input cube B a coordinate value B, et cetera. What we here refer to as A and B, will in practice be the label (see \@ref(label)) associated with the input cube.
 
 <center>
 
