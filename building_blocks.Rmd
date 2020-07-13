@@ -1,18 +1,18 @@
 # Building blocks {#blocks}
 
-Models are constructed by connecting several *building blocks*, that each represent a distinct, clearly defined task or value. There are different classes of blocks, which are described in detail below.
+Models are constructed by connecting several *building blocks*, where each block represents a distinct, clearly defined task or value. There are different classes of blocks, which are described in detail below.
 
 ## Definitions
 
 Definition blocks store the output of a collection of other blocks, such that it can be accessed anywhere else in the model. Several types of definitions exist.
 
 ```{block, type='rmdcaution'}
-All definitions have to be named. Bear in mind that these names should be unique!
+All definitions must be named. Bear in mind that these names should be unique!
 ```
 
 ### Entities and properties {#entity}
 
-An entity is an identifiable phenomenon of interest in the real world that is not further subdivided into phenomena of the same kind. For example, *a lake* or *a field*. In the current implementation of Sen2Cube, however, we refer to entities also at a lower, more general level, for example *water* or *vegetation*. Entity definitions describe for each observation in the spatio-temporal extent of the query if it is identified as being part of the entity or not. For example, when we define the entity *water*, the entity definition will store a set of boolean observations, having a value of `True` when it was identified as being water, and `False` otherwise. These observations are aligned along two spatial dimensions, i.e. the X and Y coordinates of the observations geographical locations, and one temporal dimension, i.e. the timestamps at which the observations were made. Therefore, we call this data structure a *cube*. See the illustration below, where blue blocks represent observations that were identified as water, and grey blocks represent observations that were not identified as water.
+An entity is an identifiable phenomenon of interest in the real world that is not further subdivided into phenomena of the same kind. For example, *a lake* or *a field*. In the current implementation of sen2cube, however, we refer to entities also at a lower, more general level, for example *water* or *vegetation*. Entity definitions describe for each observation if it is identified as being part of the entity or not in the spatio-temporal extent of the query. For example, when we define the entity *water*, the entity definition will store a set of boolean observations having a value of `True` when it was identified as being water, and `False` otherwise. These observations are aligned along two spatial dimensions, i.e. the X and Y coordinates of the observations geographical locations, and one temporal dimension, i.e. the timestamps at which the observations were made. Therefore, we call this data structure a *cube*. See the illustration below, where blue blocks represent observations that were identified as water, and grey blocks represent observations that were not identified as water.
 
 <center>
 
@@ -20,24 +20,24 @@ An entity is an identifiable phenomenon of interest in the real world that is no
 
 </center>
 
-Entities are always defined by means of one or more **properties** they have. For example, a property of water is its blueish color, but for larger water bodies also its approximate flatness (i.e. a slope of approximately 0%). An entity definition block thus *has* to be followed by one or more property definition blocks.
+Entities are always defined by means of one or more **properties**. For example, a property of water may be its blueish color, but for larger water bodies also its approximate flatness (i.e. a slope of approximately 0%). An entity definition block thus *must* be followed by one or more property definition blocks.
 
 Entity definition blocks - and their corresponding property definition blocks - are exclusively used inside the **semantic concept dictionary** component of the model. In the application component, stored entity definitions can be retrieved, wrangled and exported.
 
 ### Results {#result}
 
-A result is the output of a single semantic query. Depending on the processes that are used in the query, results can be single values, one-dimensional cubes or multi-dimensional cubes. Result definition blocks are exclusively used inside the **application** component of the model. Stored result definitions can be retrieved at any place within other result definitions inside the same model. Not every result definition *has* to be exported. That is, a result definition can also be used as a preliminary outcome, that serves only as a first step towards the final output of the query.
+A result is the output of a single query. Depending on the processes that are used in the query, results can be single values, one-dimensional arrays or multi-dimensional cubes. Result definition blocks are exclusively used inside the **application** component of the model. Stored result definitions can be retrieved at any place within other result definitions inside the same model. *Not* every result definition needs to be exported. That is, a result definition can also be used as a preliminary outcome that serves only as a first step towards the final output of the query.
 
 ### Seasons and partitions {#partition}
 
-When performing analyses over time, splitting the temporal dimension is a common task. For example, instead of the *overall water count*, we are interested to know the *average water count per season*, or the *ratio of summer water counts and winter water counts*. Seasons like *summer* and *winter* are specified, distinct subsets of the temporal dimension. In Sen2Cube, there is the option to customly define **seasons**. For example:
+When performing analyses over time, splitting the temporal dimension is a common task. For example, instead of the *overall water count*, we are interested to know the *average water count per season*, or the *ratio of summer water counts and winter water counts*. Seasons like *summer* and *winter* are specified, distinct subsets of the temporal dimension. In sen2cube, there is the option to customly define **seasons**. For example:
 
 - The harvesting season as the time period from August to October.
 - The sowing season as the time period from March to May.
 - The rain season as the time period from December to May.
 - The dry season as the time period from August to November.
 
-Distinct, but related seasons can then be combined into a **partition** of the temporal dimension. Just like summer, autumn, winter and spring together form the *meteorological seasons*, the defined harvesting and sowing seasons can together form the *agricultural seasons*, and the rain and dry season the *tropical seasons*. As can be seen, the customly defined partition does not have to fill up a full year. You are free to define any desired partition, as long as the included seasons span distinct time ranges.
+Distinct, but related seasons can then be combined into a **partition** of the temporal dimension. Just like summer, autumn, winter and spring together form the *meteorological seasons*, the defined harvesting and sowing seasons can together form the *agricultural seasons*, and the rain and dry season the *tropical seasons*. As can be seen, the custom defined partition does not have to fill up a full year. You are free to define any desired partition, as long as the included seasons span distinct time ranges.
 
 Season and partition definition blocks are considered semantic concepts, and are therefore exlusively used inside the **semantic concept dictionary** component of the model. Unlike entities and results, the seasons and partition definitions are *not* evaluated at the moment they are defined. The temporal dimension of a cube is only split at the moment a specific season or partition is referenced inside the application component of the model.
 
@@ -123,7 +123,7 @@ This is illustrated in the figure below. The blue cube on the left forms the lef
 
 </center>
 
-However, the cube on right hand side of the expression does not have to have the same dimensions as the one on the left hand side. For example, when our cube on the right hand side *only* has spatial dimensions, the right hand side values are *duplicated* for each timestamp in the left hand side cube. This also works the other way around. In jargon, this is called [array broadcasting](https://machinelearningmastery.com/broadcasting-with-numpy-arrays/).
+However, the cube on right hand side of the expression can have different dimensions than the one on the left hand side. For example, when our cube on the right hand side *only* has spatial dimensions, the right hand side values are *duplicated* for each timestamp in the left hand side cube. This also works the other way around. In jargon, this is called [array broadcasting](https://machinelearningmastery.com/broadcasting-with-numpy-arrays/).
 
 <center>
 
@@ -139,7 +139,7 @@ The same principle applies when the right hand side is only a single value. Then
 
 </center>
 
-Sen2Cube has several built-in operators that can be used to build expressions.
+sen2cube has several built-in operators that can be used to build expressions.
 
 - **Comparison operators**: operators that compare values and return either `True` or `False`. These are `=`, `in`, `>`, `<`, `≥` and  `≤`.
 - **Logical operators**: operators that combine boolean values (i.e. `True` and `False`). These are `and` and `or`.
@@ -185,7 +185,7 @@ The *groupby* verb splits the input cube into distinct groups, based on a given 
 
 </center>
 
-The Sen2Cube interface offers several pre-defined grouping variables:
+The sen2cube interface offers several pre-defined grouping variables:
 
 - **Temporal grouping variables**: grouping variables that will split the temporal dimension, such that each group contains *exclusively* observations taken within a specific time period. The variables to choose from are `year`, `season`, `month`, `week`, `dayofyear` and `dayofweek`.
 - **Spatial grouping variables**: grouping variables that will split the spatial dimensions, such that each group contains *exclusively* observations taken within a specific sub-area inside the defined area of interest. Currently, only a single variable is supported, named `spatialfeature`. This requires the area of interest to consist of multiple, distinct spatial features (point, lines or polygons) that do not intersect with each other. Each of these distinct features will then form a group.
@@ -201,7 +201,7 @@ Thirdly, you can also provide a defined custom partition (see \@ref(partition)) 
 </center>
 
 ```{block, type='rmdcaution'}
-Currently, the Sen2Cube interface does not support cubes that have *more than one* temporal dimension, or *more than two* spatial dimensions. When grouping with a temporal grouping variable, each group represents a specific time period like a year, season or month. When combined back together into a single cube during ungrouping, a *new* time dimension is created in which each time coordinate refers to one of those groups. Since multiple time dimensions are not allowed, the *original* time dimension *has* to be reduced before ungrouping. The same yields for spatial grouping operations. The *original* spatial dimensions have to be reduced before ungrouping.
+Currently, the sen2cube interface does not support cubes that have *more than one* temporal dimension, or *more than two* spatial dimensions. When grouping with a temporal grouping variable, each group represents a specific time period like a year, season or month. When combined back together into a single cube during ungrouping, a *new* time dimension is created in which each time coordinate refers to one of those groups. Since multiple time dimensions are not allowed, the *original* time dimension *must* be reduced before ungrouping. The same yields for spatial grouping operations. The *original* spatial dimensions *must* be reduced before ungrouping.
 ```
 
 ### Invert {#invert}
@@ -228,7 +228,7 @@ The *mask* verb applies a boolean value mask to the input cube. A boolean value 
 
 </center>
 
-Similar to the *evaluate* verb, the boolean mask in a masking operation does not have to have the same dimensions as the input cube. For example, when the mask only has spatial dimensions, its values will be *duplicated* for each timestamp in the input cube. When the mask only has a temporal dimension, its values will be *duplicated* for each spatial location in the input cube.
+Similar to the *evaluate* verb, the boolean mask in a masking operation can have different dimensions than the input cube. For example, when the mask only has spatial dimensions, its values will be *duplicated* for each timestamp in the input cube. When the mask only has a temporal dimension, its values will be *duplicated* for each spatial location in the input cube.
 
 <center>
 
@@ -252,7 +252,7 @@ The *reduce* verb applies a reduction function over a certain dimension or set o
 
 </center>
 
-Similarly, we can also reduce the spatial dimensions instead, ending up with a single value per timestamp. The Sen2Cube interface only supports reduction of the two spatial dimensions at once, and not of either the X or Y dimension separately.
+Similarly, we can also reduce the spatial dimensions instead, ending up with a single value per timestamp. The sen2cube interface only supports reduction of the two spatial dimensions at once, and *not* of either the X or Y dimension separately.
 
 <center>
 
@@ -260,7 +260,7 @@ Similarly, we can also reduce the spatial dimensions instead, ending up with a s
 
 </center>
 
-Sen2Cube has several built-in reduction functions that can be used.
+sen2cube has several built-in reduction functions that can be used.
 
 ```{block, type='rmdcaution'}
 Be aware what type of data and what dimensions both the input cube contains. Some reduction functions are only useful when applied to boolean values (i.e. *True* and *False*). Others, for example calculation of the mean or the sum, make sense for numerical data, but not for categorical or boolean data. Et cetera. Also, some reduction functions are only meant to be applied to the time dimension, while others are only meant to be applied to the spatial dimensions.
@@ -298,7 +298,7 @@ Verbs are applied to a single input cube, such as a stored entity or result defi
 
 ### Concatenate {#concatenate}
 
-The *concatenate* combiner combines multiple input cubes along an existing or a new dimension into a single, larger cube. When combining along an existing dimension, this dimension has to be present in all input cubes, and all input cubes need to have *different* coordinate values for that dimension.  For example, input cube A has a time dimension with 01-01-2020 and 02-01-2020 as coordinate values. Input cube B has a time dimension with 03-01-2020 as coordinate values. Concatenating the two along the time dimension, results in a single cube with a time dimension of length 3, containing 01-01-20, 02-01-2020 *and* 03-01-2020 as coordinate values.
+The *concatenate* combiner combines multiple input cubes along an existing or a new dimension into a single, larger cube. When combining along an existing dimension, this dimension must be present in all input cubes, and all input cubes need to have *different* coordinate values for that dimension.  For example, input cube A has a time dimension with 01-01-2020 and 02-01-2020 as coordinate values. Input cube B has a time dimension with 03-01-2020 as coordinate values. Concatenating the two along the time dimension, results in a single cube with a time dimension of length 3, containing 01-01-20, 02-01-2020 *and* 03-01-2020 as coordinate values.
 
 <center>
 
@@ -306,7 +306,7 @@ The *concatenate* combiner combines multiple input cubes along an existing or a 
 
 </center>
 
-Conatenating along a new dimension will create an output cube with a new dimension, for which observations coming from input cube A will have a coordinate value A, observations coming from input cube B a coordinate value B, et cetera. What we here refer to as A and B, will in practice be the label (see \@ref(label)) associated with the input cube.
+Concatenating along a new dimension will create an output cube with a new dimension, for which observations coming from input *cube A* will have a coordinate value *A*, observations coming from input *cube B* a coordinate value *B*, etc. What we refer to as *A* and *B* will, in practice, be the label (see \@ref(label)) associated with the input cube.
 
 <center>
 
@@ -338,7 +338,7 @@ Time value blocks refer to the temporal dimension of the query. They allow to su
 
 ### Time instant {#instant}
 
-A *time instant* is a specific moment in time. It can be modelled with three components: the *year*, the *month* and the *day*. That is, a fully specified time instant can be 2020-07-23. However, not all components have to be specified. One can also leave out the year, and create the time instant XXXX-07-23, which will refer to *all* 23rd of July dates in the overall time interval of the query. Similarly, 2020-07-XX will refer to all days in July 2020, and XXXX-07-XX to all days in July, for all years in the time interval.
+A *time instant* is a specific moment in time. It can be modelled with three components: the *year*, the *month* and the *day*. That is, a fully specified time instant can be 2020-07-23. However, not all components need to be specified. One can also leave out the year, and create the time instant XXXX-07-23, which will refer to *all* 23rd of July dates in the overall time interval of the query. Similarly, 2020-07-XX will refer to all days in July 2020, and XXXX-07-XX to all days in July, for all years in the time interval.
 
 ### Time periods {#period}
 
@@ -350,7 +350,7 @@ In a time period, the *from* time instant should always preceed the *to* time in
 
 ### Time collection {#collection}
 
-A *time collection* is a list of time instants, that do *not* have to be consecutive. For example, the time collection [XXXX-05-XX, XXXX-08-XX] refers to all timestamps in May and August.
+A *time collection* is a list of time instants that do *not* have to be consecutive. For example, the time collection [XXXX-05-XX, XXXX-08-XX] refers to all timestamps in May and August.
 
 ## Space
 
