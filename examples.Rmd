@@ -1,5 +1,5 @@
 # Examples {#examples}
 
-A wide-variety of example models that demonstrate the functionality of the Sen2Cube.at's semantic querying interface are included in the model pane of the [Sen2Cube.at Demo](https://demo.sen2cube.at/app).
+A wide-variety of example models that demonstrate the functionality of the Sen2Cube.at's graphical semantic querying interface are included in the model pane of the [Sen2Cube.at Demo](https://demo.sen2cube.at/app).
 
 *<span style="color: red;"> We can not link directly to individual model definitions? </span>*

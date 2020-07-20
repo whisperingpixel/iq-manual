@@ -26,13 +26,13 @@ The observations will be associated to an entity type, not an individual entity.
 ```
 
 #### Properties {#property_definition}
-Entities are always defined by means of one or more **properties**. For example, a property of water may be its blueish color, but for larger water bodies also its approximate flatness (i.e. a slope of approximately 0%). An entity definition block thus *must* be followed by one or more property definition blocks.
+Entities are always defined by means of one or more **properties**. For example, a property of water may be its blueish color, but for larger water bodies also its approximate flatness (i.e. a slope of approximately 0%). An entity definition block thus *must* be followed by one or more property definition blocks. Properties must not be mutually exclusive and should not overlap, i.e., multiple properties will be always connected with *AND*. Consider a real-world entity lake where three properties *color*, *texture*, and *compactness*: They might be fuzzy or optional, but they are not either-or. I.e., a lake may appear blue as property color *AND* appear flat as property texture, but is not blue *OR* flat. There might be situations where one thinks of either-or options in some cases but this is an indicator that the property is not defined appropriately and should be solved differently.
 
-Entity definition blocks - and their corresponding property definition blocks - are exclusively used inside the **semantic concept dictionary** component of the model. In the application component, stored entity definitions can be retrieved, wrangled and exported.
+Entity definition blocks - and their corresponding property definition blocks - are exclusively used inside the **semantic concept dictionary** component of the model. In the application component, stored entity definitions can be retrieved, wrangled, and exported.
 
 ### Results {#result_definition}
 
-A result is the output of a single query. Depending on the processes that are used in the query, results can be single values, one-dimensional arrays or multi-dimensional cubes. Result definition blocks are exclusively used inside the **application** component of the model. Stored result definitions can be retrieved at any place within other result definitions inside the same model. *Not* every result definition needs to be exported. That is, a result definition can also be used as a preliminary outcome that serves only as a first step towards the final output of the query.
+A result is the output of an inference, while one inference may have more than one results of different types. Depending on the processes that are used in the semantic query, results can be single values, one-dimensional arrays or multi-dimensional cubes. Result definition blocks are exclusively used inside the **application** component of the model. Stored result definitions can be retrieved at any place within other result definitions inside the same model. *Not* every result definition needs to be exported. That is, a result definition can also be used as a preliminary output that serves as intermediate step towards the final output of the semantic query.
 
 ### Seasons and partitions
 
