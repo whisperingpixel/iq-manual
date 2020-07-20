@@ -20,7 +20,7 @@ Sen2Cube.at is the first operational semantic Earth Observation data cube, allow
 
 The Sen2Cube.at semantic image querying system is accessible through a [web-interface](https://demo.sen2cube.at/app), in which queries can be formulated by intuitively combining several building blocks, that each represent a distinct, clearly defined task or value inside the querying process. This manual contains the reference documentation of that interface.
 
-Sen2cube.at is provided by [Z_GIS](https://www.zgis.at/), the Department of Geoinformatics at the University of Salzburg, in collaboration with project partners.
+Sen2Cube.at is provided by [Z_GIS](https://www.zgis.at/), the Department of Geoinformatics at the University of Salzburg, in collaboration with project partners.
 
 &nbsp;
 
