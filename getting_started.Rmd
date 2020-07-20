@@ -1,18 +1,20 @@
 # Getting started {#start}
 
-The web-frontend of our semantic querying interface can be found online at [demo.sen2cube.at](https://demo.sen2cube.at/app). The interface is fully web-based. There is no need to install additional software.
+Sen2Cube.at is a Web-application that can be accessed with a standard browser. Installing additional software on your local computer is not necessary. The Web-frontend of our semantic querying interface is available online at [demo.sen2cube.at](https://demo.sen2cube.at/app). 
 
 ## Components
 
-A semantic query has three main components:
+Inferring information from data using an expert system (information processing system) is typically achieved by combining a **knowledgebase** and a **factbase** that allows the **inference engine** to process large volumes of data automatically. The knowledgebase contains general or specific knowledge of the world, expressed in rulesets and is augmented by users incrementally through using the system. The factbase contains the raw image data as well as the semantically enriched data.
 
-- **Model**: This forms the core of the query, in which the semantic concepts are defined, and the desired results are formulated.
-- **Area of Interest**: This defines the spatial extent of the query.
-- **Time Interval**: This defines the temporal extent of the query.
+A semantic query in the Sen2Cube.at system has three main components:
+
+- **Model**: This is the part of the knowledgebase that is used to infer new information. It is a set of rules in which the semantic concepts are defined, and the desired results are formulated.
+- **Area of Interest**: This defines the spatial extent (subset) of the factbase that will be input to the inference engine.
+- **Time Interval**: This defines the temporal extent (subset) of the factbase that will be input to the inference engine.
 
 ## Workflow
 
-Each component can be set in the pane on the left side of the webpage.
+In the Sen2Cube.at Web-application, each component corresponds to one pane on the left side of the main page.
 
 <center>
 ![](img/main.png){width=100%}
@@ -20,7 +22,7 @@ Each component can be set in the pane on the left side of the webpage.
 
 ### Selecting the model
 
-Clicking `Browse all models` shows a list of pre-constructed models that can be used directly. At the end of that list, you can click the `+` icon to construct a new model. For that, read the documentation on model construction (\@ref(model)).
+Clicking `Browse all models` shows the models, which are already within the knowledgebase and can be used directly. At the end of that list, you can click the `+` icon to construct a new model. For that, read the documentation on model construction (\@ref(model)).
 
 ### Selecting the area of interest
 
@@ -40,23 +42,35 @@ Valid areas of interest can also be non-rectangular shaped or non-continuous.
 ![](img/poly.png){width=32%} &nbsp; ![](img/poly2.png){width=32%} &nbsp; ![](img/poly3.png){width=32%}
 </center>
 
-The drawn shapes are internally translated into [GeoJSON format](https://geojson.org/). Instead of drawing the shapes by hand, it is also possible to use an external GeoJSON file, either by uploading it, or linking to it.
+The drawn shapes are internally translated into [GeoJSON format](https://geojson.org/). Alternative to manually drawing the areas of interest on the map, it is also possible to use already defined representations of common areas of interest, such as agricultural fields, municipalities etc. A valid GeoJSON file can be directly uploaded or linked through standard WFS service that allows specifyig GeoJSON as output format such as this one:
+
+```
+https://demo.sen2cube.at/ows/000/?service=WFS&version=1.1.0&request=GetFeature&outputFormat=application/json&srsname=EPSG:4326&typename=inspire_feldstuecke_2019&Filter=<Filter><PropertyIsEqualTo><PropertyName>FS_KENNUNG</PropertyName><Literal>73898247</Literal></PropertyIsEqualTo></Filter>
+```
 
 ### Selecting the time interval
 
-The time interval is defined by a start date and an end date. The interval is *closed* at both sides, meaning that both the specified start date and end date are included. Currently, the Austrian semantic data cube contains data from *<span style="color: red;"> insert date </span>* to *<span style="color: red;"> insert date </span>*.
+The time interval is defined by a start date and an end date. The interval is *closed* at both sides, meaning that both the specified start date and end date are included. Currently, the Austrian semantic data and information cube contains data since the beginning of the operational phase of Sentinel-2 in Summer 2015 and is constantly updated with the most recent data.
 
-### Executing the query
+### Executing the query and inferring new information
 
-Once the model, the area of interest and the time interval are set, the query can be executed by clicking `Start inference`. Depending on the size and complexity of the query, execution might take some time.
+Once the model, the area of interest and the time interval are set, the semantic query can be executed by clicking `Start inference`. Depending on the size and complexity of the query, execution might take some time.
 
-### Viewing the results
+Every semantic query, i.e., inference, will be created internally and executed by a worker as soon as resources are available. If the system is already busy, it may therefore take some time until the inference can be started. Please note that the inferences will **stop automatically after 10 minutes**. Please contact us if you want to process larger volumes of data.
 
-When successfully processed, results can be viewed by clicking the `View results` button that will appear. Results with a spatial dimension will be visualized on a map, and results with only a temporal dimension will be visualized as a line graph if the data values are numerical. Most other types of data will be visualized as a plain list. Besides the visualization, there is also the option to download the results as either a [GeoTIFF](https://en.wikipedia.org/wiki/GeoTIFF#:~:text=GeoTIFF%20is%20a%20public%20domain,spatial%20reference%20for%20the%20file.) (for spatial data) or [CSV](https://en.wikipedia.org/wiki/Comma-separated_values) (for non-spatial data) file. You can also choose to download a result as a [QGIS Project File](https://docs.qgis.org/3.10/en/docs/user_manual/introduction/project_files.html).
+It is possible to stop an inference any time by clicking `Abort inference`. It may take some seconds until you receive the final notification that the inference was aborted.
+
+### Viewing and downloading the results
+
+When successfully processed, results can be viewed by clicking the `View results` button that will appear. Results with a spatial dimension will be visualized on a map, and results with only a temporal dimension will be visualized as a line graph if the data values are numerical. Results of semantic content-based image retrieval will be visualized in calendar. Most other types of data will be visualized as a plain list. Besides the visualization, there is also the option to download the results as either a [GeoTIFF](https://en.wikipedia.org/wiki/GeoTIFF#:~:text=GeoTIFF%20is%20a%20public%20domain,spatial%20reference%20for%20the%20file.) (for spatial data) or [CSV](https://en.wikipedia.org/wiki/Comma-separated_values) (for non-spatial data) file. You can also choose to download a result as a [QGIS Project File](https://docs.qgis.org/3.10/en/docs/user_manual/introduction/project_files.html) or directly input the results as OGC WMS.
 
 <center>
 ![](img/result.png){width=100%}
 </center>
+
+```{block, type='rmdwarning'}
+We recommend that you download important results as they will be deleted. However, we will keep the inference settings, which allows you to re-process them at any time.
+```
 
 In the case the query could *not* be processed successfully, an error message describing the problem will appear instead.
 

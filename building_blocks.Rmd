@@ -10,9 +10,10 @@ Definition blocks store the output of a collection of other blocks, such that it
 All definitions must be named. Bear in mind that these names should be unique!
 ```
 
-### Entities and properties {#entity}
+### Entities and properties
 
-An entity is an identifiable phenomenon of interest in the real world that is not further subdivided into phenomena of the same kind. For example, *a lake* or *a field*. In the current implementation of sen2cube, however, we refer to entities also at a lower, more general level, for example *water* or *vegetation*. Entity definitions describe for each observation if it is identified as being part of the entity or not in the spatio-temporal extent of the query. For example, when we define the entity *water*, the entity definition will store a set of boolean observations having a value of `True` when it was identified as being water, and `False` otherwise. These observations are aligned along two spatial dimensions, i.e. the X and Y coordinates of the observations geographical locations, and one temporal dimension, i.e. the timestamps at which the observations were made. Therefore, we call this data structure a *cube*. See the illustration below, where blue blocks represent observations that were identified as water, and grey blocks represent observations that were not identified as water.
+#### Entities {#entity_definition}
+An entity is an identifiable phenomenon of interest in the real world that is not further subdivided into phenomena of the same kind. For example, *a lake* or *a field*. The Sen2Cube.at system allows to refer to entities at different semantic levels, including *water* or *vegetation*. The capability of eventually selecting entities on a higher or lower semantic level depends on the capabilities of the Earth observation sensor, noise during the observation, and the model construction. Entity definitions describe for each observation if it is identified as being part of this type of entity or not in the spatio-temporal extent of the semantic query. For example, when we define the entity *water*, the entity definition will store a set of boolean observations having a value of `True` when it was identified as being water, and `False` otherwise. These observations are aligned along two spatial dimensions, i.e. the X and Y coordinates of the observations geographical locations, and one temporal dimension, i.e. the timestamps at which the observations were made. Therefore, we call this data structure a *cube*. See the illustration below, where blue blocks represent observations that were identified as water, and grey blocks represent observations that were not identified as water.
 
 <center>
 
@@ -20,66 +21,68 @@ An entity is an identifiable phenomenon of interest in the real world that is no
 
 </center>
 
+```{block, type='rmdnote'}
+The observations will be associated to an entity type, not an individual entity. This means that observations might be associated with an entity type *water*, but not to groups of observations that may constitute different water bodies.
+```
+
+#### Properties {#property_definition}
 Entities are always defined by means of one or more **properties**. For example, a property of water may be its blueish color, but for larger water bodies also its approximate flatness (i.e. a slope of approximately 0%). An entity definition block thus *must* be followed by one or more property definition blocks.
 
 Entity definition blocks - and their corresponding property definition blocks - are exclusively used inside the **semantic concept dictionary** component of the model. In the application component, stored entity definitions can be retrieved, wrangled and exported.
 
-### Results {#result}
+### Results {#result_definition}
 
 A result is the output of a single query. Depending on the processes that are used in the query, results can be single values, one-dimensional arrays or multi-dimensional cubes. Result definition blocks are exclusively used inside the **application** component of the model. Stored result definitions can be retrieved at any place within other result definitions inside the same model. *Not* every result definition needs to be exported. That is, a result definition can also be used as a preliminary outcome that serves only as a first step towards the final output of the query.
 
-### Seasons and partitions {#partition}
+### Seasons and partitions
 
-When performing analyses over time, splitting the temporal dimension is a common task. For example, instead of the *overall water count*, we are interested to know the *average water count per season*, or the *ratio of summer water counts and winter water counts*. Seasons like *summer* and *winter* are specified, distinct subsets of the temporal dimension. In sen2cube, there is the option to customly define **seasons**. For example:
+#### Seasons {#season_definition}
+
+When performing analyses over time, splitting the temporal dimension is a common task. For example, instead of the *overall water count*, we are interested to know the *average water count per season*, or the *ratio of summer water counts and winter water counts*. Seasons that typically appear on temperate latitudes like *summer* and *winter* are specified. In Sen2Cube.at, there is the option for different definitions of **seasons**. For example:
 
 - The harvesting season as the time period from August to October.
 - The sowing season as the time period from March to May.
 - The rain season as the time period from December to May.
 - The dry season as the time period from August to November.
 
+#### Partitions {#partition_definition}
 Distinct, but related seasons can then be combined into a **partition** of the temporal dimension. Just like summer, autumn, winter and spring together form the *meteorological seasons*, the defined harvesting and sowing seasons can together form the *agricultural seasons*, and the rain and dry season the *tropical seasons*. As can be seen, the custom defined partition does not have to fill up a full year. You are free to define any desired partition, as long as the included seasons span distinct time ranges.
 
-Season and partition definition blocks are considered semantic concepts, and are therefore exlusively used inside the **semantic concept dictionary** component of the model. Unlike entities and results, the seasons and partition definitions are *not* evaluated at the moment they are defined. The temporal dimension of a cube is only split at the moment a specific season or partition is referenced inside the application component of the model.
+Season and partition definition blocks are considered semantic concepts, and are therefore exclusively used inside the **semantic concept dictionary** component of the model. Unlike entities and results, the seasons and partition definitions are *not* evaluated at the moment they are defined. The temporal dimension of a cube is only split at the moment a specific season or partition is referenced inside the application component of the model.
 
-## Data
+## Data and information
 
-Data blocks enable to access the source data of the semantic querying system. This is important when defining entities, but also, for example, when returning cloud-free mosaics. Several data sources can be accessed.
+These blocks specify the access of the data and information in the factbase, e.g. reflectance values of satellite imagery or semantically enriched information. This is important for defining entities, but also, for example, for creating cloud-free mosaics. We separate the available data into the types **appearance**, **atmosphere**, **reflectance**, additional data sources such as **topography**, and **artifacts**. Further, some **metadata** from the Earth observation data can be accessed.
 
 ### Appearance
 
-*<span style="color: red;"> Explain in one or two sentences </span>*
-
-This data block refers to information about how a measurement looks based on some sort of interpretation of what it represents. This can be calculated indices (e.g. multi-spectral greenness indices, multi-spectral brightness values) or categories (e.g. multi-spectral color spaces/categories) with some level of semantic association. In the case of the sen2cube.at project, SIAM semantic enrichment generates color types with low-level semantic association that are accessible using these blocks.
+The *appearance* block refers to information about how an Earth observation measurement of the Earth's surface looks based on an interpretation of what it represents. This can be calculated indices (e.g. multi-spectral greenness indices, multi-spectral brightness values) or categories (e.g. multi-spectral color spaces/categories) with some level of semantic association. In the case of the Sen2Cube.at project, SIAM semantic enrichment generates color types with low-level semantic association that are accessible using these blocks. This block is mainly used in the Sen2Cube.at system and relates to all land cover and land use questions.
 
 ### Atmosphere
 
-*<span style="color: red;"> Explain in one or two sentences </span>*
-
-This data block accesses all interpretations of measurements or additional information associated with atmospheric phenomena or influences of an image (e.g. not the Earth's surface). This includes estimates of haze, cloud cover, fog, airborne particulates, etc. that inhibit Earth surface applications, or are of specific interest to atmospheric applications.
+The *atmosphere* block refers to all interpretations of measurements or additional information associated with atmospheric phenomena or influences of an image (i.e., not the Earth's surface). This includes estimates of haze, cloud cover, fog, airborne particulates, etc. that inhibit Earth surface applications, or are of specific interest to atmospheric applications. For example, clouds may be treated as noise in most applications related to land cover, however, might be specifically selected to query for cloud-free images.
 
 ### Reflectance
 
-*<span style="color: red;"> Explain in one or two sentences </span>*
-
-The calibrated reflectance values (e.g. top-of-atmosphere, bottom-of-atmosphere) of satellite imagery can be directly accessed using this data block on an individual band basis for a given sensor (i.e. calibrated pixel values in each captured band for a given sensor/platform).
+The *reflectance* block refers to calibrated reflectance values (e.g. top-of-atmosphere, bottom-of-atmosphere) of the Earth observations. The reflectance values can be directly accessed using this data block on an individual band basis for a given sensor (i.e. calibrated pixel values in each captured band for a given sensor/platform). An example application of this value is to create a cloud-free composite or retrieving the most recent image with less than 10% clouds.
 
 ### Topography
 
-*<span style="color: red;"> Explain in one or two sentences </span>*
+The *topography* block refers to any data or information related to the Earth's topography (e.g. digital elevation models with derived aspect and slope). Example applications might be to to separate observations that appear as water or shadow in mountainous areas or to stratify vegetation phenology.
 
-Any data or information related to the Earth's topography can be accessed using this data block (e.g. digital elevation models with derived aspect and slope).
+```{block, type='rmdwarning'}
+Accessing these data is not yet supported and will be available soon.
+```
 
 ### Artifacts
 
-*<span style="color: red;"> Explain in one or two sentences </span>*
-
-This data block includes all measurements or interpretations of measurements that may be associated with imagery artifacts (e.g. perceived/detected measurement errors, differences in quality across an image, edges of acquisition swaths).
+The *artifacts* block includes all measurements or interpretations of measurements that may be associated with some errors or noise of invalid measurements (i.e., clouds don't fall in this category). An example application of this block is to create quality layers with perceived or detected measurement errors or to investigate effects of differences in quality across an image or edges of acquisition swaths.
 
 ### Metadata
 
-Metadata refers to the metadata of the satellite images from which the data were taken. For example, you can replace all observed values in a cube by the timestamps at which those observations were made.
+The *metadata* block includes descriptive and technical metadata of the original satellite images. An example application is to identify the timestamps from individual pixels that contributed to the cloud-free composite if a best-available-pixel approach is is used.
 
-```{block, type='rmdwarning'}
+```{block, type='rmdcaution'}
 Currently, timestamps are the only supported metadata return value.
 ```
 
@@ -139,7 +142,7 @@ The same principle applies when the right hand side is only a single value. Then
 
 </center>
 
-sen2cube has several built-in operators that can be used to build expressions.
+Sen2Cube.at has several built-in operators that can be used to build expressions.
 
 - **Comparison operators**: operators that compare values and return either `True` or `False`. These are `=`, `in`, `>`, `<`, `≥` and  `≤`.
 - **Logical operators**: operators that combine boolean values (i.e. `True` and `False`). These are `and` and `or`.
@@ -175,9 +178,10 @@ The *filter* verb should only be applied to cubes that contain boolean data valu
 
 </center>
 
-### Groupby and ungroup {#group}
+### Group by and ungroup
 
-The *groupby* verb splits the input cube into distinct groups, based on a given grouping variable. All subsequent operations will the be applied to each group *separately*, until the *ungroup* verb is called. At that point, the groups will be combined back together into a single cube. This workflow is also known as [Split-Apply-Combine](https://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html). For example, the input cube can be split into groups such that each group contains *exclusively* observations from a specific year. Then, these observations can be reduced over time and over space. What is left is a single value for each year. These values can be combined together along a new time dimension, in which each time coordinate refers to a year.
+#### Group by {#groupby}
+The *group by* verb splits the input cube into distinct groups, based on a given grouping variable. All subsequent operations will the be applied to each group *separately*, until the *ungroup* verb is called. At that point, the groups will be combined back together into a single cube. This workflow is also known as [Split-Apply-Combine](https://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html). For example, the input cube can be split into groups such that each group contains *exclusively* observations from a specific year. Then, these observations can be reduced over time and over space. What is left is a single value for each year. These values can be combined together along a new time dimension, in which each time coordinate refers to a year.
 
 <center>
 
@@ -185,7 +189,7 @@ The *groupby* verb splits the input cube into distinct groups, based on a given 
 
 </center>
 
-The sen2cube interface offers several pre-defined grouping variables:
+The Sen2Cube.at interface offers several pre-defined grouping variables:
 
 - **Temporal grouping variables**: grouping variables that will split the temporal dimension, such that each group contains *exclusively* observations taken within a specific time period. The variables to choose from are `year`, `season`, `month`, `week`, `dayofyear` and `dayofweek`.
 - **Spatial grouping variables**: grouping variables that will split the spatial dimensions, such that each group contains *exclusively* observations taken within a specific sub-area inside the defined area of interest. Currently, only a single variable is supported, named `spatialfeature`. This requires the area of interest to consist of multiple, distinct spatial features (point, lines or polygons) that do not intersect with each other. Each of these distinct features will then form a group.
@@ -201,8 +205,11 @@ Thirdly, you can also provide a defined custom partition (see \@ref(partition)) 
 </center>
 
 ```{block, type='rmdcaution'}
-Currently, the sen2cube interface does not support cubes that have *more than one* temporal dimension, or *more than two* spatial dimensions. When grouping with a temporal grouping variable, each group represents a specific time period like a year, season or month. When combined back together into a single cube during ungrouping, a *new* time dimension is created in which each time coordinate refers to one of those groups. Since multiple time dimensions are not allowed, the *original* time dimension *must* be reduced before ungrouping. The same yields for spatial grouping operations. The *original* spatial dimensions *must* be reduced before ungrouping.
+Currently, the Sen2Cube.at interface does not support cubes that have *more than one* temporal dimension, or *more than two* spatial dimensions. When grouping with a temporal grouping variable, each group represents a specific time period like a year, season or month. When combined back together into a single cube during ungrouping, a *new* time dimension is created in which each time coordinate refers to one of those groups. Since multiple time dimensions are not allowed, the *original* time dimension *must* be reduced before ungrouping. The same yields for spatial grouping operations. The *original* spatial dimensions *must* be reduced before ungrouping.
 ```
+
+#### Ungroup {#ungroup}
+After grouping, all subsequent operations will the be applied to each group *separately*, until the *ungroup* verb is called. At that point, the groups will be combined back together into a single cube.
 
 ### Invert {#invert}
 
@@ -252,7 +259,7 @@ The *reduce* verb applies a reduction function over a certain dimension or set o
 
 </center>
 
-Similarly, we can also reduce the spatial dimensions instead, ending up with a single value per timestamp. The sen2cube interface only supports reduction of the two spatial dimensions at once, and *not* of either the X or Y dimension separately.
+Similarly, we can also reduce the spatial dimensions instead, ending up with a single value per timestamp. The Sen2Cube.at interface only supports reduction of the two spatial dimensions at once, and *not* of either the X or Y dimension separately.
 
 <center>
 
@@ -260,7 +267,7 @@ Similarly, we can also reduce the spatial dimensions instead, ending up with a s
 
 </center>
 
-sen2cube has several built-in reduction functions that can be used.
+Sen2Cube.at has several built-in reduction functions that can be used.
 
 ```{block, type='rmdcaution'}
 Be aware what type of data and what dimensions both the input cube contains. Some reduction functions are only useful when applied to boolean values (i.e. *True* and *False*). Others, for example calculation of the mean or the sum, make sense for numerical data, but not for categorical or boolean data. Et cetera. Also, some reduction functions are only meant to be applied to the time dimension, while others are only meant to be applied to the spatial dimensions.
@@ -328,7 +335,7 @@ The *compose* combines multiple cubes with *boolean* data values, into a single 
 
 </center>
 
-### Merge {#merge}
+### Merge {#combine}
 
 The *merge* combiner works the same as the *evaluate* verb (see \@ref(evaluate)), but allows for an expression with more than two variables. For example, *cube A + cube B + ... + cube n*. It offers only the logical and algebraic operators. The output cube will always have the same dimensions as the *first* input cube.
 
@@ -336,11 +343,11 @@ The *merge* combiner works the same as the *evaluate* verb (see \@ref(evaluate))
 
 Time value blocks refer to the temporal dimension of the query. They allow to subuset cubes by time, customly define seasons, et cetera. There are three different time value blocks.
 
-### Time instant {#instant}
+### Time instant {#time_instant}
 
 A *time instant* is a specific moment in time. It can be modelled with three components: the *year*, the *month* and the *day*. That is, a fully specified time instant can be 2020-07-23. However, not all components need to be specified. One can also leave out the year, and create the time instant XXXX-07-23, which will refer to *all* 23rd of July dates in the overall time interval of the query. Similarly, 2020-07-XX will refer to all days in July 2020, and XXXX-07-XX to all days in July, for all years in the time interval.
 
-### Time periods {#period}
+### Time periods {#time_period}
 
 A *time period* is a consecutive period of time, defined with a *from* time instant and a *to* time instant. The interval is closed at both sides, so both the from and to time instants are included in the time period. It is also possible to use not fully specified time instants. For example, the time period from XXXX-05-XX to XXXX-08-XX is the time period from May to August, no matter the year. Thus, when subsetting the time dimension of a cube with this time period, all timestamps that are in either May, June, July or August will be selected, for each year in the overall time interval.
 
@@ -348,7 +355,7 @@ A *time period* is a consecutive period of time, defined with a *from* time inst
 In a time period, the *from* time instant should always preceed the *to* time instant. Currently, that means it is not possible to create time periods like [from XXXX-11-XX to XXXX-01-XX], meaning from November to January. If you want to model such a period of time, you can use a time collection instead
 ```
 
-### Time collection {#collection}
+### Time collection {#time_collection}
 
 A *time collection* is a list of time instants that do *not* have to be consecutive. For example, the time collection [XXXX-05-XX, XXXX-08-XX] refers to all timestamps in May and August.
 
@@ -358,6 +365,6 @@ A *time collection* is a list of time instants that do *not* have to be consecut
 Currently there is *no* support for spatial subsetting of cubes, or customly defining areas that divide the overall area of interest. Such functionalities might be added in the future.
 ```
 
-## Comments
+## Comments {#comment}
 
 The comment block allows you to add comments to parts of your model, such that both your future self and others can better understand what is happening. Comment blocks can be added anywhere in the model, and will be ignored during evaluation.
