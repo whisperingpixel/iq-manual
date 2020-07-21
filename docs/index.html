@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Sen2Cube.at Manual</title>
   <meta name="description" content="Sen2Cube.at Manual" />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.19.4 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Sen2Cube.at Manual" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2020-07-20" />
+<meta name="date" content="2020-07-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 
-<link rel="next" href="semantic-enrichment.html"/>
+<link rel="next" href="enrichment.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -73,7 +73,11 @@
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#overview"><i class="fa fa-check"></i><b>1.1</b> Overview</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#use-cases"><i class="fa fa-check"></i><b>1.2</b> Use cases</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="semantic-enrichment.html"><a href="semantic-enrichment.html"><i class="fa fa-check"></i><b>2</b> Semantic Enrichment</a></li>
+<li class="chapter" data-level="2" data-path="enrichment.html"><a href="enrichment.html"><i class="fa fa-check"></i><b>2</b> Semantic Enrichment</a><ul>
+<li class="chapter" data-level="2.1" data-path="enrichment.html"><a href="enrichment.html#siam"><i class="fa fa-check"></i><b>2.1</b> Satellite Image Automatic Mapper (SIAM)</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="enrichment.html"><a href="enrichment.html#siam_examples"><i class="fa fa-check"></i><b>2.1.1</b> Applied in Austria</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="3" data-path="start.html"><a href="start.html"><i class="fa fa-check"></i><b>3</b> Getting started</a><ul>
 <li class="chapter" data-level="3.1" data-path="start.html"><a href="start.html#components"><i class="fa fa-check"></i><b>3.1</b> Components</a></li>
 <li class="chapter" data-level="3.2" data-path="start.html"><a href="start.html#workflow"><i class="fa fa-check"></i><b>3.2</b> Workflow</a><ul>
@@ -83,6 +87,7 @@
 <li class="chapter" data-level="3.2.4" data-path="start.html"><a href="start.html#executing-the-query-and-inferring-new-information"><i class="fa fa-check"></i><b>3.2.4</b> Executing the query and inferring new information</a></li>
 <li class="chapter" data-level="3.2.5" data-path="start.html"><a href="start.html#viewing-and-downloading-the-results"><i class="fa fa-check"></i><b>3.2.5</b> Viewing and downloading the results</a></li>
 </ul></li>
+<li class="chapter" data-level="3.3" data-path="start.html"><a href="start.html#other-access-options"><i class="fa fa-check"></i><b>3.3</b> Other access options</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="model.html"><a href="model.html"><i class="fa fa-check"></i><b>4</b> Model structure</a></li>
 <li class="chapter" data-level="5" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>5</b> Building blocks</a><ul>
@@ -91,7 +96,7 @@
 <li class="chapter" data-level="5.1.2" data-path="blocks.html"><a href="blocks.html#result_definition"><i class="fa fa-check"></i><b>5.1.2</b> Results</a></li>
 <li class="chapter" data-level="5.1.3" data-path="blocks.html"><a href="blocks.html#seasons-and-partitions"><i class="fa fa-check"></i><b>5.1.3</b> Seasons and partitions</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="blocks.html"><a href="blocks.html#data"><i class="fa fa-check"></i><b>5.2</b> Data</a><ul>
+<li class="chapter" data-level="5.2" data-path="blocks.html"><a href="blocks.html#data-and-information"><i class="fa fa-check"></i><b>5.2</b> Data and information</a><ul>
 <li class="chapter" data-level="5.2.1" data-path="blocks.html"><a href="blocks.html#appearance"><i class="fa fa-check"></i><b>5.2.1</b> Appearance</a></li>
 <li class="chapter" data-level="5.2.2" data-path="blocks.html"><a href="blocks.html#atmosphere"><i class="fa fa-check"></i><b>5.2.2</b> Atmosphere</a></li>
 <li class="chapter" data-level="5.2.3" data-path="blocks.html"><a href="blocks.html#reflectance"><i class="fa fa-check"></i><b>5.2.3</b> Reflectance</a></li>
@@ -146,7 +151,7 @@
             <section class="normal" id="section-">
 <div id="header">
 <h1 class="title">Sen2Cube.at Manual</h1>
-<p class="date"><em>2020-07-20</em></p>
+<p class="date"><em>2020-07-21</em></p>
 </div>
 <div id="about" class="section level1">
 <h1><span class="header-section-number">1</span> About</h1>
@@ -158,7 +163,7 @@
 <p> </p>
 <p>Sen2Cube.at is the first operational semantic Earth Observation data cube, allowing you to produce information from satellite imagery on a higher semantic level. That means, getting answers to questions such as “<em>Which images are cloud-free in a specific area-of-interest?</em>”, “<em>What was the phenology of this agricultural field in 2019?</em>”, “<em>Which areas were permanently sealed in the last year?</em>” and many more. To obtain these results you don’t need programming or be an expert with deeper knowledge of the raw image data.</p>
 <p>The Sen2Cube.at semantic image querying system is accessible through a <a href="https://demo.sen2cube.at/app">web-interface</a>, in which queries can be formulated by intuitively combining several building blocks, that each represent a distinct, clearly defined task or value inside the querying process. This manual contains the reference documentation of that interface.</p>
-<p>Sen2cube.at is provided by <a href="https://www.zgis.at/">Z_GIS</a>, the Department of Geoinformatics at the University of Salzburg, in collaboration with project partners.</p>
+<p>Sen2Cube.at is provided by <a href="https://www.zgis.at/">Z_GIS</a>, the Department of Geoinformatics at the University of Salzburg, in collaboration with project partners.</p>
 <p> </p>
 <center>
 <p><a href="https://www.uni-salzburg.at/"><img src="img/unisbg.png" style="width:20.0%" /></a>   <a href="https://www.zgis.at/"><img src="img/zgis.png" style="width:20.0%" /></a></p>
@@ -183,7 +188,7 @@
         </div>
       </div>
 
-<a href="semantic-enrichment.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="enrichment.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
