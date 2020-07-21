@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5 Building blocks | Sen2Cube.at Manual</title>
   <meta name="description" content="5 Building blocks | Sen2Cube.at Manual" />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.19.4 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5 Building blocks | Sen2Cube.at Manual" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2020-07-20" />
+<meta name="date" content="2020-07-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -73,7 +73,11 @@
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#overview"><i class="fa fa-check"></i><b>1.1</b> Overview</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#use-cases"><i class="fa fa-check"></i><b>1.2</b> Use cases</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="semantic-enrichment.html"><a href="semantic-enrichment.html"><i class="fa fa-check"></i><b>2</b> Semantic Enrichment</a></li>
+<li class="chapter" data-level="2" data-path="enrichment.html"><a href="enrichment.html"><i class="fa fa-check"></i><b>2</b> Semantic Enrichment</a><ul>
+<li class="chapter" data-level="2.1" data-path="enrichment.html"><a href="enrichment.html#siam"><i class="fa fa-check"></i><b>2.1</b> Satellite Image Automatic Mapper (SIAM)</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="enrichment.html"><a href="enrichment.html#siam_examples"><i class="fa fa-check"></i><b>2.1.1</b> Applied in Austria</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="3" data-path="start.html"><a href="start.html"><i class="fa fa-check"></i><b>3</b> Getting started</a><ul>
 <li class="chapter" data-level="3.1" data-path="start.html"><a href="start.html#components"><i class="fa fa-check"></i><b>3.1</b> Components</a></li>
 <li class="chapter" data-level="3.2" data-path="start.html"><a href="start.html#workflow"><i class="fa fa-check"></i><b>3.2</b> Workflow</a><ul>
@@ -83,6 +87,7 @@
 <li class="chapter" data-level="3.2.4" data-path="start.html"><a href="start.html#executing-the-query-and-inferring-new-information"><i class="fa fa-check"></i><b>3.2.4</b> Executing the query and inferring new information</a></li>
 <li class="chapter" data-level="3.2.5" data-path="start.html"><a href="start.html#viewing-and-downloading-the-results"><i class="fa fa-check"></i><b>3.2.5</b> Viewing and downloading the results</a></li>
 </ul></li>
+<li class="chapter" data-level="3.3" data-path="start.html"><a href="start.html#other-access-options"><i class="fa fa-check"></i><b>3.3</b> Other access options</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="model.html"><a href="model.html"><i class="fa fa-check"></i><b>4</b> Model structure</a></li>
 <li class="chapter" data-level="5" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>5</b> Building blocks</a><ul>
@@ -171,13 +176,13 @@ The observations will be associated to an entity type, not an individual entity.
 </div>
 <div id="property_definition" class="section level4">
 <h4><span class="header-section-number">5.1.1.2</span> Properties</h4>
-<p>Entities are always defined by means of one or more <strong>properties</strong>. For example, a property of water may be its blueish color, but for larger water bodies also its approximate flatness (i.e. a slope of approximately 0%). An entity definition block thus <em>must</em> be followed by one or more property definition blocks.</p>
-<p>Entity definition blocks - and their corresponding property definition blocks - are exclusively used inside the <strong>semantic concept dictionary</strong> component of the model. In the application component, stored entity definitions can be retrieved, wrangled and exported.</p>
+<p>Entities are always defined by means of one or more <strong>properties</strong>. For example, a property of water may be its blueish color, but for larger water bodies also its approximate flatness (i.e. a slope of approximately 0%). An entity definition block thus <em>must</em> be followed by one or more property definition blocks. Properties must not be mutually exclusive and should not overlap, i.e., multiple properties will be always connected with <em>AND</em>. Consider a real-world entity lake where three properties <em>color</em>, <em>texture</em>, and <em>compactness</em>: They might be fuzzy or optional, but they are not either-or. I.e., a lake may appear blue as property color <em>AND</em> appear flat as property texture, but is not blue <em>OR</em> flat. There might be situations where one thinks of either-or options in some cases but this is an indicator that the property is not defined appropriately and should be solved differently.</p>
+<p>Entity definition blocks - and their corresponding property definition blocks - are exclusively used inside the <strong>semantic concept dictionary</strong> component of the model. In the application component, stored entity definitions can be retrieved, wrangled, and exported.</p>
 </div>
 </div>
 <div id="result_definition" class="section level3">
 <h3><span class="header-section-number">5.1.2</span> Results</h3>
-<p>A result is the output of a single query. Depending on the processes that are used in the query, results can be single values, one-dimensional arrays or multi-dimensional cubes. Result definition blocks are exclusively used inside the <strong>application</strong> component of the model. Stored result definitions can be retrieved at any place within other result definitions inside the same model. <em>Not</em> every result definition needs to be exported. That is, a result definition can also be used as a preliminary outcome that serves only as a first step towards the final output of the query.</p>
+<p>A result is the output of an inference, while one inference may have more than one results of different types. Depending on the processes that are used in the semantic query, results can be single values, one-dimensional arrays or multi-dimensional cubes. Result definition blocks are exclusively used inside the <strong>application</strong> component of the model. Stored result definitions can be retrieved at any place within other result definitions inside the same model. <em>Not</em> every result definition needs to be exported. That is, a result definition can also be used as a preliminary output that serves as intermediate step towards the final output of the semantic query.</p>
 </div>
 <div id="seasons-and-partitions" class="section level3">
 <h3><span class="header-section-number">5.1.3</span> Seasons and partitions</h3>
@@ -367,7 +372,17 @@ Currently, the Sen2Cube.at interface does not support cubes that have <em>more t
 Be aware what type of data and what dimensions both the input cube contains. Some reduction functions are only useful when applied to boolean values (i.e. <em>True</em> and <em>False</em>). Others, for example calculation of the mean or the sum, make sense for numerical data, but not for categorical or boolean data. Et cetera. Also, some reduction functions are only meant to be applied to the time dimension, while others are only meant to be applied to the spatial dimensions.
 </p>
 </div>
-<p><em><span style="color: red;"> Insert toy examples for all reduction functions </span></em></p>
+<center>
+<p><img src="img/count.png" style="width:32.0%" /> <img src="img/percentage.png" style="width:32.0%" /> <img src="img/occurence.png" style="width:32.0%" /></p>
+<p><img src="img/all.png" style="width:32.0%" /> <img src="img/any.png" style="width:32.0%" /> <img src="img/first.png" style="width:32.0%" /></p>
+<p><img src="img/last.png" style="width:32.0%" /> <img src="img/min.png" style="width:32.0%" /> <img src="img/max.png" style="width:32.0%" /></p>
+<p><img src="img/mean.png" style="width:32.0%" /> <img src="img/median.png" style="width:32.0%" /> <img src="img/mode.png" style="width:32.0%" /></p>
+<p><img src="img/sum.png" style="width:32.0%" /> <img src="img/product.png" style="width:32.0%" /></p>
+</center>
+<p>Two special reduction functions are <code>area</code> and <code>duration</code>. The first is meant to be applied to the <em>spatial dimensions</em>, and equals the count over space multiplied by the area of a single pixel in square meters. The latter is meant to be applied to the <em>temporal dimension</em>, and equals the count over time, after resampling the observations to day-level. That is, when there are two observations on the same day, they will be counted as <em>one</em>.</p>
+<center>
+<p><img src="img/area.png" style="width:32.0%" /> <img src="img/duration.png" style="width:32.0%" /></p>
+</center>
 </div>
 <div id="replace" class="section level3">
 <h3><span class="header-section-number">5.3.8</span> Replace</h3>

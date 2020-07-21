@@ -273,7 +273,27 @@ Sen2Cube.at has several built-in reduction functions that can be used.
 Be aware what type of data and what dimensions both the input cube contains. Some reduction functions are only useful when applied to boolean values (i.e. *True* and *False*). Others, for example calculation of the mean or the sum, make sense for numerical data, but not for categorical or boolean data. Et cetera. Also, some reduction functions are only meant to be applied to the time dimension, while others are only meant to be applied to the spatial dimensions.
 ```
 
-*<span style="color: red;"> Insert toy examples for all reduction functions </span>*
+<center>
+
+![](img/count.png){width=32%} ![](img/percentage.png){width=32%} ![](img/occurence.png){width=32%} 
+
+![](img/all.png){width=32%} ![](img/any.png){width=32%} ![](img/first.png){width=32%} 
+
+![](img/last.png){width=32%} ![](img/min.png){width=32%} ![](img/max.png){width=32%} 
+
+![](img/mean.png){width=32%} ![](img/median.png){width=32%} ![](img/mode.png){width=32%}
+
+![](img/sum.png){width=32%} ![](img/product.png){width=32%}
+
+</center>
+
+Two special reduction functions are `area` and `duration`. The first is meant to be applied to the *spatial dimensions*, and equals the count over space multiplied by the area of a single pixel in square meters. The latter is meant to be applied to the *temporal dimension*, and equals the count over time, after resampling the observations to day-level. That is, when there are two observations on the same day, they will be counted as *one*.
+
+<center>
+
+![](img/area.png){width=32%} ![](img/duration.png){width=32%}
+
+</center>
 
 ### Replace {#replace}
 
