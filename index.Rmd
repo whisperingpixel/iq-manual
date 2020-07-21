@@ -18,7 +18,7 @@ github-repo: whisperingpixel/iq-manual
 
 Sen2Cube.at is the first operational semantic Earth Observation data cube, allowing you to produce information from satellite imagery on a higher semantic level. That means, getting answers to questions such as "*Which images are cloud-free in a specific area-of-interest?*", "*What was the phenology of this agricultural field in 2019?*", "*Which areas were permanently sealed in the last year?*" and many more. To obtain these results you don't need programming or be an expert with deeper knowledge of the raw image data.
 
-The Sen2Cube.at semantic image querying system is accessible through a [web-interface](https://demo.sen2cube.at/app), in which queries can be formulated by intuitively combining several building blocks, that each represent a distinct, clearly defined task or value inside the querying process. This manual contains the reference documentation of that interface.
+The Sen2Cube.at semantic image querying system is accessible through a [web-interface](https://demo.sen2cube.at/app), in which queries can be formulated by intuitively combining several building blocks, that each represent a distinct, clearly defined task or value inside the semantic querying process. This manual contains the reference documentation of that interface.
 
 Sen2Cube.at is provided by [Z_GIS](https://www.zgis.at/), the Department of Geoinformatics at the University of Salzburg, in collaboration with project partners.
 
@@ -43,3 +43,104 @@ The product is developed with support by the Austrian Research Promotion Agency 
 ## Use cases
 
 Sen2Cube.at is designed as a general-purpose Earth observation expert system to support and facilitate a great variety of use-cases. The ones listed here are selected as introduction.
+
+### Semantic content-based image retrieval
+
+A common task is to use the Sen2Cube.at system for a content-based search of suitable images, e.g., images which are cloud-free in a certain area.
+
+For example, consider you are interested in the phenology and cloud-free observations of this agricultural field. While the acquisition in general was quite cloudy on 21st of October 2018, the observations of this particular field are perfectly valid and useful
+
+<center>
+![Why we need SCBIR](img/scbir-example-1.png){width=100%}
+</center>
+
+However, if you search for images using image-wide cloud statistics in common image databases, this image will never be returned. In contrast, the Sen2Cube.at system allows to specify an area-of-interest and a cloud filter that will be evaluated only for this area. Subsequently, you receive better information about which images can be used or not.
+
+<center>
+![SCBIR in Sen2Cube.at](img/scbir-example-2.png){width=100%}
+</center>
+
+```{block, type='rmdtip'}
+Why don't you try it out on your own? After reading the "Getting started" chapter, come back here and use the "SCBIR - Cloud" model, [this area of interest](https://demo.sen2cube.at/ows/000/?service=WFS&version=1.1.0&request=GetFeature&outputFormat=application/json&srsname=EPSG:4326&typename=inspire_feldstuecke_2019&Filter=%3CFilter%3E%3CPropertyIsEqualTo%3E%3CPropertyName%3EFS_KENNUNG%3C/PropertyName%3E%3CLiteral%3E79707084%3C/Literal%3E%3C/PropertyIsEqualTo%3E%3C/Filter%3E)
+and October 2018 as time interval.
+```
+
+### Cloud-free composite
+
+In most applications for Earth observation of land, clouds are considered as noise. One approach that is feasible in many situations is to create a cloud-free composite, i.e., an artificial image where cloud-free pixels are selected and stitched together using some rules. Since a basic interpretation of the observations are already available in Sen2Cube.at, a cloud-free composite based on pre-selecting valid observations is possible. This example is an artificial image of Vienna cloud-free during Summer 2018:
+
+
+<center>
+![Cloud-free Vienna](img/cloud-free-composite-1.png){width=100%}
+</center>
+
+```{block, type='rmdtip'}
+You may notice that the extent is cropped to the borders of Vienna: You don't have to digitize your area-of-interest manually. Every valid GeoJSON can be input, even if it is located online. Here, the borders are directly downloaded as [OGC Web Feature Service](https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:LANDESGRENZEOGD&srsName=EPSG:4326&outputFormat=json) from the [Open Data Portal of Vienna](https://www.data.gv.at/katalog/dataset/86c29af5-c52c-423d-8764-82c1bb037936).
+```
+
+The Stubaital during Spring reveals that there is still snow on the higher elevated areas. 
+
+<center>
+![Cloud-free Stubaital](img/cloud-free-composite-2.png){width=100%}
+</center>
+
+A cloud-free composite of observations from Spring is not useful for your application? No problem - chose any other time interval. You don't need to rely on pre-manufactured cloud-free composites. In Sen2Cube.at, you can configure these parameters and produce ad-hoc cloud-free composites from an area of interest and a time interval you are interested in.
+
+```{block, type='rmdtip'}
+The result of every inference is available as OGC Web Map Service - you can simply add them in your GIS.
+<center>
+![Cloud-free Stubaital in a GIS](img/cloud-free-composite-3.png){width=100%}
+</center>
+```
+
+
+### Time series
+
+The continuous observation with acquisition frequencies of a few days allow to extract relevant patterns based on (long) time series of a selected variable. For example, by using the appearance of "greenness" of the observatons as variable, it is possible to trace back the land use change of this area where an industrial/commercial building was constructed on a meadow.
+
+<center>
+![Construction of a building](img/time-series-example-1.png){width=100%}
+</center>
+
+You can see how in the first year of operational Sentinel-2 image acquisition the temporal pattern indicates the yearly cycle of vegetation on northern hemisphere, while after the construction and opening of the building in May 2018 the temporal pattern changed completely. The remaining variations are due to noise and perhaps smaller patches of grass in between of the buildings.
+
+
+Using the same greenness variable applied to agricultural fields may reveal changes in crop types or agricultural use. In this example, the use of one agricultural field changed between 2018 and 2019. While you can identify two main peaks in the years until (and including) 2018, there is only one peak in 2019 and 2020.
+
+<center>
+![Agriculture](img/time-series-example-2.png){width=100%}
+</center>
+
+<!--
+### Area-based statistics
+
+In cases when defined geographic regions area already available you may want to augment their attribute table with aggregated Earth-observation-based information. For example: What's Viennas 'greenest' district?
+
+-->
+
+### Spatially disaggregated information
+
+Some borders that are defined in (vector) databases of geographical objects indicate only one or an aggregated state. One example are water bodies. While they are represented as stable with a clearly defined border, they undergo many changes over time. Spatially disaggregated information from Earth observation data allows to investigate these with unprecedented spatio-temporal detail. Earth observations of one year covering parts of the Lake of Constance allows to investigate the dynamics of the Rhine River and the Bregenzerach reveal more details than the simple polygon in the geographical database
+
+<center>
+![Lake of Constance](img/spatial-information-3.png){width=100%}
+
+</center>
+
+<center>
+![Salzburg lakes](img/spatial-information-4.png){width=100%}
+
+</center>
+
+Another use case of spatially disaggregated information is to detect missing geographical objects in databases. For example, the dam "Donaukraftwerk Melk" is not yet present in the geographical database
+
+<center>
+![Dam is missing in geographical database](img/spatial-information-1.png){width=100%}
+</center>
+
+However, it is already clearly visible in the Earth-observation-based information.
+
+<center>
+![Dam is missing in geographical database](img/spatial-information-2.png){width=100%}
+</center>
+
