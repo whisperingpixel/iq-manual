@@ -9,12 +9,15 @@ github-repo: whisperingpixel/iq-manual
 
 # About
 
-## Overview
 <center>
 ![](img/logo_b.png){width=50%}
 </center>
 
 &nbsp;
+
+This manual is intended for Sen2Cube.at users and is not a technical documentation.
+
+## Overview
 
 Sen2Cube.at is the first operational semantic Earth Observation data cube, allowing you to produce information from satellite imagery on a higher semantic level. That means, getting answers to questions such as "*Which images are cloud-free in a specific area-of-interest?*", "*What was the phenology of this agricultural field in 2019?*", "*Which areas were permanently sealed in the last year?*" and many more. To obtain these results you don't need programming or be an expert with deeper knowledge of the raw image data.
 
@@ -100,7 +103,7 @@ The result of every inference is available as OGC Web Map Service - you can simp
 
 ### Time series
 
-The continuous observation with acquisition frequencies of a few days allow to extract relevant patterns based on (long) time series of a selected variable. For example, by using the appearance of "greenness" of the observatons as variable, it is possible to trace back the land use change of this area where an industrial/commercial building was constructed on a meadow.
+The continuous observation with acquisition frequencies of a few days allow to extract relevant patterns based on (long) time series of a selected variable. For example, by using the appearance of "greenness" of the observations as variable, it is possible to trace back the land use change of this area where an industrial/commercial building was constructed on a meadow.
 
 <center>
 ![Construction of a building](img/time-series-example-1.png){width=100%}
