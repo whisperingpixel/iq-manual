@@ -52,12 +52,14 @@ For example, consider you are interested in the phenology and cloud-free observa
 
 <center>
 ![Why we need SCBIR](img/scbir-example-1.png){width=100%}
+
 </center>
 
 However, if you search for images using image-wide cloud statistics in common image databases, this image will never be returned. In contrast, the Sen2Cube.at system allows to specify an area-of-interest and a cloud filter that will be evaluated only for this area. Subsequently, you receive better information about which images can be used or not.
 
 <center>
 ![SCBIR in Sen2Cube.at](img/scbir-example-2.png){width=100%}
+
 </center>
 
 ```{block, type='rmdtip'}
@@ -72,16 +74,18 @@ In most applications for Earth observation of land, clouds are considered as noi
 
 <center>
 ![Cloud-free Vienna](img/cloud-free-composite-1.png){width=100%}
+
 </center>
 
 ```{block, type='rmdtip'}
 You may notice that the extent is cropped to the borders of Vienna: You don't have to digitize your area-of-interest manually. Every valid GeoJSON can be input, even if it is located online. Here, the borders are directly downloaded as [OGC Web Feature Service](https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:LANDESGRENZEOGD&srsName=EPSG:4326&outputFormat=json) from the [Open Data Portal of Vienna](https://www.data.gv.at/katalog/dataset/86c29af5-c52c-423d-8764-82c1bb037936).
 ```
 
-The Stubaital during Spring reveals that there is still snow on the higher elevated areas. 
+The Stubaital during Spring reveals that there is still snow on the higher elevated areas.
 
 <center>
 ![Cloud-free Stubaital](img/cloud-free-composite-2.png){width=100%}
+
 </center>
 
 A cloud-free composite of observations from Spring is not useful for your application? No problem - chose any other time interval. You don't need to rely on pre-manufactured cloud-free composites. In Sen2Cube.at, you can configure these parameters and produce ad-hoc cloud-free composites from an area of interest and a time interval you are interested in.
@@ -100,6 +104,7 @@ The continuous observation with acquisition frequencies of a few days allow to e
 
 <center>
 ![Construction of a building](img/time-series-example-1.png){width=100%}
+
 </center>
 
 You can see how in the first year of operational Sentinel-2 image acquisition the temporal pattern indicates the yearly cycle of vegetation on northern hemisphere, while after the construction and opening of the building in May 2018 the temporal pattern changed completely. The remaining variations are due to noise and perhaps smaller patches of grass in between of the buildings.
@@ -109,6 +114,7 @@ Using the same greenness variable applied to agricultural fields may reveal chan
 
 <center>
 ![Agriculture](img/time-series-example-2.png){width=100%}
+
 </center>
 
 <!--
@@ -136,11 +142,12 @@ Another use case of spatially disaggregated information is to detect missing geo
 
 <center>
 ![Dam is missing in geographical database](img/spatial-information-1.png){width=100%}
+
 </center>
 
 However, it is already clearly visible in the Earth-observation-based information.
 
 <center>
 ![Dam is missing in geographical database](img/spatial-information-2.png){width=100%}
-</center>
 
+</center>
