@@ -155,18 +155,22 @@ However, it is already clearly visible in the Earth-observation-based informatio
 <center>
 ![Dam is missing in geographical database](img/spatial-information-2.png){width=100%}
 
+</center>
+
 **Urban green areas**
 
 Other geographical phenomena and objects might be spatially arranged within a region. For example, take the green areas within Vienna, which are an important contribution to well-being of humans and animals and are able to cool down the city in summer. We will again use the official borders as distributed by the Open Data Platform. The result map shows the percentage of valid observations (i.e. observations that are not cloud) that are associated with a vegetation type for the specified timespan.
 
 <center>
 ![Viennas green areas](img/spatial-information-5.png){width=100%}
+
 </center>
 
 Further re-use of the results is also possible. For example, the color ramp produces a nice visual output, but it might be more useful to apply a threshold and finally delineate areas that might be considered stable vegetation or green spaces.
 
 <center>
-![Viennas green areas](img/spatial-information-6.png){width=100%}
+![Viennas green areas - delineated according temporal occurrency](img/spatial-information-6.png){width=100%}
+
 </center>
 
 ## Next steps and how to start

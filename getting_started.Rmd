@@ -52,6 +52,13 @@ The drawn shapes are internally translated into [GeoJSON format](https://geojson
 https://demo.sen2cube.at/ows/000/?service=WFS&version=1.1.0&request=GetFeature&outputFormat=application/json&srsname=EPSG:4326&typename=inspire_feldstuecke_2019&Filter=<Filter><PropertyIsEqualTo><PropertyName>FS_KENNUNG</PropertyName><Literal>73898247</Literal></PropertyIsEqualTo></Filter>
 ```
 
+Here is an example of how areas of interest can be selected
+
+<center>
+![Workflow of selecting areas of interest using drawing functionality and OGC Web Feature Services](img/aoi_example.gif)
+
+</center>
+
 ### Selecting the time interval
 
 The time interval is defined by a start date and an end date. The interval is *closed* at both sides, meaning that both the specified start date and end date are included. Currently, the Austrian semantic data and information cube contains data since the beginning of the operational phase of Sentinel-2 in Summer 2015 and is constantly updated with the most recent data.
@@ -76,14 +83,26 @@ When successfully processed, results can be viewed by clicking the `View results
 We recommend that you download important results as they will be deleted regularly. However, we will keep the inference settings, which allows you to re-process them at any time.
 ```
 
+
+### Error handling
+
 In the case the query could *not* be processed successfully, an error message describing the problem will appear instead.
 
 
-### Entire workflow
+### Examples
 
 The entire workflow of using a prepared model to conduct a semantic query can be seen in the video below. A simple model to count water observations is used to infer information on the water dynamics of the Danube river in the protected areas south of Vienna.
 
+<center>
 ![An example of a Sen2Cube.at inference workflow](img/model-creation.gif){width=100%}
+
+</center>
+
+
+<center>
+![An example of a Sen2Cube.at inference workflow including exporting the results as OGC Web Map Service](img/wms_example.gif){width=100%}
+
+</center>
 
 
 ## Other access options

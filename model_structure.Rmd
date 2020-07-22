@@ -1,3 +1,8 @@
+---
+output:
+  html_document: default
+  pdf_document: default
+---
 # Model structure {#model}
 
 The model itself defines the output. Besides choosing from pre-constructed models within the knowledgebase, new models can be constructed from scratch. There are two main components that define a model:
@@ -14,14 +19,21 @@ The model construction is designed to be as intuitive as possible by connecting 
 See below an example of a simple model. In the semantic concept dictionary, the entity *water* is defined in terms of the data. Each observation inside the spatio-temporal extent of the query is labelled as either being water, or not. The application component contains a single result, in which the number of water observations are counted over time.
 
 <center>
-![](img/watercountmodel.png){width=100%}
+![Example model for counting water observations over time](img/watercountmodel.png){width=100%}
+
 </center>
 
 The result is a map in which each spatial location (modelled as a cell in a spatial grid) contains a *water count* value.
 
 <center>
-![](img/watercountresult.png){width=100%}
+![Result of counted observations over time](img/watercountresult.png){width=100%}
+
 </center>
 
 
-*<span style="color: red;"> Insert video that showcases the model creation </span>*
+The following video shows the development process of a model (*External Youtube Link*).
+
+[![Youtube Video
+](https://img.youtube.com/vi/oiJt61CONqA/0.jpg){width=100%}](https://youtu.be/oiJt61CONqA)
+
+
