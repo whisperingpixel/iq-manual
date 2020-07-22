@@ -18,9 +18,9 @@ github-repo: whisperingpixel/iq-manual
 
 Sen2Cube.at is the first operational semantic Earth Observation data cube, allowing you to produce information from satellite imagery on a higher semantic level. That means, getting answers to questions such as "*Which images are cloud-free in a specific area-of-interest?*", "*What was the phenology of this agricultural field in 2019?*", "*Which areas were permanently sealed in the last year?*" and many more. To obtain these results you don't need programming or be an expert with deeper knowledge of the raw image data.
 
-The Sen2Cube.at semantic image querying system is accessible through a [web-interface](https://demo.sen2cube.at/app), in which queries can be formulated by intuitively combining several building blocks, that each represent a distinct, clearly defined task or value inside the semantic querying process. This manual contains the reference documentation of that interface.
+The Sen2Cube.at semantic image querying system is accessible as [Web-application](https://demo.sen2cube.at/app), in which queries can be formulated by intuitively combining several building blocks, that each represent a distinct, clearly defined task or value inside the semantic querying process. This manual contains the reference documentation of that interface.
 
-Sen2Cube.at is provided by [Z_GIS](https://www.zgis.at/), the Department of Geoinformatics at the University of Salzburg, in collaboration with project partners.
+Sen2Cube.at is provided by the [Department of Geoinformatics - Z_GIS](https://www.zgis.at/) at the University of Salzburg, in collaboration with the project partners:
 
 &nbsp;
 
@@ -32,7 +32,7 @@ Sen2Cube.at is provided by [Z_GIS](https://www.zgis.at/), the Department of Geoi
 
 &nbsp;
 
-The product is developed with support by the Austrian Research Promotion Agency (FFG) under the Austrian Space Application Programme (ASAP 14) within the project Sen2Cube.at (project no.: 866016).
+Sen2Cube.at is developed with support by the Austrian Research Promotion Agency (FFG) under the Austrian Space Application Programme (ASAP 14) within the project Sen2Cube.at (project no.: 866016).
 
 &nbsp;
 
@@ -81,14 +81,14 @@ In most applications for Earth observation of land, clouds are considered as noi
 You may notice that the extent is cropped to the borders of Vienna: You don't have to digitize your area-of-interest manually. Every valid GeoJSON can be input, even if it is located online. Here, the borders are directly downloaded as [OGC Web Feature Service](https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:LANDESGRENZEOGD&srsName=EPSG:4326&outputFormat=json) from the [Open Data Portal of Vienna](https://www.data.gv.at/katalog/dataset/86c29af5-c52c-423d-8764-82c1bb037936).
 ```
 
-The Stubaital during Spring reveals that there is still snow on the higher elevated areas.
+The Stubaital during spring reveals that there is still snow on the higher elevated areas.
 
 <center>
 ![Cloud-free Stubaital](img/cloud-free-composite-2.png){width=100%}
 
 </center>
 
-A cloud-free composite of observations from Spring is not useful for your application? No problem - chose any other time interval. You don't need to rely on pre-manufactured cloud-free composites. In Sen2Cube.at, you can configure these parameters and produce ad-hoc cloud-free composites from an area of interest and a time interval you are interested in.
+A cloud-free composite of observations from spring is not useful for your application? No problem - chose any other time interval. You don't need to rely on pre-manufactured cloud-free composites. In Sen2Cube.at, you can configure these parameters and produce ad-hoc cloud-free composites from an area of interest and a time interval you are interested in.
 
 ```{block, type='rmdtip'}
 The result of every inference is available as OGC Web Map Service - you can simply add them in your GIS.
@@ -126,6 +126,8 @@ In cases when defined geographic regions area already available you may want to 
 
 ### Spatially disaggregated information
 
+**Surface water**
+
 Some borders that are defined in (vector) databases of geographical objects indicate only one or an aggregated state. One example are water bodies. While they are represented as stable with a clearly defined border, they undergo many changes over time. Spatially disaggregated information from Earth observation data allows to investigate these with unprecedented spatio-temporal detail. Earth observations of one year covering parts of the Lake of Constance allows to investigate the dynamics of the Rhine River and the Bregenzerach reveal more details than the simple polygon in the geographical database
 
 <center>
@@ -150,4 +152,24 @@ However, it is already clearly visible in the Earth-observation-based informatio
 <center>
 ![Dam is missing in geographical database](img/spatial-information-2.png){width=100%}
 
+**Urban green areas**
+
+Other geographical phenomena and objects might be spatially arranged within a region. For example, take the green areas within Vienna, which are an important contribution to well-being of humans and animals and are able to cool down the city in summer. We will again use the official borders as distributed by the Open Data Platform. The result map shows the percentage of valid observations (i.e. observations that are not cloud) that are associated with a vegetation type for the specified timespan.
+
+<center>
+![Viennas green areas](img/spatial-information-5.png){width=100%}
 </center>
+
+Further re-use of the results is also possible. For example, the color ramp produces a nice visual output, but it might be more useful to apply a threshold and finally delineate areas that might be considered stable vegetation or green spaces.
+
+<center>
+![Viennas green areas](img/spatial-information-6.png){width=100%}
+</center>
+
+## Next steps and how to start
+
+```{block, type='rmdnote'}
+The Sen2Cube.at system was not explicitly designed for any of the use-cases presented in the last section. All of them were created using the same, generic semantic enrichment and generic building blocks of the semantic query language to construct the different queries for each example. Still, it is not necessary to do any programming - you don't have to trade-of between the need of programming or flexibility of the software.
+```
+
+A good start to get familiar with the Sen2Cube.at system is to read how we conduct the [Semantic Enrichment](#enrichment) of Earth observation data and then proceed with the [Getting Started](#start) section and try to use or build your first model.

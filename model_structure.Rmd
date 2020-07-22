@@ -22,3 +22,6 @@ The result is a map in which each spatial location (modelled as a cell in a spat
 <center>
 ![](img/watercountresult.png){width=100%}
 </center>
+
+
+*<span style="color: red;"> Insert video that showcases the model creation </span>*
