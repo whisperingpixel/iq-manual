@@ -1,9 +1,10 @@
-rmd_files: 
+rmd_files:
     - "index.Rmd"
     - "semantic_enrichment.Rmd"
     - "getting_started.Rmd"
     - "model_structure.Rmd"
     - "building_blocks.Rmd"
     - "examples.Rmd"
+    - "contact_legal.Rmd"
 delete_merged_file: true
 output_dir: "docs"
