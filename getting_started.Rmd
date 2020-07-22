@@ -1,6 +1,6 @@
 # Getting started {#start}
 
-Sen2Cube.at is a Web-application that can be accessed with a standard browser. Installing additional software on your local computer is not necessary. The Web-frontend of our semantic querying interface is available online at [demo.sen2cube.at](https://demo.sen2cube.at/app). 
+Sen2Cube.at is a Web-application that can be accessed with a standard browser over the Internet. Installing additional software on your local computer is not necessary. The graphical frontend of our semantic querying interface is available online at [demo.sen2cube.at](https://demo.sen2cube.at/app). Please consult the contact section for options to get access to the demo version.
 
 ## Components
 
@@ -73,16 +73,21 @@ When successfully processed, results can be viewed by clicking the `View results
 </center>
 
 ```{block, type='rmdwarning'}
-We recommend that you download important results as they will be deleted. However, we will keep the inference settings, which allows you to re-process them at any time.
+We recommend that you download important results as they will be deleted regularly. However, we will keep the inference settings, which allows you to re-process them at any time.
 ```
 
 In the case the query could *not* be processed successfully, an error message describing the problem will appear instead.
 
-*<span style="color: red;"> Insert video that showcases the full workflow </span>*
+
+### Entire workflow
+
+The entire workflow of using a prepared model to conduct a semantic query can be seen in the video below. A simple model to count water observations is used to infer information on the water dynamics of the Danube river in the protected areas south of Vienna.
+
+![An example of a Sen2Cube.at inference workflow](img/model-creation.gif){width=100%}
 
 
 ## Other access options
 
-If your background is other Earth observation data cubes you might be familiar with Jupyter Notebooks. Of course they're available in Sen2Cube.at as well: [https://demo.sen2cube.at/notebook](https://demo.sen2cube.at/notebook).
+If you have experience with other Earth observation data cubes you might be familiar with Jupyter Notebooks. Of course they are available in Sen2Cube.at as well: [https://demo.sen2cube.at/notebook](https://demo.sen2cube.at/notebook).
 
 ... but in the semantic querying language you don't have to do programming at all!
