@@ -45,20 +45,20 @@ Sen2Cube.at is developed with support by the Austrian Research Promotion Agency 
 
 ## Use cases
 
-Sen2Cube.at is designed as a general-purpose Earth observation expert system to support and facilitate a great variety of use-cases. The ones listed here are selected as introduction.
+Sen2Cube.at is designed as a general-purpose Earth observation expert system to support and facilitate a great variety of use-cases. The ones listed here are selected and serve as introduction.
 
 ### Semantic content-based image retrieval
 
-A common task is to use the Sen2Cube.at system for a content-based search of suitable images, e.g., images which are cloud-free in a certain area.
+As a common task the Sen2Cube.at system may be used for a content-based search of suitable images, e.g., images that are cloud-free in a certain area of interest.
 
-For example, consider you are interested in the phenology and cloud-free observations of this agricultural field. While the acquisition in general was quite cloudy on 21st of October 2018, the observations of this particular field are perfectly valid and useful
+For example, suppose you are interested in the phenology and cloud-free observations of the agricultural field depicted in the screenshot below. While the acquisition on 21st of October 2018 was quite cloudy, the observations of this particular field are perfectly valid and useful for further investigation.
 
 <center>
 ![Why we need SCBIR](img/scbir-example-1.png){width=100%}
 
 </center>
 
-However, if you search for images using image-wide cloud statistics in common image databases, this image will never be returned. In contrast, the Sen2Cube.at system allows to specify an area-of-interest and a cloud filter that will be evaluated only for this area. Subsequently, you receive better information about which images can be used or not.
+However, if you search for images using the image-wide cloud statistics that are common in image databases, this image will never be returned due to the overall cloud contamination. In contrast, the Sen2Cube.at system allows to specify explicitly an area-of-interest and a cloud filter that will be evaluated only for this area. Subsequently, you receive better information about which images can be used or not for your application.
 
 <center>
 ![SCBIR in Sen2Cube.at](img/scbir-example-2.png){width=100%}
@@ -72,7 +72,7 @@ and October 2018 as time interval.
 
 ### Cloud-free composite
 
-In most applications for Earth observation of land, clouds are considered as noise. One approach that is feasible in many situations is to create a cloud-free composite, i.e., an artificial image where cloud-free pixels are selected and stitched together using some rules. Since a basic interpretation of the observations are already available in Sen2Cube.at, a cloud-free composite based on pre-selecting valid observations is possible. This example is an artificial image of Vienna cloud-free during Summer 2018:
+Most applications for Earth observation of land consider clouds as noise and not as valid observations. One approach to manage cloud contamination that is feasible in many situations is to create a cloud-free composite, i.e., an artificial image where cloud-free pixels are selected and stitched together using some user-defined rules. Since a basic interpretation of the observations are already available in Sen2Cube.at, a cloud-free composite based on pre-selecting valid observations is easily possible. This example is an artificial image of cloud-free Vienna during Summer 2018:
 
 
 <center>
@@ -103,14 +103,14 @@ The result of every inference is available as OGC Web Map Service - you can simp
 
 ### Time series
 
-The continuous observation with acquisition frequencies of a few days allow to extract relevant patterns based on (long) time series of a selected variable. For example, by using the appearance of "greenness" of the observations as variable, it is possible to trace back the land use change of this area where an industrial/commercial building was constructed on a meadow.
+Continuous Earth observation with acquisition frequencies of a few days allow to extract relevant patterns based on (long) time series of a selected variable. For example, by using the appearance of "greenness" of the observations as variable of interest, it is possible to trace back the land use change of this area where an industrial/commercial building was constructed on a meadow.
 
 <center>
 ![Construction of a building](img/time-series-example-1.png){width=100%}
 
 </center>
 
-You can see how in the first year of operational Sentinel-2 image acquisition the temporal pattern indicates the yearly cycle of vegetation on northern hemisphere, while after the construction and opening of the building in May 2018 the temporal pattern changed completely. The remaining variations are due to noise and perhaps smaller patches of grass in between of the buildings.
+You can see how in the first year of operational Sentinel-2 image acquisition (2015-2016) the temporal pattern indicates the yearly cycle of vegetation on northern hemisphere, while after the construction and opening of the building in May 2018 the temporal pattern changed completely. The remaining variations are due to noise and perhaps smaller patches of grass in between of the buildings.
 
 
 Using the same greenness variable applied to agricultural fields may reveal changes in crop types or agricultural use. In this example, the use of one agricultural field changed between 2018 and 2019. While you can identify two main peaks in the years until (and including) 2018, there is only one peak in 2019 and 2020.
@@ -131,7 +131,7 @@ In cases when defined geographic regions area already available you may want to 
 
 **Surface water**
 
-Some borders that are defined in (vector) databases of geographical objects indicate only one or an aggregated state. One example are water bodies. While they are represented as stable with a clearly defined border, they undergo many changes over time. Spatially disaggregated information from Earth observation data allows to investigate these with unprecedented spatio-temporal detail. Earth observations of one year covering parts of the Lake of Constance allows to investigate the dynamics of the Rhine River and the Bregenzerach reveal more details than the simple polygon in the geographical database
+Some borders that are defined in (vector) databases of geographical objects indicate only one or an averaged one One example are water bodies: While they are represented as stable with a clearly defined border, they undergo many changes over time. Spatially disaggregated information from Earth observation data allows to investigate these in unprecedented spatio-temporal detail. Earth observations of one year covering parts of the Lake of Constance reveals the dynamics at the mouth of the Rhine River and the Bregenzerach and allows to see more details than the simple polygon in the geographical database
 
 <center>
 ![Lake of Constance](img/spatial-information-3.png){width=100%}
@@ -143,14 +143,14 @@ Some borders that are defined in (vector) databases of geographical objects indi
 
 </center>
 
-Another use case of spatially disaggregated information is to detect missing geographical objects in databases. For example, the dam "Donaukraftwerk Melk" is not yet present in the geographical database
+Another use case of spatially disaggregated information is to detect missing or changed geographical objects in other databases. For example, the dam "Donaukraftwerk Melk" is not yet present in the geographical database ...
 
 <center>
 ![Dam is missing in geographical database](img/spatial-information-1.png){width=100%}
 
 </center>
 
-However, it is already clearly visible in the Earth-observation-based information.
+... it is already clearly visible in the Earth-observation-based information.
 
 <center>
 ![Dam is missing in geographical database](img/spatial-information-2.png){width=100%}
@@ -166,7 +166,7 @@ Other geographical phenomena and objects might be spatially arranged within a re
 
 </center>
 
-Further re-use of the results is also possible. For example, the color ramp produces a nice visual output, but it might be more useful to apply a threshold and finally delineate areas that might be considered stable vegetation or green spaces.
+Further re-use of intermediate results is also possible. For example, the color ramp produces a nice visual output, but it might be more useful to apply a threshold and finally delineate areas that might be considered stable vegetation or green spaces.
 
 <center>
 ![Viennas green areas - delineated according temporal occurrency](img/spatial-information-6.png){width=100%}
