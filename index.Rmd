@@ -49,7 +49,7 @@ Sen2Cube.at is designed as a general-purpose Earth observation expert system to 
 
 ### Semantic content-based image retrieval
 
-As a common task the Sen2Cube.at system may be used for a content-based search of suitable images, e.g., images that are cloud-free in a certain area of interest.
+As a common task the Sen2Cube.at system may be used for a content-based search of suitable images, e.g., images that are cloud-free in a certain area-of-interest.
 
 For example, suppose you are interested in the phenology and cloud-free observations of the agricultural field depicted in the screenshot below. While the acquisition on 21st of October 2018 was quite cloudy, the observations of this particular field are perfectly valid and useful for further investigation.
 
@@ -66,7 +66,7 @@ However, if you search for images using the image-wide cloud statistics that are
 </center>
 
 ```{block, type='rmdtip'}
-Why don't you try it out on your own? After reading the "Getting started" chapter, come back here and use the "SCBIR - Cloud" model, [this area of interest](https://demo.sen2cube.at/ows/000/?service=WFS&version=1.1.0&request=GetFeature&outputFormat=application/json&srsname=EPSG:4326&typename=inspire_feldstuecke_2019&Filter=%3CFilter%3E%3CPropertyIsEqualTo%3E%3CPropertyName%3EFS_KENNUNG%3C/PropertyName%3E%3CLiteral%3E79707084%3C/Literal%3E%3C/PropertyIsEqualTo%3E%3C/Filter%3E)
+Why don't you try it out on your own? After reading the "Getting started" chapter, come back here and use the "SCBIR - Cloud" model, [this area-of-interest](https://demo.sen2cube.at/ows/000/?service=WFS&version=1.1.0&request=GetFeature&outputFormat=application/json&srsname=EPSG:4326&typename=inspire_feldstuecke_2019&Filter=%3CFilter%3E%3CPropertyIsEqualTo%3E%3CPropertyName%3EFS_KENNUNG%3C/PropertyName%3E%3CLiteral%3E79707084%3C/Literal%3E%3C/PropertyIsEqualTo%3E%3C/Filter%3E)
 and October 2018 as time interval.
 ```
 
@@ -91,7 +91,7 @@ The Stubaital during spring reveals that there is still snow on the higher eleva
 
 </center>
 
-A cloud-free composite of observations from spring is not useful for your application? No problem - chose any other time interval. You don't need to rely on pre-manufactured cloud-free composites. In Sen2Cube.at, you can configure these parameters and produce ad-hoc cloud-free composites from an area of interest and a time interval you are interested in.
+A cloud-free composite of observations from spring is not useful for your application? No problem - chose any other time interval. You don't need to rely on pre-manufactured cloud-free composites. In Sen2Cube.at, you can configure these parameters and produce ad-hoc cloud-free composites from an area-of-interest and a time interval you are interested in.
 
 ```{block, type='rmdtip'}
 The result of every inference is available as OGC Web Map Service - you can simply add them in your GIS.

@@ -192,7 +192,7 @@ The *group by* verb splits the input cube into distinct groups, based on a given
 The Sen2Cube.at interface offers several pre-defined grouping variables:
 
 - **Temporal grouping variables**: grouping variables that will split the temporal dimension, such that each group contains *exclusively* observations taken within a specific time period. The variables to choose from are `year`, `season`, `month`, `week`, `dayofyear` and `dayofweek`.
-- **Spatial grouping variables**: grouping variables that will split the spatial dimensions, such that each group contains *exclusively* observations taken within a specific sub-area inside the defined area of interest. Currently, only a single variable is supported, named `spatialfeature`. This requires the area of interest to consist of multiple, distinct spatial features (point, lines or polygons) that do not intersect with each other. Each of these distinct features will then form a group.
+- **Spatial grouping variables**: grouping variables that will split the spatial dimensions, such that each group contains *exclusively* observations taken within a specific sub-area inside the defined area-of-interest. Currently, only a single variable is supported, named `spatialfeature`. This requires the area-of-interest to consist of multiple, distinct spatial features (point, lines or polygons) that do not intersect with each other. Each of these distinct features will then form a group.
 
 It is also possible to group based on *multiple* grouping variables. For example, when having two years of data with at least one observation each month, grouping by `month` will result in 12 different groups. Observations from January in the first year, will end up in the same group as observations from January in the second year. However, when grouping by `month` *and* `year`, there will be 24 different groups. Such multiple grouping operations are enabled in the block interface by means of a *group list* block.
 
@@ -382,7 +382,7 @@ A *time collection* is a list of time instants that do *not* have to be consecut
 ## Space
 
 ```{block, type='rmdwarning'}
-Currently there is *no* support for spatial subsetting of cubes, or customly defining areas that divide the overall area of interest. Such functionalities might be added in the future.
+Currently there is *no* support for spatial subsetting of cubes, or customly defining areas that divide the overall area-of-interest. Such functionalities might be added in the future.
 ```
 
 ## Comments {#comment}
