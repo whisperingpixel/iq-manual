@@ -14,7 +14,7 @@ SIAM's 33 color name granularity is exemplarily utilized within the Sen2Cube.at 
 
  The following table shows the legend of the SIAM names (spectral categories) that can currently be selected and used in Sen2Cube.at for analyses and evaluations through time:
 
-Table: (\#tab:class) 33 SIAM color names available in Sen2Cube.at
+Table: (\#tab:siamnames) 33 SIAM color names available in Sen2Cube.at
 
 | Nr          | Abbreviation| Description of the spectral category (not land cover) | category
 |------------:|------------:|------------:|------------:|
