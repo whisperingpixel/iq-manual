@@ -91,7 +91,7 @@ Here are a few examples of the generic, low level semantic enrichment generated 
 
 </center>
 
-Sentinel-2 imagery covering Austria from 18 September 2019, 05 April 2020 and 24 June 2020 have been exemplarily discretized into 33 multi-spectral color spaces with SIAM.
+Sentinel-2 imagery covering Austria from 18 September 2019, 05 April 2020 and 24 June 2020 have been exemplarily discretized into multi-spectral color spaces with SIAM.
 
 <center>
 ![Sentinel-2 true color image from 18 September 2019](img/20190918_TCI_33UWP.jpeg){width=100%}
