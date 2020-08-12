@@ -28,7 +28,7 @@ Table: (\#tab:class) 33 SIAM color names available in Sen2Cube.at
 |           8 | SHRBRLNIR   | Shrub Rangeland with Low NIR | appearance |
 |           9 | HRBCR       | Herbaceous Rangeland | appearance |
 |          10 | WR          | Weak Rangeland | appearance |
-|          11 | PB          | Pit bog     | appearance |
+|          11 | PB          | Pit or bog     | appearance |
 |          12 | GH          | Greenhouse  | appearance |
 |          13 | VBBB        | Very bright barren land or built-up | appearance |
 |          14 | BBB         | Bright barren land or built-up | appearance |
