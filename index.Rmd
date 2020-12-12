@@ -2,11 +2,8 @@
 title: "Sen2Cube.at Manual"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
-output:
-  bookdown::gitbook: default
-  pdf_document: default
-documentclass: book
 output: bookdown::gitbook
+documentclass: book
 github-repo: whisperingpixel/iq-manual
 ---
 

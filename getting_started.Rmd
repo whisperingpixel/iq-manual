@@ -1,8 +1,4 @@
----
-output:
-  pdf_document: default
-  html_document: default
----
+
 # Getting started {#start}
 
 Sen2Cube.at is a Web-application that can be accessed with a standard browser over the Internet. Installing additional software on your local computer is not necessary. The graphical frontend of our semantic querying interface is available online at [demo.sen2cube.at](https://demo.sen2cube.at/app). Please consult the contact section for options to get access to the demo version.
