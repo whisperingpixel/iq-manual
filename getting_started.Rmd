@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 # Getting started {#start}
 
 Sen2Cube.at is a Web-application that can be accessed with a standard browser over the Internet. Installing additional software on your local computer is not necessary. The graphical frontend of our semantic querying interface is available online at [demo.sen2cube.at](https://demo.sen2cube.at/app). Please consult the contact section for options to get access to the demo version.
@@ -15,6 +20,8 @@ A semantic query in the Sen2Cube.at system has three main components:
 ```{block, type='rmdnote'}
 A semantic query is the execution of a model from the knowledgebase against a selected spatio-temporal subset of the factbase through which new information is inferred.
 ```
+
+Additionally, it is possible to execute a model in **preview** mode. This is a setting of the **inference engine** options and available for all types of models. A query in preview mode generally will be executed faster as the spatial resolution is reduced by a factor of 10. See the section below for more information.
 
 ## Workflow
 
@@ -71,6 +78,20 @@ Every semantic query, i.e., inference, will be created internally and executed b
 
 It is possible to stop an inference any time by clicking `Abort inference`. It may take some seconds until you receive the final notification that the inference was aborted.
 
+### Preview-mode
+
+The **preview-mode** can be used for prototypically and interactively develop and test semantic models. The spatial resolution will be reduced by a factor of 10, which usually reduces the processing time significantly. In the case of Sentinel-2 the processing and output pixel size will therefore not be 10x10, but 100x100 meters. Thus, keep in mind the side-effects that this setting may have.
+
+The following example illustrates the effect of the preview mode. They show the execution of the same semantic model of the same AOI and the same time interval, while the first picture shows the result of the query executed in preview-mode and the second picture shows the result of the query executed in preview-mode:
+
+![Query executed not in preview mode](img/preview-no.png){width=100%}
+
+![Query executed in preview-mode](img/preview-yes.png){width=100%}
+
+It is possible to see the effects of the coarser spatial resolutions, not only less detailed outlines and crossings, but also some entities are completely hidden, e.g. the infrastructure that guides the river water and the sediments to deeper parts of the lake.
+
+In the result it will be indicated whether a query was executed in preview-mode or not.
+
 ### Viewing and downloading the results
 
 When successfully processed, results can be viewed by clicking the `View results` button that will appear. Results with a spatial dimension will be visualized on a map, and results with only a temporal dimension will be visualized as a line graph if the data values are numerical. Results of semantic content-based image retrieval will be visualized in calendar. Most other types of data will be visualized as a plain list. Besides the visualization, there is also the option to download the results as either a [GeoTIFF](https://en.wikipedia.org/wiki/GeoTIFF#:~:text=GeoTIFF%20is%20a%20public%20domain,spatial%20reference%20for%20the%20file.) (for spatial data) or [CSV](https://en.wikipedia.org/wiki/Comma-separated_values) (for non-spatial data) file. You can also choose to download a result as a [QGIS Project File](https://docs.qgis.org/3.10/en/docs/user_manual/introduction/project_files.html) or directly input the results as OGC WMS.
@@ -107,6 +128,6 @@ The entire workflow of using a prepared model to conduct a semantic query can be
 
 ## Other access options
 
-If you have experience with other Earth observation data cubes you might be familiar with Jupyter Notebooks. Of course they are available in Sen2Cube.at as well: [https://demo.sen2cube.at/notebook](https://demo.sen2cube.at/notebook).
+If you have experience with other Earth observation data cubes you might be familiar with Jupyter Notebooks. Of course they are available in Sen2Cube.at as well: [https://demo.sen2cube.at/notebook/sen2cube](https://demo.sen2cube.at/notebook/sen2cube).
 
 ... but in the semantic querying language you don't have to do programming at all!

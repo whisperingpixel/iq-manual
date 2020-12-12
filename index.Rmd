@@ -2,6 +2,9 @@
 title: "Sen2Cube.at Manual"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
+output:
+  bookdown::gitbook: default
+  pdf_document: default
 documentclass: book
 output: bookdown::gitbook
 github-repo: whisperingpixel/iq-manual
@@ -180,3 +183,11 @@ The Sen2Cube.at system was not explicitly designed for any of the use-cases pres
 ```
 
 A good start to get familiar with the Sen2Cube.at system is to read how we conduct the [Semantic Enrichment](#enrichment) of Earth observation data and then proceed with the [Getting Started](#start) section and try to use or build your first model.
+
+## More information and community access
+
+This manual gives a lot of information how to use the Sen2Cube.at system; still, some parts might be unclear or specific question may arise. Feel free to use our community forum to ask: [https://forum.sen2cube.at/](https://forum.sen2cube.at/). The forum-account (including username and password) is the same as your overall Sen2Cube.at account. Thus, you can directly login by clicking on the icon below the text "Alternative Login" ...
+
+![](img/forum-login.png){width=100%}
+
+... and you will be forwarded to the Sen2Cube.at login page and then redirected to the forum.
