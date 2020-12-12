@@ -35,6 +35,8 @@ In the Sen2Cube.at Web-application, each component corresponds to one pane on th
 
 Clicking `Browse all models` shows the models, which are already within the knowledgebase and can be used directly. At the end of that list, you can click the `+` icon to construct a new model. For that, read the documentation on model construction (\@ref(model)).
 
+Deleting a model is only possible if it was not used in an inference, i.e.., a semantic query. As information processing system, Sen2Cube.at does not allow to maintain inferences without associated models. Thus, deleting all associated inferences is required prior to deleting a model.
+
 ### Selecting the area-of-interest
 
 The area-of-interest can be drawn within the country borders of Austria, in three different ways:
