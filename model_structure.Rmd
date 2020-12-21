@@ -1,0 +1,33 @@
+---
+# Model structure {#model}
+
+The model itself defines the output. Besides choosing from pre-constructed models within the knowledgebase, new models can be constructed from scratch. There are two main components that define a model:
+
+- The **semantic concept dictionary** serves as a translator between descriptions of real-world entities and raw image data. For example, if we want to know which observations can be identified as *water*, we need to specify *how* we define water given the data that we have. What does *water* mean in terms of our data values? Creating a semantic concept dictionary requires expert knowledge and is usually not a task that non-experts take on by themselves.
+- The **application** component is then used to formulate the semantic query by using the defined semantic concepts directly. Since it is defined what *water* means in terms of the data, we don't have to worry about the raw data anymore, but can use common language to describe our desired output. For example "how many observations where defined as water inside my area-of-interest, during July 2020". Such a question forms a single result. A model can contain multiple results.
+
+The model construction is designed to be as intuitive as possible by connecting several *building blocks*, that all represent a distinct, clearly defined task or value. See the building blocks chapter (\@ref(blocks)) for an in-depth description of them. The starting point is an *empty model*:
+
+<center>
+![](img/emptymodel.png){width=50%}
+</center>
+
+See below an example of a simple model. In the semantic concept dictionary, the entity *water* is defined in terms of the data. Each observation inside the spatio-temporal extent of the query is labelled as either being water, or not. The application component contains a single result, in which the number of water observations are counted over time.
+
+<center>
+![Example model for counting water observations over time](img/watercountmodel.png){width=100%}
+
+</center>
+
+The result is a map in which each spatial location (modelled as a cell in a spatial grid) contains a *water count* value.
+
+<center>
+![Result of counted observations over time](img/watercountresult.png){width=100%}
+
+</center>
+
+
+The following video shows the development process of a model (*External Youtube Link*).
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/oiJt61CONqA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
