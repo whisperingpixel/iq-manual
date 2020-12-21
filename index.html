@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Sen2Cube.at Manual</title>
+  <meta name="description" content="Sen2Cube.at Manual" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Sen2Cube.at Manual" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="whisperingpixel/iq-manual" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Sen2Cube.at Manual" />
+  
+  
+  
+
+
+
+<meta name="date" content="2020-12-21" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="enrichment.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Sen2Cube.at Manual</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#overview"><i class="fa fa-check"></i><b>1.1</b> Overview</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#use-cases"><i class="fa fa-check"></i><b>1.2</b> Use cases</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#semantic-content-based-image-retrieval"><i class="fa fa-check"></i><b>1.2.1</b> Semantic content-based image retrieval</a></li>
+<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#cloud-free-composite"><i class="fa fa-check"></i><b>1.2.2</b> Cloud-free composite</a></li>
+<li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#time-series"><i class="fa fa-check"></i><b>1.2.3</b> Time series</a></li>
+<li class="chapter" data-level="1.2.4" data-path="index.html"><a href="index.html#spatially-disaggregated-information"><i class="fa fa-check"></i><b>1.2.4</b> Spatially disaggregated information</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#next-steps-and-how-to-start"><i class="fa fa-check"></i><b>1.3</b> Next steps and how to start</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#more-information-and-community-access"><i class="fa fa-check"></i><b>1.4</b> More information and community access</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="enrichment.html"><a href="enrichment.html"><i class="fa fa-check"></i><b>2</b> Semantic Enrichment</a><ul>
+<li class="chapter" data-level="2.1" data-path="enrichment.html"><a href="enrichment.html#siam"><i class="fa fa-check"></i><b>2.1</b> Satellite Image Automatic Mapper (SIAM)</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="enrichment.html"><a href="enrichment.html#siam_examples_austria"><i class="fa fa-check"></i><b>2.1.1</b> Applied in Austria</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="start.html"><a href="start.html"><i class="fa fa-check"></i><b>3</b> Getting started</a><ul>
+<li class="chapter" data-level="3.1" data-path="start.html"><a href="start.html#components"><i class="fa fa-check"></i><b>3.1</b> Components</a></li>
+<li class="chapter" data-level="3.2" data-path="start.html"><a href="start.html#workflow"><i class="fa fa-check"></i><b>3.2</b> Workflow</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="start.html"><a href="start.html#selecting-the-model"><i class="fa fa-check"></i><b>3.2.1</b> Selecting the model</a></li>
+<li class="chapter" data-level="3.2.2" data-path="start.html"><a href="start.html#selecting-the-area-of-interest"><i class="fa fa-check"></i><b>3.2.2</b> Selecting the area-of-interest</a></li>
+<li class="chapter" data-level="3.2.3" data-path="start.html"><a href="start.html#selecting-the-time-interval"><i class="fa fa-check"></i><b>3.2.3</b> Selecting the time interval</a></li>
+<li class="chapter" data-level="3.2.4" data-path="start.html"><a href="start.html#executing-the-query-and-inferring-new-information"><i class="fa fa-check"></i><b>3.2.4</b> Executing the query and inferring new information</a></li>
+<li class="chapter" data-level="3.2.5" data-path="start.html"><a href="start.html#preview-mode"><i class="fa fa-check"></i><b>3.2.5</b> Preview-mode</a></li>
+<li class="chapter" data-level="3.2.6" data-path="start.html"><a href="start.html#viewing-and-downloading-the-results"><i class="fa fa-check"></i><b>3.2.6</b> Viewing and downloading the results</a></li>
+<li class="chapter" data-level="3.2.7" data-path="start.html"><a href="start.html#error-handling"><i class="fa fa-check"></i><b>3.2.7</b> Error handling</a></li>
+<li class="chapter" data-level="3.2.8" data-path="start.html"><a href="start.html#exampleworkflow"><i class="fa fa-check"></i><b>3.2.8</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="start.html"><a href="start.html#other-access-options"><i class="fa fa-check"></i><b>3.3</b> Other access options</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="model.html"><a href="model.html"><i class="fa fa-check"></i><b>4</b> Model structure</a></li>
+<li class="chapter" data-level="5" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>5</b> Building blocks</a><ul>
+<li class="chapter" data-level="5.1" data-path="blocks.html"><a href="blocks.html#definitions"><i class="fa fa-check"></i><b>5.1</b> Definitions</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="blocks.html"><a href="blocks.html#entities-and-properties"><i class="fa fa-check"></i><b>5.1.1</b> Entities and properties</a></li>
+<li class="chapter" data-level="5.1.2" data-path="blocks.html"><a href="blocks.html#result_definition"><i class="fa fa-check"></i><b>5.1.2</b> Results</a></li>
+<li class="chapter" data-level="5.1.3" data-path="blocks.html"><a href="blocks.html#seasons-and-partitions"><i class="fa fa-check"></i><b>5.1.3</b> Seasons and partitions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="blocks.html"><a href="blocks.html#data-and-information"><i class="fa fa-check"></i><b>5.2</b> Data and information</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="blocks.html"><a href="blocks.html#appearance"><i class="fa fa-check"></i><b>5.2.1</b> Appearance</a></li>
+<li class="chapter" data-level="5.2.2" data-path="blocks.html"><a href="blocks.html#atmosphere"><i class="fa fa-check"></i><b>5.2.2</b> Atmosphere</a></li>
+<li class="chapter" data-level="5.2.3" data-path="blocks.html"><a href="blocks.html#reflectance"><i class="fa fa-check"></i><b>5.2.3</b> Reflectance</a></li>
+<li class="chapter" data-level="5.2.4" data-path="blocks.html"><a href="blocks.html#topography"><i class="fa fa-check"></i><b>5.2.4</b> Topography</a></li>
+<li class="chapter" data-level="5.2.5" data-path="blocks.html"><a href="blocks.html#artifacts"><i class="fa fa-check"></i><b>5.2.5</b> Artifacts</a></li>
+<li class="chapter" data-level="5.2.6" data-path="blocks.html"><a href="blocks.html#metadata"><i class="fa fa-check"></i><b>5.2.6</b> Metadata</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="blocks.html"><a href="blocks.html#verbs"><i class="fa fa-check"></i><b>5.3</b> Verbs</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="blocks.html"><a href="blocks.html#evaluate"><i class="fa fa-check"></i><b>5.3.1</b> Evaluate</a></li>
+<li class="chapter" data-level="5.3.2" data-path="blocks.html"><a href="blocks.html#filter"><i class="fa fa-check"></i><b>5.3.2</b> Filter</a></li>
+<li class="chapter" data-level="5.3.3" data-path="blocks.html"><a href="blocks.html#group-by-and-ungroup"><i class="fa fa-check"></i><b>5.3.3</b> Group by and ungroup</a></li>
+<li class="chapter" data-level="5.3.4" data-path="blocks.html"><a href="blocks.html#invert"><i class="fa fa-check"></i><b>5.3.4</b> Invert</a></li>
+<li class="chapter" data-level="5.3.5" data-path="blocks.html"><a href="blocks.html#label"><i class="fa fa-check"></i><b>5.3.5</b> Label</a></li>
+<li class="chapter" data-level="5.3.6" data-path="blocks.html"><a href="blocks.html#mask"><i class="fa fa-check"></i><b>5.3.6</b> Mask</a></li>
+<li class="chapter" data-level="5.3.7" data-path="blocks.html"><a href="blocks.html#reduce"><i class="fa fa-check"></i><b>5.3.7</b> Reduce</a></li>
+<li class="chapter" data-level="5.3.8" data-path="blocks.html"><a href="blocks.html#replace"><i class="fa fa-check"></i><b>5.3.8</b> Replace</a></li>
+<li class="chapter" data-level="5.3.9" data-path="blocks.html"><a href="blocks.html#select"><i class="fa fa-check"></i><b>5.3.9</b> Select</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="blocks.html"><a href="blocks.html#combiners"><i class="fa fa-check"></i><b>5.4</b> Combiners</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="blocks.html"><a href="blocks.html#concatenate"><i class="fa fa-check"></i><b>5.4.1</b> Concatenate</a></li>
+<li class="chapter" data-level="5.4.2" data-path="blocks.html"><a href="blocks.html#compose"><i class="fa fa-check"></i><b>5.4.2</b> Compose</a></li>
+<li class="chapter" data-level="5.4.3" data-path="blocks.html"><a href="blocks.html#combine"><i class="fa fa-check"></i><b>5.4.3</b> Merge</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="blocks.html"><a href="blocks.html#time"><i class="fa fa-check"></i><b>5.5</b> Time</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="blocks.html"><a href="blocks.html#time_instant"><i class="fa fa-check"></i><b>5.5.1</b> Time instant</a></li>
+<li class="chapter" data-level="5.5.2" data-path="blocks.html"><a href="blocks.html#time_period"><i class="fa fa-check"></i><b>5.5.2</b> Time periods</a></li>
+<li class="chapter" data-level="5.5.3" data-path="blocks.html"><a href="blocks.html#time_collection"><i class="fa fa-check"></i><b>5.5.3</b> Time collection</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="blocks.html"><a href="blocks.html#space"><i class="fa fa-check"></i><b>5.6</b> Space</a></li>
+<li class="chapter" data-level="5.7" data-path="blocks.html"><a href="blocks.html#comment"><i class="fa fa-check"></i><b>5.7</b> Comments</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="examples.html"><a href="examples.html"><i class="fa fa-check"></i><b>6</b> Examples</a></li>
+<li class="chapter" data-level="7" data-path="contact.html"><a href="contact.html"><i class="fa fa-check"></i><b>7</b> Contact</a></li>
+<li class="chapter" data-level="8" data-path="legal.html"><a href="legal.html"><i class="fa fa-check"></i><b>8</b> Legal Info</a><ul>
+<li class="chapter" data-level="8.1" data-path="legal.html"><a href="legal.html#proprietary-rights-acknowledgment"><i class="fa fa-check"></i><b>8.1</b> Proprietary Rights Acknowledgment</a></li>
+<li class="chapter" data-level="8.2" data-path="legal.html"><a href="legal.html#trademarks"><i class="fa fa-check"></i><b>8.2</b> Trademarks</a></li>
+<li class="chapter" data-level="8.3" data-path="legal.html"><a href="legal.html#licences"><i class="fa fa-check"></i><b>8.3</b> Licences</a></li>
+<li class="chapter" data-level="8.4" data-path="legal.html"><a href="legal.html#liability"><i class="fa fa-check"></i><b>8.4</b> Liability</a></li>
+<li class="chapter" data-level="8.5" data-path="legal.html"><a href="legal.html#information-duty-to-gpdr-art.-13-and-14"><i class="fa fa-check"></i><b>8.5</b> Information Duty to GPDR Art. 13 and 14</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="legal.html"><a href="legal.html#general"><i class="fa fa-check"></i><b>8.5.1</b> General</a></li>
+<li class="chapter" data-level="8.5.2" data-path="legal.html"><a href="legal.html#legal-basis-for-processing-person-related-data"><i class="fa fa-check"></i><b>8.5.2</b> Legal basis for processing person-related data</a></li>
+<li class="chapter" data-level="8.5.3" data-path="legal.html"><a href="legal.html#processing-of-data-data-categories-and-involved-groups-of-persons"><i class="fa fa-check"></i><b>8.5.3</b> Processing of data, data categories and involved groups of persons</a></li>
+<li class="chapter" data-level="8.5.4" data-path="legal.html"><a href="legal.html#use-of-your-personal-data-purpose"><i class="fa fa-check"></i><b>8.5.4</b> Use of your personal data (purpose)</a></li>
+<li class="chapter" data-level="8.5.5" data-path="legal.html"><a href="legal.html#your-rights-as-an-involved-person"><i class="fa fa-check"></i><b>8.5.5</b> Your rights as an involved person</a></li>
+<li class="chapter" data-level="8.5.6" data-path="legal.html"><a href="legal.html#revoking-consent"><i class="fa fa-check"></i><b>8.5.6</b> Revoking consent</a></li>
+<li class="chapter" data-level="8.5.7" data-path="legal.html"><a href="legal.html#deletion-of-person-related-data"><i class="fa fa-check"></i><b>8.5.7</b> Deletion of person-related data</a></li>
+<li class="chapter" data-level="8.5.8" data-path="legal.html"><a href="legal.html#technical-organisational-measures"><i class="fa fa-check"></i><b>8.5.8</b> Technical organisational measures</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="legal.html"><a href="legal.html#additional-legal-info-in-german-only"><i class="fa fa-check"></i><b>8.6</b> Additional legal info (in German only)</a><ul>
+<li class="chapter" data-level="8.6.1" data-path="legal.html"><a href="legal.html#offenlegung-gemäß-25-mediengesetz"><i class="fa fa-check"></i><b>8.6.1</b> Offenlegung gemäß § 25 Mediengesetz</a></li>
+<li class="chapter" data-level="8.6.2" data-path="legal.html"><a href="legal.html#urheberrechte"><i class="fa fa-check"></i><b>8.6.2</b> Urheberrechte</a></li>
+<li class="chapter" data-level="8.6.3" data-path="legal.html"><a href="legal.html#markenrechte"><i class="fa fa-check"></i><b>8.6.3</b> Markenrechte</a></li>
+<li class="chapter" data-level="8.6.4" data-path="legal.html"><a href="legal.html#haftung-und-gewährleistung"><i class="fa fa-check"></i><b>8.6.4</b> Haftung und Gewährleistung</a></li>
+<li class="chapter" data-level="8.6.5" data-path="legal.html"><a href="legal.html#aufsichtsbehörde-der-universität-salzburg"><i class="fa fa-check"></i><b>8.6.5</b> Aufsichtsbehörde der Universität Salzburg</a></li>
+<li class="chapter" data-level="8.6.6" data-path="legal.html"><a href="legal.html#aufgaben-der-paris-lodron-universität-salzburg"><i class="fa fa-check"></i><b>8.6.6</b> Aufgaben der Paris-Lodron-Universität Salzburg</a></li>
+<li class="chapter" data-level="8.6.7" data-path="legal.html"><a href="legal.html#umsatzsteuer-identifikationsnummer-uid-der-universität-salzburg"><i class="fa fa-check"></i><b>8.6.7</b> Umsatzsteuer-Identifikationsnummer (UID) der Universität Salzburg</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Sen2Cube.at Manual</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Sen2Cube.at Manual</h1>
+<p class="date"><em>2020-12-21</em></p>
+</div>
+<div id="about" class="section level1">
+<h1><span class="header-section-number">1</span> About</h1>
+<center>
+<img src="img/logo_b.png" style="width:50.0%" />
+</center>
+<p> </p>
+<p>This manual is intended for Sen2Cube.at users and is not a technical documentation.</p>
+<div id="overview" class="section level2">
+<h2><span class="header-section-number">1.1</span> Overview</h2>
+<p>Sen2Cube.at is the first operational semantic Earth Observation data cube, allowing you to produce information from satellite imagery on a higher semantic level. That means, getting answers to questions such as “<em>Which images are cloud-free in a specific area-of-interest?</em>”, “<em>What was the phenology of this agricultural field in 2019?</em>”, “<em>Which areas were permanently sealed in the last year?</em>” and many more. To obtain these results you don’t need programming or be an expert with deeper knowledge of the raw image data.</p>
+<p>The Sen2Cube.at semantic image querying system is accessible as <a href="https://demo.sen2cube.at/app">Web-application</a>, in which queries can be formulated by intuitively combining several building blocks, that each represent a distinct, clearly defined task or value inside the semantic querying process. This manual contains the reference documentation of that interface.</p>
+<p>Sen2Cube.at is provided by the <a href="https://www.zgis.at/">Department of Geoinformatics - Z_GIS</a> at the University of Salzburg, in collaboration with the project partners:</p>
+<p> </p>
+<center>
+<p><a href="https://www.uni-salzburg.at/"><img src="img/unisbg.png" style="width:20.0%" /></a>   <a href="https://www.zgis.at/"><img src="img/zgis.png" style="width:20.0%" /></a></p>
+<a href="https://www.ama.at/"><img src="img/ama.png" style="width:20.0%" /></a>   <a href="https://www.spatial-services.com/"><img src="img/spase.png" style="width:20.0%" /></a>   <a href="https://www.zamg.ac.at/"><img src="img/zamg.png" style="width:20.0%" /></a>
+</center>
+<p> </p>
+<p>Sen2Cube.at is developed with support by the Austrian Research Promotion Agency (FFG) under the Austrian Space Application Programme (ASAP 14) within the project Sen2Cube.at (project no.: 866016).</p>
+<p> </p>
+<center>
+<a href="https://www.ffg.at/"><img src="img/ffg.png" style="width:20.0%" /></a>
+</center>
+</div>
+<div id="use-cases" class="section level2">
+<h2><span class="header-section-number">1.2</span> Use cases</h2>
+<p>Sen2Cube.at is designed as a general-purpose Earth observation expert system to support and facilitate a great variety of use-cases. The ones listed here are selected and serve as introduction.</p>
+<div id="semantic-content-based-image-retrieval" class="section level3">
+<h3><span class="header-section-number">1.2.1</span> Semantic content-based image retrieval</h3>
+<p>As a common task the Sen2Cube.at system may be used for a content-based search of suitable images, e.g., images that are cloud-free in a certain area-of-interest.</p>
+<p>For example, suppose you are interested in the phenology and cloud-free observations of the agricultural field depicted in the screenshot below. While the acquisition on 21st of October 2018 was quite cloudy, the observations of this particular field are perfectly valid and useful for further investigation.</p>
+<center>
+<div class="figure">
+<img src="img/scbir-example-1.png" style="width:100.0%" alt="" />
+<p class="caption">Why we need SCBIR</p>
+</div>
+</center>
+<p>However, if you search for images using the image-wide cloud statistics that are common in image databases, this image will never be returned due to the overall cloud contamination. In contrast, the Sen2Cube.at system allows to specify explicitly an area-of-interest and a cloud filter that will be evaluated only for this area. Subsequently, you receive better information about which images can be used or not for your application.</p>
+<center>
+<div class="figure">
+<img src="img/scbir-example-2.png" style="width:100.0%" alt="" />
+<p class="caption">SCBIR in Sen2Cube.at</p>
+</div>
+</center>
+<div class="rmdtip">
+<p>
+Why don’t you try it out on your own? After reading the “Getting started” chapter, come back here and use the “SCBIR - Cloud” model, <a href="https://demo.sen2cube.at/ows/000/?service=WFS&amp;version=1.1.0&amp;request=GetFeature&amp;outputFormat=application/json&amp;srsname=EPSG:4326&amp;typename=inspire_feldstuecke_2019&amp;Filter=%3CFilter%3E%3CPropertyIsEqualTo%3E%3CPropertyName%3EFS_KENNUNG%3C/PropertyName%3E%3CLiteral%3E79707084%3C/Literal%3E%3C/PropertyIsEqualTo%3E%3C/Filter%3E">this area-of-interest</a> and October 2018 as time interval.
+</p>
+</div>
+</div>
+<div id="cloud-free-composite" class="section level3">
+<h3><span class="header-section-number">1.2.2</span> Cloud-free composite</h3>
+<p>Most applications for Earth observation of land consider clouds as noise and not as valid observations. One approach to manage cloud contamination that is feasible in many situations is to create a cloud-free composite, i.e., an artificial image where cloud-free pixels are selected and stitched together using some user-defined rules. Since a basic interpretation of the observations are already available in Sen2Cube.at, a cloud-free composite based on pre-selecting valid observations is easily possible. This example is an artificial image of cloud-free Vienna during Summer 2018:</p>
+<center>
+<div class="figure">
+<img src="img/cloud-free-composite-1.png" style="width:100.0%" alt="" />
+<p class="caption">Cloud-free Vienna</p>
+</div>
+</center>
+<div class="rmdtip">
+<p>
+You may notice that the extent is cropped to the borders of Vienna: You don’t have to digitize your area-of-interest manually. Every valid GeoJSON can be input, even if it is located online. Here, the borders are directly downloaded as <a href="https://data.wien.gv.at/daten/geo?service=WFS&amp;request=GetFeature&amp;version=1.1.0&amp;typeName=ogdwien:LANDESGRENZEOGD&amp;srsName=EPSG:4326&amp;outputFormat=json">OGC Web Feature Service</a> from the <a href="https://www.data.gv.at/katalog/dataset/86c29af5-c52c-423d-8764-82c1bb037936">Open Data Portal of Vienna</a>.
+</p>
+</div>
+<p>The Stubaital during spring reveals that there is still snow on the higher elevated areas.</p>
+<center>
+<div class="figure">
+<img src="img/cloud-free-composite-2.png" style="width:100.0%" alt="" />
+<p class="caption">Cloud-free Stubaital</p>
+</div>
+</center>
+<p>A cloud-free composite of observations from spring is not useful for your application? No problem - chose any other time interval. You don’t need to rely on pre-manufactured cloud-free composites. In Sen2Cube.at, you can configure these parameters and produce ad-hoc cloud-free composites from an area-of-interest and a time interval you are interested in.</p>
+<div class="rmdtip">
+The result of every inference is available as OGC Web Map Service - you can simply add them in your GIS.
+<center>
+<img src="img/cloud-free-composite-3.png" title="fig:" style="width:100.0%" alt="Cloud-free Stubaital in a GIS" />
+</center>
+</div>
+</div>
+<div id="time-series" class="section level3">
+<h3><span class="header-section-number">1.2.3</span> Time series</h3>
+<p>Continuous Earth observation with acquisition frequencies of a few days allow to extract relevant patterns based on (long) time series of a selected variable. For example, by using the appearance of “greenness” of the observations as variable of interest, it is possible to trace back the land use change of this area where an industrial/commercial building was constructed on a meadow.</p>
+<center>
+<div class="figure">
+<img src="img/time-series-example-1.png" style="width:100.0%" alt="" />
+<p class="caption">Construction of a building</p>
+</div>
+</center>
+<p>You can see how in the first year of operational Sentinel-2 image acquisition (2015-2016) the temporal pattern indicates the yearly cycle of vegetation on northern hemisphere, while after the construction and opening of the building in May 2018 the temporal pattern changed completely. The remaining variations are due to noise and perhaps smaller patches of grass in between of the buildings.</p>
+<p>Using the same greenness variable applied to agricultural fields may reveal changes in crop types or agricultural use. In this example, the use of one agricultural field changed between 2018 and 2019. While you can identify two main peaks in the years until (and including) 2018, there is only one peak in 2019 and 2020.</p>
+<center>
+<div class="figure">
+<img src="img/time-series-example-2.png" style="width:100.0%" alt="" />
+<p class="caption">Agriculture</p>
+</div>
+</center>
+<!--
+### Area-based statistics
+
+In cases when defined geographic regions area already available you may want to augment their attribute table with aggregated Earth-observation-based information. For example: What's Viennas 'greenest' district?
+
+-->
+</div>
+<div id="spatially-disaggregated-information" class="section level3">
+<h3><span class="header-section-number">1.2.4</span> Spatially disaggregated information</h3>
+<p><strong>Surface water</strong></p>
+<p>Some borders that are defined in (vector) databases of geographical objects indicate only one or an averaged one One example are water bodies: While they are represented as stable with a clearly defined border, they undergo many changes over time. Spatially disaggregated information from Earth observation data allows to investigate these in unprecedented spatio-temporal detail. Earth observations of one year covering parts of the Lake of Constance reveals the dynamics at the mouth of the Rhine River and the Bregenzerach and allows to see more details than the simple polygon in the geographical database</p>
+<center>
+<div class="figure">
+<img src="img/spatial-information-3.png" style="width:100.0%" alt="" />
+<p class="caption">Lake of Constance</p>
+</div>
+</center>
+<center>
+<div class="figure">
+<img src="img/spatial-information-4.png" style="width:100.0%" alt="" />
+<p class="caption">Salzburg lakes</p>
+</div>
+</center>
+<p>Another use case of spatially disaggregated information is to detect missing or changed geographical objects in other databases. For example, the dam “Donaukraftwerk Melk” is not yet present in the geographical database …</p>
+<center>
+<div class="figure">
+<img src="img/spatial-information-1.png" style="width:100.0%" alt="" />
+<p class="caption">Dam is missing in geographical database</p>
+</div>
+</center>
+<p>… it is already clearly visible in the Earth-observation-based information.</p>
+<center>
+<div class="figure">
+<img src="img/spatial-information-2.png" style="width:100.0%" alt="" />
+<p class="caption">Dam is missing in geographical database</p>
+</div>
+</center>
+<p><strong>Urban green areas</strong></p>
+<p>Other geographical phenomena and objects might be spatially arranged within a region. For example, take the green areas within Vienna, which are an important contribution to well-being of humans and animals and are able to cool down the city in summer. We will again use the official borders as distributed by the Open Data Platform. The result map shows the percentage of valid observations (i.e. observations that are not cloud) that are associated with a vegetation type for the specified timespan.</p>
+<center>
+<div class="figure">
+<img src="img/spatial-information-5.png" style="width:100.0%" alt="" />
+<p class="caption">Viennas green areas</p>
+</div>
+</center>
+<p>Further re-use of intermediate results is also possible. For example, the color ramp produces a nice visual output, but it might be more useful to apply a threshold and finally delineate areas that might be considered stable vegetation or green spaces.</p>
+<center>
+<div class="figure">
+<img src="img/spatial-information-6.png" style="width:100.0%" alt="" />
+<p class="caption">Viennas green areas - delineated according temporal occurrency</p>
+</div>
+</center>
+</div>
+</div>
+<div id="next-steps-and-how-to-start" class="section level2">
+<h2><span class="header-section-number">1.3</span> Next steps and how to start</h2>
+<div class="rmdnote">
+<p>
+The Sen2Cube.at system was not explicitly designed for any of the use-cases presented in the last section. All of them were created using the same, generic semantic enrichment and generic building blocks of the semantic query language to construct the different queries for each example. Still, it is not necessary to do any programming - you don’t have to trade-of between the need of programming or flexibility of the software.
+</p>
+</div>
+<p>A good start to get familiar with the Sen2Cube.at system is to read how we conduct the <a href="enrichment.html#enrichment">Semantic Enrichment</a> of Earth observation data and then proceed with the <a href="start.html#start">Getting Started</a> section and try to use or build your first model.</p>
+</div>
+<div id="more-information-and-community-access" class="section level2">
+<h2><span class="header-section-number">1.4</span> More information and community access</h2>
+<p>This manual gives a lot of information how to use the Sen2Cube.at system; still, some parts might be unclear or specific question may arise. Feel free to use our community forum to ask: <a href="https://forum.sen2cube.at/">https://forum.sen2cube.at/</a>. The forum-account (including username and password) is the same as your overall Sen2Cube.at account. Thus, you can directly login by clicking on the icon below the text “Alternative Login” …</p>
+<p><img src="img/forum-login.png" style="width:100.0%" /></p>
+<p>… and you will be forwarded to the Sen2Cube.at login page and then redirected to the forum.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="enrichment.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/whisperingpixel/iq-manual/edit/master/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

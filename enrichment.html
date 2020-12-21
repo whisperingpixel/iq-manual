@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 Semantic Enrichment | Sen2Cube.at Manual</title>
+  <meta name="description" content="2 Semantic Enrichment | Sen2Cube.at Manual" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 Semantic Enrichment | Sen2Cube.at Manual" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="whisperingpixel/iq-manual" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 Semantic Enrichment | Sen2Cube.at Manual" />
+  
+  
+  
+
+
+
+<meta name="date" content="2020-12-21" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="start.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Sen2Cube.at Manual</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#overview"><i class="fa fa-check"></i><b>1.1</b> Overview</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#use-cases"><i class="fa fa-check"></i><b>1.2</b> Use cases</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#semantic-content-based-image-retrieval"><i class="fa fa-check"></i><b>1.2.1</b> Semantic content-based image retrieval</a></li>
+<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#cloud-free-composite"><i class="fa fa-check"></i><b>1.2.2</b> Cloud-free composite</a></li>
+<li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#time-series"><i class="fa fa-check"></i><b>1.2.3</b> Time series</a></li>
+<li class="chapter" data-level="1.2.4" data-path="index.html"><a href="index.html#spatially-disaggregated-information"><i class="fa fa-check"></i><b>1.2.4</b> Spatially disaggregated information</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#next-steps-and-how-to-start"><i class="fa fa-check"></i><b>1.3</b> Next steps and how to start</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#more-information-and-community-access"><i class="fa fa-check"></i><b>1.4</b> More information and community access</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="enrichment.html"><a href="enrichment.html"><i class="fa fa-check"></i><b>2</b> Semantic Enrichment</a><ul>
+<li class="chapter" data-level="2.1" data-path="enrichment.html"><a href="enrichment.html#siam"><i class="fa fa-check"></i><b>2.1</b> Satellite Image Automatic Mapper (SIAM)</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="enrichment.html"><a href="enrichment.html#siam_examples_austria"><i class="fa fa-check"></i><b>2.1.1</b> Applied in Austria</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="start.html"><a href="start.html"><i class="fa fa-check"></i><b>3</b> Getting started</a><ul>
+<li class="chapter" data-level="3.1" data-path="start.html"><a href="start.html#components"><i class="fa fa-check"></i><b>3.1</b> Components</a></li>
+<li class="chapter" data-level="3.2" data-path="start.html"><a href="start.html#workflow"><i class="fa fa-check"></i><b>3.2</b> Workflow</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="start.html"><a href="start.html#selecting-the-model"><i class="fa fa-check"></i><b>3.2.1</b> Selecting the model</a></li>
+<li class="chapter" data-level="3.2.2" data-path="start.html"><a href="start.html#selecting-the-area-of-interest"><i class="fa fa-check"></i><b>3.2.2</b> Selecting the area-of-interest</a></li>
+<li class="chapter" data-level="3.2.3" data-path="start.html"><a href="start.html#selecting-the-time-interval"><i class="fa fa-check"></i><b>3.2.3</b> Selecting the time interval</a></li>
+<li class="chapter" data-level="3.2.4" data-path="start.html"><a href="start.html#executing-the-query-and-inferring-new-information"><i class="fa fa-check"></i><b>3.2.4</b> Executing the query and inferring new information</a></li>
+<li class="chapter" data-level="3.2.5" data-path="start.html"><a href="start.html#preview-mode"><i class="fa fa-check"></i><b>3.2.5</b> Preview-mode</a></li>
+<li class="chapter" data-level="3.2.6" data-path="start.html"><a href="start.html#viewing-and-downloading-the-results"><i class="fa fa-check"></i><b>3.2.6</b> Viewing and downloading the results</a></li>
+<li class="chapter" data-level="3.2.7" data-path="start.html"><a href="start.html#error-handling"><i class="fa fa-check"></i><b>3.2.7</b> Error handling</a></li>
+<li class="chapter" data-level="3.2.8" data-path="start.html"><a href="start.html#exampleworkflow"><i class="fa fa-check"></i><b>3.2.8</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="start.html"><a href="start.html#other-access-options"><i class="fa fa-check"></i><b>3.3</b> Other access options</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="model.html"><a href="model.html"><i class="fa fa-check"></i><b>4</b> Model structure</a></li>
+<li class="chapter" data-level="5" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>5</b> Building blocks</a><ul>
+<li class="chapter" data-level="5.1" data-path="blocks.html"><a href="blocks.html#definitions"><i class="fa fa-check"></i><b>5.1</b> Definitions</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="blocks.html"><a href="blocks.html#entities-and-properties"><i class="fa fa-check"></i><b>5.1.1</b> Entities and properties</a></li>
+<li class="chapter" data-level="5.1.2" data-path="blocks.html"><a href="blocks.html#result_definition"><i class="fa fa-check"></i><b>5.1.2</b> Results</a></li>
+<li class="chapter" data-level="5.1.3" data-path="blocks.html"><a href="blocks.html#seasons-and-partitions"><i class="fa fa-check"></i><b>5.1.3</b> Seasons and partitions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="blocks.html"><a href="blocks.html#data-and-information"><i class="fa fa-check"></i><b>5.2</b> Data and information</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="blocks.html"><a href="blocks.html#appearance"><i class="fa fa-check"></i><b>5.2.1</b> Appearance</a></li>
+<li class="chapter" data-level="5.2.2" data-path="blocks.html"><a href="blocks.html#atmosphere"><i class="fa fa-check"></i><b>5.2.2</b> Atmosphere</a></li>
+<li class="chapter" data-level="5.2.3" data-path="blocks.html"><a href="blocks.html#reflectance"><i class="fa fa-check"></i><b>5.2.3</b> Reflectance</a></li>
+<li class="chapter" data-level="5.2.4" data-path="blocks.html"><a href="blocks.html#topography"><i class="fa fa-check"></i><b>5.2.4</b> Topography</a></li>
+<li class="chapter" data-level="5.2.5" data-path="blocks.html"><a href="blocks.html#artifacts"><i class="fa fa-check"></i><b>5.2.5</b> Artifacts</a></li>
+<li class="chapter" data-level="5.2.6" data-path="blocks.html"><a href="blocks.html#metadata"><i class="fa fa-check"></i><b>5.2.6</b> Metadata</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="blocks.html"><a href="blocks.html#verbs"><i class="fa fa-check"></i><b>5.3</b> Verbs</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="blocks.html"><a href="blocks.html#evaluate"><i class="fa fa-check"></i><b>5.3.1</b> Evaluate</a></li>
+<li class="chapter" data-level="5.3.2" data-path="blocks.html"><a href="blocks.html#filter"><i class="fa fa-check"></i><b>5.3.2</b> Filter</a></li>
+<li class="chapter" data-level="5.3.3" data-path="blocks.html"><a href="blocks.html#group-by-and-ungroup"><i class="fa fa-check"></i><b>5.3.3</b> Group by and ungroup</a></li>
+<li class="chapter" data-level="5.3.4" data-path="blocks.html"><a href="blocks.html#invert"><i class="fa fa-check"></i><b>5.3.4</b> Invert</a></li>
+<li class="chapter" data-level="5.3.5" data-path="blocks.html"><a href="blocks.html#label"><i class="fa fa-check"></i><b>5.3.5</b> Label</a></li>
+<li class="chapter" data-level="5.3.6" data-path="blocks.html"><a href="blocks.html#mask"><i class="fa fa-check"></i><b>5.3.6</b> Mask</a></li>
+<li class="chapter" data-level="5.3.7" data-path="blocks.html"><a href="blocks.html#reduce"><i class="fa fa-check"></i><b>5.3.7</b> Reduce</a></li>
+<li class="chapter" data-level="5.3.8" data-path="blocks.html"><a href="blocks.html#replace"><i class="fa fa-check"></i><b>5.3.8</b> Replace</a></li>
+<li class="chapter" data-level="5.3.9" data-path="blocks.html"><a href="blocks.html#select"><i class="fa fa-check"></i><b>5.3.9</b> Select</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="blocks.html"><a href="blocks.html#combiners"><i class="fa fa-check"></i><b>5.4</b> Combiners</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="blocks.html"><a href="blocks.html#concatenate"><i class="fa fa-check"></i><b>5.4.1</b> Concatenate</a></li>
+<li class="chapter" data-level="5.4.2" data-path="blocks.html"><a href="blocks.html#compose"><i class="fa fa-check"></i><b>5.4.2</b> Compose</a></li>
+<li class="chapter" data-level="5.4.3" data-path="blocks.html"><a href="blocks.html#combine"><i class="fa fa-check"></i><b>5.4.3</b> Merge</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="blocks.html"><a href="blocks.html#time"><i class="fa fa-check"></i><b>5.5</b> Time</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="blocks.html"><a href="blocks.html#time_instant"><i class="fa fa-check"></i><b>5.5.1</b> Time instant</a></li>
+<li class="chapter" data-level="5.5.2" data-path="blocks.html"><a href="blocks.html#time_period"><i class="fa fa-check"></i><b>5.5.2</b> Time periods</a></li>
+<li class="chapter" data-level="5.5.3" data-path="blocks.html"><a href="blocks.html#time_collection"><i class="fa fa-check"></i><b>5.5.3</b> Time collection</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="blocks.html"><a href="blocks.html#space"><i class="fa fa-check"></i><b>5.6</b> Space</a></li>
+<li class="chapter" data-level="5.7" data-path="blocks.html"><a href="blocks.html#comment"><i class="fa fa-check"></i><b>5.7</b> Comments</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="examples.html"><a href="examples.html"><i class="fa fa-check"></i><b>6</b> Examples</a></li>
+<li class="chapter" data-level="7" data-path="contact.html"><a href="contact.html"><i class="fa fa-check"></i><b>7</b> Contact</a></li>
+<li class="chapter" data-level="8" data-path="legal.html"><a href="legal.html"><i class="fa fa-check"></i><b>8</b> Legal Info</a><ul>
+<li class="chapter" data-level="8.1" data-path="legal.html"><a href="legal.html#proprietary-rights-acknowledgment"><i class="fa fa-check"></i><b>8.1</b> Proprietary Rights Acknowledgment</a></li>
+<li class="chapter" data-level="8.2" data-path="legal.html"><a href="legal.html#trademarks"><i class="fa fa-check"></i><b>8.2</b> Trademarks</a></li>
+<li class="chapter" data-level="8.3" data-path="legal.html"><a href="legal.html#licences"><i class="fa fa-check"></i><b>8.3</b> Licences</a></li>
+<li class="chapter" data-level="8.4" data-path="legal.html"><a href="legal.html#liability"><i class="fa fa-check"></i><b>8.4</b> Liability</a></li>
+<li class="chapter" data-level="8.5" data-path="legal.html"><a href="legal.html#information-duty-to-gpdr-art.-13-and-14"><i class="fa fa-check"></i><b>8.5</b> Information Duty to GPDR Art. 13 and 14</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="legal.html"><a href="legal.html#general"><i class="fa fa-check"></i><b>8.5.1</b> General</a></li>
+<li class="chapter" data-level="8.5.2" data-path="legal.html"><a href="legal.html#legal-basis-for-processing-person-related-data"><i class="fa fa-check"></i><b>8.5.2</b> Legal basis for processing person-related data</a></li>
+<li class="chapter" data-level="8.5.3" data-path="legal.html"><a href="legal.html#processing-of-data-data-categories-and-involved-groups-of-persons"><i class="fa fa-check"></i><b>8.5.3</b> Processing of data, data categories and involved groups of persons</a></li>
+<li class="chapter" data-level="8.5.4" data-path="legal.html"><a href="legal.html#use-of-your-personal-data-purpose"><i class="fa fa-check"></i><b>8.5.4</b> Use of your personal data (purpose)</a></li>
+<li class="chapter" data-level="8.5.5" data-path="legal.html"><a href="legal.html#your-rights-as-an-involved-person"><i class="fa fa-check"></i><b>8.5.5</b> Your rights as an involved person</a></li>
+<li class="chapter" data-level="8.5.6" data-path="legal.html"><a href="legal.html#revoking-consent"><i class="fa fa-check"></i><b>8.5.6</b> Revoking consent</a></li>
+<li class="chapter" data-level="8.5.7" data-path="legal.html"><a href="legal.html#deletion-of-person-related-data"><i class="fa fa-check"></i><b>8.5.7</b> Deletion of person-related data</a></li>
+<li class="chapter" data-level="8.5.8" data-path="legal.html"><a href="legal.html#technical-organisational-measures"><i class="fa fa-check"></i><b>8.5.8</b> Technical organisational measures</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="legal.html"><a href="legal.html#additional-legal-info-in-german-only"><i class="fa fa-check"></i><b>8.6</b> Additional legal info (in German only)</a><ul>
+<li class="chapter" data-level="8.6.1" data-path="legal.html"><a href="legal.html#offenlegung-gemäß-25-mediengesetz"><i class="fa fa-check"></i><b>8.6.1</b> Offenlegung gemäß § 25 Mediengesetz</a></li>
+<li class="chapter" data-level="8.6.2" data-path="legal.html"><a href="legal.html#urheberrechte"><i class="fa fa-check"></i><b>8.6.2</b> Urheberrechte</a></li>
+<li class="chapter" data-level="8.6.3" data-path="legal.html"><a href="legal.html#markenrechte"><i class="fa fa-check"></i><b>8.6.3</b> Markenrechte</a></li>
+<li class="chapter" data-level="8.6.4" data-path="legal.html"><a href="legal.html#haftung-und-gewährleistung"><i class="fa fa-check"></i><b>8.6.4</b> Haftung und Gewährleistung</a></li>
+<li class="chapter" data-level="8.6.5" data-path="legal.html"><a href="legal.html#aufsichtsbehörde-der-universität-salzburg"><i class="fa fa-check"></i><b>8.6.5</b> Aufsichtsbehörde der Universität Salzburg</a></li>
+<li class="chapter" data-level="8.6.6" data-path="legal.html"><a href="legal.html#aufgaben-der-paris-lodron-universität-salzburg"><i class="fa fa-check"></i><b>8.6.6</b> Aufgaben der Paris-Lodron-Universität Salzburg</a></li>
+<li class="chapter" data-level="8.6.7" data-path="legal.html"><a href="legal.html#umsatzsteuer-identifikationsnummer-uid-der-universität-salzburg"><i class="fa fa-check"></i><b>8.6.7</b> Umsatzsteuer-Identifikationsnummer (UID) der Universität Salzburg</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Sen2Cube.at Manual</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="enrichment" class="section level1">
+<h1><span class="header-section-number">2</span> Semantic Enrichment</h1>
+<p>Semantic enrichment in the EO imagery domain refers to interpreted content of EO imagery (i.e., mapping data to symbols that represent stable concepts). In the case of EO imagery represented in a raster (i.e., image), this means mapping each raster cell (i.e., pixel) to an interpretation that represents a stable concept. These concepts are generally non-ordinal, categorical variables, however, subsets of these variables may be ordinal (e.g., vegetation categorized by increasing greenness or intensity). The relative level of semantic enrichment can vary in terms of complexity and the “symbolic” level of the concepts/variables. Concepts represented by a relatively lower level of semantic enrichment could be considered semi-symbolic, meaning that they are a first step towards connecting sensory data to symbolic, semantic classes (e.g., color as perceived by human vision, multi-dimensional “color”, other ways of characterising the spatio-temporal context of each observation). A relatively high level of semantic enrichment refers to explicit expert knowledge or existing ontologies (e.g., land cover classification system (LCCS) developed by the United Nations Food and Agriculture Organisation (UN-FAO)). Semantically enriched EO imagery time-series can be used to create semantically-enabled EO data cubes (i.e., semantic EO data cubes).</p>
+<p>There are multiple methods and tools that exist for semantically enriching EO imagery. In the context of the Sen2Cube.at project, the <a href="enrichment.html#siam">SIAM</a> software has been used, but others are possible.</p>
+<div id="siam" class="section level2">
+<h2><span class="header-section-number">2.1</span> Satellite Image Automatic Mapper (SIAM)</h2>
+<p>The SIAM software generates relatively low-level, generic, data-derived semantic enrichment that is application- and user-independent, meaning it is able to support multiple application domains. Using a per-pixel physical spectral model-based decision tree, SIAM automatically categorizes EO imagery that is calibrated to at least top-of-atmosphere (TOA) reflectance from multiple optical sensors (e.g., Sentinel-2, Landsat-8, AVHRR, VHR). SIAM is considered automatic because it runs without any user-defined parameterisation or training data, instead relying on <em>a priori</em> knowledge. The decision tree maps each calibrated observation to one stable, sensor-agnostic multi-spectral color name (i.e., category) based on its location in a multi-spectral reflectance hypercube. The result is a discrete and finite vocabulary for observations that refer to a hyper-polyhedra (e.g., multi-dimensional shape) within a multi-spectral feature space. This vocabulary (i.e., color names/categories) is mutually exclusive (i.e, every observation belongs to one single partition) and totally exhaustive (i.e., the entire multi-spectral reflectance hypercube is partitioned). These color names have semantic associations using a knowledge-based approach. These color names are semi-symbolic, and can be thought of as stable, sensor-agnostic visual “letters” that can be used to build “words” (i.e., symbolic concepts) that have a higher semantic level using knowledge based rules. The relatively low level semantic enrichment automatically generated by SIAM has been independently validated up to a continental scale.</p>
+<p>The software is capable of producing different granularities (i.e. different number of color names) from coarse (i.e., 18 color names) to fine (i.e., 96 color names), as well as additional data-derived information layers (e.g., multi-spectral greenness index, brightness).</p>
+<p>SIAM’s 33 color name granularity is exemplarily utilized within the Sen2Cube.at project as the basis for semantic queries.</p>
+<p>The following table shows the legend of the SIAM names (spectral categories) that can currently be selected and used in Sen2Cube.at for analyses and evaluations through time:</p>
+<table>
+<caption><span id="tab:siamnames">Table 2.1: </span> 33 SIAM color names available in Sen2Cube.at</caption>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="right">Nr</th>
+<th align="right">Abbreviation</th>
+<th align="right">Description of the spectral category (not land cover)</th>
+<th align="right">category</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">SVHNIR</td>
+<td align="right">Strong vegetation with high NIR</td>
+<td align="right">appearance</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">SVLNIR</td>
+<td align="right">Strong vegetation with low NIR</td>
+<td align="right">appearance</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">AVHNIR</td>
+<td align="right">Average vegetation with high NIR</td>
+<td align="right">appearance</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">AVLNIR</td>
+<td align="right">Average vegetation with low NIR</td>
+<td align="right">appearance</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="right">WV</td>
+<td align="right">Weak vegetation</td>
+<td align="right">appearance</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="right">SHV</td>
+<td align="right">Shadow area with vegetation</td>
+<td align="right">appearance</td>
+</tr>
+<tr class="odd">
+<td align="right">7</td>
+<td align="right">SHRBRHNIR</td>
+<td align="right">Shrub Rangeland with High NIR</td>
+<td align="right">appearance</td>
+</tr>
+<tr class="even">
+<td align="right">8</td>
+<td align="right">SHRBRLNIR</td>
+<td align="right">Shrub Rangeland with Low NIR</td>
+<td align="right">appearance</td>
+</tr>
+<tr class="odd">
+<td align="right">9</td>
+<td align="right">HRBCR</td>
+<td align="right">Herbaceous Rangeland</td>
+<td align="right">appearance</td>
+</tr>
+<tr class="even">
+<td align="right">10</td>
+<td align="right">WR</td>
+<td align="right">Weak Rangeland</td>
+<td align="right">appearance</td>
+</tr>
+<tr class="odd">
+<td align="right">11</td>
+<td align="right">PB</td>
+<td align="right">Pit or bog</td>
+<td align="right">appearance</td>
+</tr>
+<tr class="even">
+<td align="right">12</td>
+<td align="right">GH</td>
+<td align="right">Greenhouse</td>
+<td align="right">appearance</td>
+</tr>
+<tr class="odd">
+<td align="right">13</td>
+<td align="right">VBBB</td>
+<td align="right">Very bright barren land or built-up</td>
+<td align="right">appearance</td>
+</tr>
+<tr class="even">
+<td align="right">14</td>
+<td align="right">BBB</td>
+<td align="right">Bright barren land or built-up</td>
+<td align="right">appearance</td>
+</tr>
+<tr class="odd">
+<td align="right">15</td>
+<td align="right">SBB</td>
+<td align="right">Strong barren land or built-up</td>
+<td align="right">appearance</td>
+</tr>
+<tr class="even">
+<td align="right">16</td>
+<td align="right">ABB</td>
+<td align="right">Average barren land or built-up</td>
+<td align="right">appearance</td>
+</tr>
+<tr class="odd">
+<td align="right">17</td>
+<td align="right">DBB</td>
+<td align="right">Dark barren land or built-up</td>
+<td align="right">appearance</td>
+</tr>
+<tr class="even">
+<td align="right">18</td>
+<td align="right">WBBorSHB</td>
+<td align="right">Weak barren land or Shadow area with Barren Land</td>
+<td align="right">appearance</td>
+</tr>
+<tr class="odd">
+<td align="right">19</td>
+<td align="right">NIRPBB</td>
+<td align="right">Near InfraRed-Peaked Barren land or Built-up</td>
+<td align="right">appearance</td>
+</tr>
+<tr class="even">
+<td align="right">20</td>
+<td align="right">BA</td>
+<td align="right">Burned area</td>
+<td align="right">appearance</td>
+</tr>
+<tr class="odd">
+<td align="right">21</td>
+<td align="right">DPWASH</td>
+<td align="right">Deep water or shadow</td>
+<td align="right">appearance</td>
+</tr>
+<tr class="even">
+<td align="right">22</td>
+<td align="right">SLWASH</td>
+<td align="right">Shallow water or shadow</td>
+<td align="right">appearance</td>
+</tr>
+<tr class="odd">
+<td align="right">23</td>
+<td align="right">TWASH</td>
+<td align="right">Turbid water or shadow</td>
+<td align="right">appearance</td>
+</tr>
+<tr class="even">
+<td align="right">24</td>
+<td align="right">SASLWA</td>
+<td align="right">Salty Shallow Water</td>
+<td align="right">appearance</td>
+</tr>
+<tr class="odd">
+<td align="right">25</td>
+<td align="right">CL</td>
+<td align="right">Cloud</td>
+<td align="right">atmoshpere</td>
+</tr>
+<tr class="even">
+<td align="right">26</td>
+<td align="right">SMKPLM</td>
+<td align="right">Smoke Plume</td>
+<td align="right">atmoshpere</td>
+</tr>
+<tr class="odd">
+<td align="right">27</td>
+<td align="right">TNCLV</td>
+<td align="right">Thin clouds over vegetation</td>
+<td align="right">appearance</td>
+</tr>
+<tr class="even">
+<td align="right">28</td>
+<td align="right">TNCLWA_BB</td>
+<td align="right">Thin clouds over water area or Barren land or Built-up areas</td>
+<td align="right">appearance</td>
+</tr>
+<tr class="odd">
+<td align="right">29</td>
+<td align="right">SN</td>
+<td align="right">Snow or water ice</td>
+<td align="right">appearance</td>
+</tr>
+<tr class="even">
+<td align="right">30</td>
+<td align="right">SHSN</td>
+<td align="right">Shadow Snow</td>
+<td align="right">appearance</td>
+</tr>
+<tr class="odd">
+<td align="right">31</td>
+<td align="right">SH</td>
+<td align="right">Shadow areas</td>
+<td align="right">appearance</td>
+</tr>
+<tr class="even">
+<td align="right">32</td>
+<td align="right">FLAME</td>
+<td align="right">Flame</td>
+<td align="right">appearance</td>
+</tr>
+<tr class="odd">
+<td align="right">33</td>
+<td align="right">UN</td>
+<td align="right">Unknown</td>
+<td align="right">appearance</td>
+</tr>
+<tr class="even">
+<td align="right">255</td>
+<td align="right">NO DATA</td>
+<td align="right">No data</td>
+<td align="right"></td>
+</tr>
+</tbody>
+</table>
+<p>The following additional information layers are available:</p>
+<p><strong>Greenness</strong></p>
+<p>The greenness information layer is a multi-spectral greenness index (&gt; 0) in the appearance category.</p>
+<center>
+<div class="figure">
+<img src="img/greenness-il.png" style="width:100.0%" alt="" />
+<p class="caption">Greenness Information Layer.</p>
+</div>
+</center>
+<p><strong>Brightness</strong></p>
+<p>The brightness information layer is a brightness index (&gt; 0) in the appearance category.</p>
+<center>
+<div class="figure">
+<img src="img/brightness-il.png" style="width:100.0%" alt="" />
+<p class="caption">Brightness Information Layer.</p>
+</div>
+</center>
+<p><strong>Haze mask</strong></p>
+<p>The haze mask information layer is a haze mask with five categories in the atmosphere category.</p>
+<center>
+<div class="figure">
+<img src="img/haze-il.png" style="width:100.0%" alt="" />
+<p class="caption">Haze Information Layer.</p>
+</div>
+</center>
+<div id="siam_examples_austria" class="section level3">
+<h3><span class="header-section-number">2.1.1</span> Applied in Austria</h3>
+<p>Here are a few examples of the generic, low level semantic enrichment generated by SIAM at its highest granularity (i.e., 33 color names) applied to Sentinel-2 imagery. These color spaces are represented by colors based on their semantic association:</p>
+<center>
+<div class="figure">
+<img src="img/SIAM33_categories_legend.jpg" style="width:100.0%" alt="" />
+<p class="caption">Legend for SIAM color names grouped by related semantic associations and represented by related colors for visualisation.</p>
+</div>
+</center>
+<p>Sentinel-2 imagery covering Austria from 18 September 2019, 05 April 2020 and 24 June 2020 have been exemplarily discretized into multi-spectral color spaces with SIAM.</p>
+<center>
+<div class="figure">
+<img src="img/20190918_TCI_33UWP.jpeg" style="width:100.0%" alt="" />
+<p class="caption">Sentinel-2 true color image from 18 September 2019</p>
+</div>
+</center>
+<center>
+<div class="figure">
+<img src="img/20190918_SIAM96_33UWP.jpeg" style="width:100.0%" alt="" />
+<p class="caption">SIAM enrichment of the Sentinel-2 data from 18 September 2019</p>
+</div>
+</center>
+<center>
+<div class="figure">
+<img src="img/20200405_TCI_33UWP.jpeg" style="width:100.0%" alt="" />
+<p class="caption">Sentinel-2 true color image from 05 April 2020</p>
+</div>
+</center>
+<center>
+<div class="figure">
+<img src="img/20200405_SIAM96_33UWP.jpeg" style="width:100.0%" alt="" />
+<p class="caption">SIAM enrichment of the Sentinel-2 data from 05 April 2020</p>
+</div>
+</center>
+<center>
+<div class="figure">
+<img src="img/20200624_TCI_33UWP.jpeg" style="width:100.0%" alt="" />
+<p class="caption">Sentinel-2 true color image from 24 June 2020</p>
+</div>
+</center>
+<center>
+<div class="figure">
+<img src="img/20200624_SIAM96_33UWP.jpeg" style="width:100.0%" alt="" />
+<p class="caption">SIAM enrichment of the Sentinel-2 data from 24 June 2020</p>
+</div>
+</center>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="start.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/whisperingpixel/iq-manual/edit/master/semantic_enrichment.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
