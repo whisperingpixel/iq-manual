@@ -80,7 +80,7 @@ It is possible to stop an inference any time by clicking `Abort inference`. It m
 
 The **preview-mode** can be used for prototypically and interactively develop and test semantic models. The spatial resolution will be reduced by a factor of 10, which usually reduces the processing time significantly. In the case of Sentinel-2 the processing and output pixel size will therefore not be 10x10, but 100x100 meters. Thus, keep in mind the side-effects that this setting may have.
 
-The following example illustrates the effect of the preview mode. They show the execution of the same semantic model of the same AOI and the same time interval, while the first picture shows the result of the query executed in preview-mode and the second picture shows the result of the query executed in preview-mode:
+The following example illustrates the effect of the preview mode. They show the execution of the same semantic model of the same AOI and the same time interval, while the first picture shows the result of the query not executed in preview-mode and the second picture shows the result of the query executed in preview-mode:
 
 ![Query executed not in preview mode](img/preview-no.png){width=100%}
 
