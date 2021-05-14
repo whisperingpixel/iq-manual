@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  rstudio:
+    image: rocker/rstudio
+    volumes:
+      - ./:/home/rstudio
+    environment:
+      - PASSWORD=openthegate
+    ports:
+      - 8787:8787
