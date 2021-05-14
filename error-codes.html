@@ -147,7 +147,7 @@
 <li class="chapter" data-level="" data-path="error-codes.html"><a href="error-codes.html#ERROR:2101"><i class="fa fa-check"></i>2101 Unknown general system error</a></li>
 <li class="chapter" data-level="" data-path="error-codes.html"><a href="error-codes.html#ERROR:2102"><i class="fa fa-check"></i>2102 General error during loading of data</a></li>
 <li class="chapter" data-level="" data-path="error-codes.html"><a href="error-codes.html#ERROR:2103"><i class="fa fa-check"></i>2103 General error during storing of data</a></li>
-<li class="chapter" data-level="" data-path="error-codes.html"><a href="error-codes.html#ERROR:2014"><i class="fa fa-check"></i>2014 Map is undefined</a></li>
+<li class="chapter" data-level="" data-path="error-codes.html"><a href="error-codes.html#ERROR:2104"><i class="fa fa-check"></i>2104 Map is undefined</a></li>
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="error-codes.html"><a href="error-codes.html#network-errors"><i class="fa fa-check"></i><b>7.2</b> Network errors</a><ul>
 <li class="chapter" data-level="" data-path="error-codes.html"><a href="error-codes.html#ERROR:2201"><i class="fa fa-check"></i>2201 Unknown general network error</a></li>
@@ -171,8 +171,8 @@
 <li class="chapter" data-level="" data-path="error-codes.html"><a href="error-codes.html#ERROR:2306"><i class="fa fa-check"></i>2306 The submitted area-of-interest has an invalid EPSG code</a></li>
 <li class="chapter" data-level="" data-path="error-codes.html"><a href="error-codes.html#ERROR:2307"><i class="fa fa-check"></i>2307 The submitted area-of-interest has an invalid format or type</a></li>
 <li class="chapter" data-level="" data-path="error-codes.html"><a href="error-codes.html#ERROR:2308"><i class="fa fa-check"></i>2308 The submitted area-of-interest contains geometries with invalid coordinate ranges</a></li>
-<li class="chapter" data-level="" data-path="error-codes.html"><a href="error-codes.html#ERROR:2370"><i class="fa fa-check"></i>2370 Unkonw error during logging in</a></li>
-<li class="chapter" data-level="" data-path="error-codes.html"><a href="error-codes.html#ERROR:2371"><i class="fa fa-check"></i>2371 Unkonw error during logging out</a></li>
+<li class="chapter" data-level="" data-path="error-codes.html"><a href="error-codes.html#ERROR:2370"><i class="fa fa-check"></i>2370 Unknown error during logging in</a></li>
+<li class="chapter" data-level="" data-path="error-codes.html"><a href="error-codes.html#ERROR:2371"><i class="fa fa-check"></i>2371 Unknown error during logging out</a></li>
 <li class="chapter" data-level="" data-path="error-codes.html"><a href="error-codes.html#ERROR:2372"><i class="fa fa-check"></i>2372 The current session is no longer authenticated</a></li>
 <li class="chapter" data-level="" data-path="error-codes.html"><a href="error-codes.html#ERROR:2373"><i class="fa fa-check"></i>2373 User has not accepted usage conditions</a></li>
 </ul></li>
@@ -271,8 +271,8 @@
 <h3>2103 General error during storing of data</h3>
 <p>This is a general error that occurs when data can not be stored/saved due to unexpected reasons. Reasons could include network error, input error, parsing errors, databases errors. Usually, it is not possible to mitigate this directly.</p>
 </div>
-<div id="ERROR:2014" class="section level3 unnumbered">
-<h3>2014 Map is undefined</h3>
+<div id="ERROR:2104" class="section level3 unnumbered">
+<h3>2104 Map is undefined</h3>
 <p>This error occurs when a component tries to add or delete something from the map while the map is not yet loaded or failed to load. It is rather unlikely that this error occurs. This could be solved by reloading the Web application; otherwise please report the error.</p>
 </div>
 </div>
@@ -358,11 +358,11 @@
 <p>This error occurs when an area-of-interest is uploaded, which is contains invalid coordinate ranges. Area-of-interests that are drawn on the map are already correct. Users should check the uploaded file or web feature service.</p>
 </div>
 <div id="ERROR:2370" class="section level3 unnumbered">
-<h3>2370 Unkonw error during logging in</h3>
+<h3>2370 Unknown error during logging in</h3>
 <p>This error occurs when the login failes due to unknown reasons. Users should try again a few minutes later; if the error continues to occur, please contact <a href="mailto:info@sen2cube.at" class="email">info@sen2cube.at</a></p>
 </div>
 <div id="ERROR:2371" class="section level3 unnumbered">
-<h3>2371 Unkonw error during logging out</h3>
+<h3>2371 Unknown error during logging out</h3>
 <p>This error occurs when the logout fails due to unknown reasons. It is usually not possible to mitigate this, but users can wait until they are logged out automatically after some time of inactivity.</p>
 </div>
 <div id="ERROR:2372" class="section level3 unnumbered">
