@@ -1,0 +1,154 @@
+# Error codes
+This chapter gives an overview of errors that may occur during the work with the Sen2Cube.at system. Some of those errors can be handled by the users by changing input parameters or settings. There are hints on how to approach a solution in these cases in the respective sections. Other errors are not possible to be solved by the users on their own. In these cases, it is recommended to report them or ask for help. In most cases, the Sen2Cube.at forum under https://forum.sen2cube.at is an appropriate place; alternatively, it is possible to write directly to info@sen2cube.at. 
+
+## General frontend errors
+### 2101 Unknown general system error  {#2101}
+This is the most general system error of the frontend and is usually thrown when a state occurs that is unexpected, and no recovery is possible. Usually, it is not possible to mitigate this directly.
+
+### 2102 General error during loading of data {#2102}
+This is a general error that occurs when data can not be loaded due to unexpected reasons. Reasons could include network error, input error, parsing errors, databases errors. Usually, it is not possible to mitigate this directly.
+
+### 2103 General error during storing of data {#2103}
+This is a general error that occurs when data can not be stored/saved due to unexpected reasons. Reasons could include network error, input error, parsing errors, databases errors. Usually, it is not possible to mitigate this directly.
+
+### 2014 Map is undefined {#2014}
+This error occurs when a component tries to add or delete something from the map while the map is not yet loaded or failed to load. It is rather unlikely that this error occurs. This could be solved by reloading the Web application; otherwise please report the error.
+
+## Network errors
+### 2201 Unknown general network error {#2201}
+This is a general network error that occurs due to unexpected reasons. Usually, it is not possible to mitigate this directly.
+
+### 2202 Cannot load data because of unknown network error {#2202}
+This is a general network error that occurs when data can not be loaded for unexpected network reasons. It is more specific than #2102 because the reason is a network problem. Usually, it is not possible to mitigate this directly.
+
+### 2203 Cannot save data because of unknown network error {#2203}
+This is a general network error that occurs when data can not be stored/saved for unexpected network reasons. It is more specific than #2102 because the reason is a network problem. Usually, it is not possible to mitigate this directly.
+
+### 2204 Cannot load data because requested URL was not found {#2204}
+This error occurs when the application tries to load data from an external service (e.g. a web feature service for areas-of-interest), but the URL is invalid or does not return data. This error is only thrown for external URLs; internal URLs such as for fetching results are handled by another error. Users should check whether the URL is valid.
+
+### 2205 Cannot load data because of an internal server error {#2205}
+This error occurs when the application tries to load data from an external service (e.g. a web feature service for areas-of-interest), but the server returns an internal error. This error is only thrown for external servers; internal servers such as for fetching results are handled by another error. Users should check whether the (external) service is generally not working or whether this error occurred, for instance, from a wrongly formatted request. If the service is generally not working, users should contact their administrators directly.
+
+### 2206 No serialiser found {#2206}
+This error occurs when the application tries to format/serialise data, but no component for serialisation is available. It is very unlikely that this error occurs because it is usually linked to a wrongly installed or configured system. If this error occurs, please report the error.
+
+### 2207 Error during serialisation {#2207}
+This error occurs when the application tries to format/serialise data, but a general error occurred. It is rather unlikely that this error occurs; users should check whether the input is correct (in particular special characters in text fields etc.) or report the error.
+
+### 2208 Syntax error during serialisation {#2208}
+This error occurs when the application tries to format/serialise data, but there is a wrong syntax. It is rather unlikely that this error occurs; users should check whether the input is correct (in particular special characters in text fields etc.) or report the error.
+
+### 2220 Model can not be loaded because blocks are not accessible or empty {#2220}
+This error occurs when the application tries to load a model, but the model does not contain any blocks, or the blocks are not accessible. This can also be initially an error in the backend. It is rather unlikely that this error occurs; mitigation could be to reload the application; otherwise, please report it.
+
+### 2221 The basemaps associated with the factbase cannot be loaded {#2221}
+This error occurs when the application tries to basemaps for a factbase, but no basemap is specified or accessible. This can also be initially an error in the backend. This error is rather unlikely, but if it occurs, please report it.
+
+### 2222 Retrieving blocks for a model failed {#2222}
+This error occurs when the application tries to load a model, but the blocks for the model are wrong, cannot be read and used. In contrast to #2220 model blocks are available but have some errors. This error is rather unlikely, but if it occurs, please report it.
+
+## User input, settings and session
+### 2301 Unknown error {#2301}
+This is a general error associated with user input, settings or the session that occurs due to unexpected reasons. Usually, it is not possible to mitigate this directly.
+
+### 2302 No input received {#2302}
+This error occurs when a component of the system expects an input, but the input is empty. Users should check the input; otherwise, please report this error together with the input.
+
+### 2303 Invald input {#2303}
+This error occurs when a component of the system expects an input, but the input is invalid. In contrast to  Users should check the input; otherwise, please report this error together with the input.
+
+### 2304 No factbase selected {#2304}
+This error occurs when a component tries to load factbase-specific data, but the user has not yet selected a factbase. Users should select the target factbase at the bottom and retry.
+
+### 2305 At least one setting for a semantic query is missing {#2305}
+This error occurs when not all required settings (area-of-interest, model, period, etc.) are set. Users should check the query settings and retry.
+
+### 2306 The submitted area-of-interest has an invalid EPSG code {#2306}
+This error occurs when an area-of-interest is uploaded, which has an invalid EPSG code. Currently, only the EPSG code 4326 is supported. Area-of-interests that are drawn on the map have already the correct EPSG code. Users should check the EPSG code of the uploaded file or web feature service.
+
+### 2307 The submitted area-of-interest has an invalid format or type {#2307}
+This error occurs when an area-of-interest is uploaded, which is not correctly formatted as GeoJSON. Currently, only GeoJSON formats are supported. Area-of-interests that are drawn on the map have already a correct format. Users should check the uploaded file or web feature service.
+
+### 2308 The submitted area-of-interest contains geometries with invalid coordinate ranges {2308}
+This error occurs when an area-of-interest is uploaded, which is contains invalid coordinate ranges. Area-of-interests that are drawn on the map are already correct. Users should check the uploaded file or web feature service.
+
+### 2370 Unkonw error during logging in {2370}
+This error occurs when the login failes due to unknown reasons. Users should try again a few minutes later; if the error continues to occur, please contact info@sen2cube.at
+
+### 2371 Unkonw error during logging out {#2371}
+This error occurs when the logout fails due to unknown reasons. It is usually not possible to mitigate this, but users can wait until they are logged out automatically after some time of inactivity.
+
+### 2372 The current session is no longer authenticated {#2372}
+This error occurs when the user is automatically logged out after some time of inactivity. Users should log in again; usually, the login page appears automatically.
+
+### 2373 User has not accepted usage conditions {#2373}
+This error occurs when the user has not accepted the usage conditions. Users need to accept the usage condition to work with the system.
+
+## Semantic querying and model editing
+### 2401 Unknown error {#2401}
+This is a general error associated with the semantic queries that occur due to unexpected reasons. Usually, it is not possible to mitigate this directly.
+
+### 2402 The Blockly workspace is undefined {#2402}
+This error occurs when the Blockly workspace is not correctly initialised. It is rather unlikely that this error occurs. This could be solved by reloading the Web application; otherwise, please report the error.
+
+### 2403 The model is undefined {#2403}
+This error occurs when the model is not defined. It is rather unlikely that this error occurs. This could be solved by reloading the Web application; otherwise, please report the error.
+
+### 2405 No target field for block {#2405}
+This error occurs when a block cannot be attached to another block. It is rather unlikely that this error occurs. It is usually not possible to mitigate this; please report the error.
+
+### 2406 Dropdown menu of a block can not be generated {#2406}
+This error occurs when the dropdown list of a block cannot be generated. It is rather unlikely that this error occurs. It is usually not possible to mitigate this; please report the error.
+
+### 2407 Unknown block in a model {#2407}
+This error occurs when there is an unknown block in the model. It is rather unlikely that this error occurs. It is usually not possible to mitigate this; please report the error.
+
+## Result retrieval and visualisation
+### 2501 Unknown error during retrieval of a result {#2501}
+This is a general error associated with the retrieval of a result that occurs due to unexpected reasons. Usually, it is not possible to mitigate this directly.
+
+### 2502 Result cannot be visualised because it is empty {#2502}
+This error occurs when the application tries to fetch a result, but the result is empty or not available. Sometimes a model may output an empty result due to the wrong formulation of the semantic query. Users should check their model; if the error continues to occur, it is usually not possible to mitigate this directly; please report the error.
+
+### 2503 A result map has an invalid EPSG code {#2503}
+This error occurs when the application tries to fetch a result, but the result has a wrong EPSG code. It is very unlikely that this error occurs because it indicates a wrongly configured system. Please report this error.
+
+### 2504 A result can not be loaded because of an invalid URL {#2504}
+This error occurs when the application tries to fetch a result, but the URL is invalid. It is very unlikely that this error occurs because it indicates a wrongly configured system. Please report this error.
+
+### 2505 A SCBIR result is not linked to an image {#2505}
+This error occurs when the model returns a SCBIR result, but no corresponding images can be found in the (external) image database. Usually, it is not possible to mitigate this error; please report it.
+
+## Errors associated with the preparation phase of semantic queries
+
+### 4101 Invalid area-of-interest or time period {#4101}
+This error occurs when the selected area-of-interest has no spatio-temporal intersection with the factbase. This means the area-of-interest or time period is simply outside the bounds. Users should check the input, make sure that the correct factbase is selected, all area-of-interest geometries are inside the footprint, and the time interval is set correctly.
+
+### 4102 Invalid start date {#4102}
+This error occurs when the start date for the inference setting is wrong. For instance, if it is later than the last observation in the factbase and no observation can be found. Users should make sure that the time period is set correctly.
+
+### 4103 Invalid end date {#4103}
+This error occurs when the end date for the inference setting is wrong. For instance, if it is earlier than the first observation in the factbase and no observation can be found. Users should make sure that the time period is set correctly.
+
+## Runtime errors of semantic queries
+
+### 4201 Inferences are stopped because of user request {#4201}
+This error is thrown when a user stops/aborts an inference. It is not directly an error from a user perspective but treated as an error from the system perspective because the inference process was not successfully completed.
+
+### 4203 Inferences are stopped because of user timeout {#4203}
+This error occurs when an inference is aborted because it took longer than the user-defined timeout. Users can mitigate this by splitting the queries into multiple smaller parts. If a longer timeout is required, please contact info@sen2cube.at for possible options.
+
+### 4204 Inferences are stopped because of global timeout {#4204}
+This error occurs when an inference is aborted because it took longer than the global timeout. The global timeout is, in almost all cases, longer than the user timeout. This error only occurs when the user timeout did not work.
+
+## Errors associated with the status of a factbase 
+
+### 4301 Unknown factbase status {#4301}
+This error is thrown when the factbase is in a status that is not known. It is very unlikely that this error occurs; please report it.
+
+### 4302 Factbase is in maintenance status {#4302}
+This error is thrown when the factbase is in maintenance status. While this is not an error from the user perspective, it is considered an error from the system perspective because some operations cannot be conducted immediately. Users can send semantic queries, but they will be processed once the factbase is not in maintenance anymore.
+
+### 4303 Factbase is in disabled status {#4303}
+This error is thrown when the factbase is in disabled status. No inferences will be processed. Users should contact the owner of the factbase directly.

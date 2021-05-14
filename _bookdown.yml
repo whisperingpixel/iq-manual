@@ -5,6 +5,7 @@ rmd_files:
     - "model_structure.Rmd"
     - "building_blocks.Rmd"
     - "examples.Rmd"
+    - "error_codes.Rmd"
     - "contact_legal.Rmd"
 delete_merged_file: true
 output_dir: "docs"
