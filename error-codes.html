@@ -170,8 +170,8 @@
 <li class="chapter" data-level="" data-path="error-codes.html"><a href="error-codes.html#ERROR:2305"><i class="fa fa-check"></i>2305 At least one setting for a semantic query is missing</a></li>
 <li class="chapter" data-level="" data-path="error-codes.html"><a href="error-codes.html#ERROR:2306"><i class="fa fa-check"></i>2306 The submitted area-of-interest has an invalid EPSG code</a></li>
 <li class="chapter" data-level="" data-path="error-codes.html"><a href="error-codes.html#ERROR:2307"><i class="fa fa-check"></i>2307 The submitted area-of-interest has an invalid format or type</a></li>
-<li class="chapter" data-level="7.3.1" data-path="error-codes.html"><a href="error-codes.html#the-submitted-area-of-interest-contains-geometries-with-invalid-coordinate-ranges-2308"><i class="fa fa-check"></i><b>7.3.1</b> 2308 The submitted area-of-interest contains geometries with invalid coordinate ranges {2308}</a></li>
-<li class="chapter" data-level="7.3.2" data-path="error-codes.html"><a href="error-codes.html#unkonw-error-during-logging-in-2370"><i class="fa fa-check"></i><b>7.3.2</b> 2370 Unkonw error during logging in {2370}</a></li>
+<li class="chapter" data-level="" data-path="error-codes.html"><a href="error-codes.html#ERROR:2308"><i class="fa fa-check"></i>2308 The submitted area-of-interest contains geometries with invalid coordinate ranges</a></li>
+<li class="chapter" data-level="" data-path="error-codes.html"><a href="error-codes.html#ERROR:2370"><i class="fa fa-check"></i>2370 Unkonw error during logging in</a></li>
 <li class="chapter" data-level="" data-path="error-codes.html"><a href="error-codes.html#ERROR:2371"><i class="fa fa-check"></i>2371 Unkonw error during logging out</a></li>
 <li class="chapter" data-level="" data-path="error-codes.html"><a href="error-codes.html#ERROR:2372"><i class="fa fa-check"></i>2372 The current session is no longer authenticated</a></li>
 <li class="chapter" data-level="" data-path="error-codes.html"><a href="error-codes.html#ERROR:2373"><i class="fa fa-check"></i>2373 User has not accepted usage conditions</a></li>
@@ -256,6 +256,7 @@
 <div id="error-codes" class="section level1">
 <h1><span class="header-section-number">7</span> Error codes</h1>
 <p>This chapter gives an overview of errors that may occur during the work with the Sen2Cube.at system. Some of those errors can be handled by the users by changing input parameters or settings. There are hints on how to approach a solution in these cases in the respective sections. Other errors are not possible to be solved by the users on their own. In these cases, it is recommended to report them or ask for help. In most cases, the Sen2Cube.at forum under <a href="https://forum.sen2cube.at" class="uri">https://forum.sen2cube.at</a> is an appropriate place; alternatively, it is possible to write directly to <a href="mailto:info@sen2cube.at" class="email">info@sen2cube.at</a>.</p>
+<p>It is possible to access all error codes directly in a URL, for example <a href="https://manual.sen2cube.at/error-codes.html#ERROR:2101" class="uri">https://manual.sen2cube.at/error-codes.html#ERROR:2101</a> (replace the <strong>2101</strong> with the error code that you receive).</p>
 <div id="general-frontend-errors" class="section level2">
 <h2><span class="header-section-number">7.1</span> General frontend errors</h2>
 <div id="ERROR:2101" class="section level3 unnumbered">
@@ -352,12 +353,12 @@
 <h3>2307 The submitted area-of-interest has an invalid format or type</h3>
 <p>This error occurs when an area-of-interest is uploaded, which is not correctly formatted as GeoJSON. Currently, only GeoJSON formats are supported. Area-of-interests that are drawn on the map have already a correct format. Users should check the uploaded file or web feature service.</p>
 </div>
-<div id="the-submitted-area-of-interest-contains-geometries-with-invalid-coordinate-ranges-2308" class="section level3">
-<h3><span class="header-section-number">7.3.1</span> 2308 The submitted area-of-interest contains geometries with invalid coordinate ranges {2308}</h3>
+<div id="ERROR:2308" class="section level3 unnumbered">
+<h3>2308 The submitted area-of-interest contains geometries with invalid coordinate ranges</h3>
 <p>This error occurs when an area-of-interest is uploaded, which is contains invalid coordinate ranges. Area-of-interests that are drawn on the map are already correct. Users should check the uploaded file or web feature service.</p>
 </div>
-<div id="unkonw-error-during-logging-in-2370" class="section level3">
-<h3><span class="header-section-number">7.3.2</span> 2370 Unkonw error during logging in {2370}</h3>
+<div id="ERROR:2370" class="section level3 unnumbered">
+<h3>2370 Unkonw error during logging in</h3>
 <p>This error occurs when the login failes due to unknown reasons. Users should try again a few minutes later; if the error continues to occur, please contact <a href="mailto:info@sen2cube.at" class="email">info@sen2cube.at</a></p>
 </div>
 <div id="ERROR:2371" class="section level3 unnumbered">

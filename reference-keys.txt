@@ -67,8 +67,6 @@ error-codes
 general-frontend-errors
 network-errors
 user-input-settings-and-session
-the-submitted-area-of-interest-contains-geometries-with-invalid-coordinate-ranges-2308
-unkonw-error-during-logging-in-2370
 semantic-querying-and-model-editing
 result-retrieval-and-visualisation
 errors-associated-with-the-preparation-phase-of-semantic-queries
