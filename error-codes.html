@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Sen2Cube.at Manual</title>
-  <meta name="description" content="Sen2Cube.at Manual" />
+  <title>7 Error codes | Sen2Cube.at Manual</title>
+  <meta name="description" content="7 Error codes | Sen2Cube.at Manual" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Sen2Cube.at Manual" />
+  <meta property="og:title" content="7 Error codes | Sen2Cube.at Manual" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="whisperingpixel/iq-manual" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Sen2Cube.at Manual" />
+  <meta name="twitter:title" content="7 Error codes | Sen2Cube.at Manual" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="enrichment.html"/>
+<link rel="prev" href="examples.html"/>
+<link rel="next" href="contact.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -253,175 +253,221 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Sen2Cube.at Manual</h1>
-<p class="date" style="margin-top: 1.5em;"><em>2021-05-14</em></p>
+<div id="error-codes" class="section level1">
+<h1><span class="header-section-number">7</span> Error codes</h1>
+<p>This chapter gives an overview of errors that may occur during the work with the Sen2Cube.at system. Some of those errors can be handled by the users by changing input parameters or settings. There are hints on how to approach a solution in these cases in the respective sections. Other errors are not possible to be solved by the users on their own. In these cases, it is recommended to report them or ask for help. In most cases, the Sen2Cube.at forum under <a href="https://forum.sen2cube.at" class="uri">https://forum.sen2cube.at</a> is an appropriate place; alternatively, it is possible to write directly to <a href="mailto:info@sen2cube.at" class="email">info@sen2cube.at</a>.</p>
+<div id="general-frontend-errors" class="section level2">
+<h2><span class="header-section-number">7.1</span> General frontend errors</h2>
+<div id="unknown-general-system-error-2101" class="section level3">
+<h3><span class="header-section-number">7.1.1</span> 2101 Unknown general system error {#2101}</h3>
+<p>This is the most general system error of the frontend and is usually thrown when a state occurs that is unexpected, and no recovery is possible. Usually, it is not possible to mitigate this directly.</p>
 </div>
-<div id="about" class="section level1">
-<h1><span class="header-section-number">1</span> About</h1>
-<center>
-<img src="img/logo_b.png" style="width:50.0%" />
-</center>
-<p> </p>
-<p>This manual is intended for Sen2Cube.at users and is not a technical documentation.</p>
-<div id="overview" class="section level2">
-<h2><span class="header-section-number">1.1</span> Overview</h2>
-<p>Sen2Cube.at is the first operational semantic Earth Observation data cube, allowing you to produce information from satellite imagery on a higher semantic level. That means, getting answers to questions such as “<em>Which images are cloud-free in a specific area-of-interest?</em>”, “<em>What was the phenology of this agricultural field in 2019?</em>”, “<em>Which areas were permanently sealed in the last year?</em>” and many more. To obtain these results you don’t need programming or be an expert with deeper knowledge of the raw image data.</p>
-<p>The Sen2Cube.at semantic image querying system is accessible as <a href="https://demo.sen2cube.at/app">Web-application</a>, in which queries can be formulated by intuitively combining several building blocks, that each represent a distinct, clearly defined task or value inside the semantic querying process. This manual contains the reference documentation of that interface.</p>
-<p>Sen2Cube.at is provided by the <a href="https://www.zgis.at/">Department of Geoinformatics - Z_GIS</a> at the University of Salzburg, in collaboration with the project partners:</p>
-<p> </p>
-<center>
-<p><a href="https://www.uni-salzburg.at/"><img src="img/unisbg.png" style="width:20.0%" /></a>   <a href="https://www.zgis.at/"><img src="img/zgis.png" style="width:20.0%" /></a></p>
-<a href="https://www.ama.at/"><img src="img/ama.png" style="width:20.0%" /></a>   <a href="https://www.spatial-services.com/"><img src="img/spase.png" style="width:20.0%" /></a>   <a href="https://www.zamg.ac.at/"><img src="img/zamg.png" style="width:20.0%" /></a>
-</center>
-<p> </p>
-<p>Sen2Cube.at is developed with support by the Austrian Research Promotion Agency (FFG) under the Austrian Space Application Programme (ASAP 14) within the project Sen2Cube.at (project no.: 866016).</p>
-<p> </p>
-<center>
-<a href="https://www.ffg.at/"><img src="img/ffg.png" style="width:20.0%" /></a>
-</center>
+<div id="general-error-during-loading-of-data-2102" class="section level3">
+<h3><span class="header-section-number">7.1.2</span> 2102 General error during loading of data {#2102}</h3>
+<p>This is a general error that occurs when data can not be loaded due to unexpected reasons. Reasons could include network error, input error, parsing errors, databases errors. Usually, it is not possible to mitigate this directly.</p>
 </div>
-<div id="use-cases" class="section level2">
-<h2><span class="header-section-number">1.2</span> Use cases</h2>
-<p>Sen2Cube.at is designed as a general-purpose Earth observation expert system to support and facilitate a great variety of use-cases. The ones listed here are selected and serve as introduction.</p>
-<div id="semantic-content-based-image-retrieval" class="section level3">
-<h3><span class="header-section-number">1.2.1</span> Semantic content-based image retrieval</h3>
-<p>As a common task the Sen2Cube.at system may be used for a content-based search of suitable images, e.g., images that are cloud-free in a certain area-of-interest.</p>
-<p>For example, suppose you are interested in the phenology and cloud-free observations of the agricultural field depicted in the screenshot below. While the acquisition on 21st of October 2018 was quite cloudy, the observations of this particular field are perfectly valid and useful for further investigation.</p>
-<center>
-<div class="figure">
-<img src="img/scbir-example-1.png" style="width:100.0%" alt="" />
-<p class="caption">Why we need SCBIR</p>
+<div id="general-error-during-storing-of-data-2103" class="section level3">
+<h3><span class="header-section-number">7.1.3</span> 2103 General error during storing of data {#2103}</h3>
+<p>This is a general error that occurs when data can not be stored/saved due to unexpected reasons. Reasons could include network error, input error, parsing errors, databases errors. Usually, it is not possible to mitigate this directly.</p>
 </div>
-</center>
-<p>However, if you search for images using the image-wide cloud statistics that are common in image databases, this image will never be returned due to the overall cloud contamination. In contrast, the Sen2Cube.at system allows to specify explicitly an area-of-interest and a cloud filter that will be evaluated only for this area. Subsequently, you receive better information about which images can be used or not for your application.</p>
-<center>
-<div class="figure">
-<img src="img/scbir-example-2.png" style="width:100.0%" alt="" />
-<p class="caption">SCBIR in Sen2Cube.at</p>
-</div>
-</center>
-<div class="rmdtip">
-<p>
-Why don’t you try it out on your own? After reading the “Getting started” chapter, come back here and use the “SCBIR - Cloud” model, <a href="https://demo.sen2cube.at/ows/000/?service=WFS&amp;version=1.1.0&amp;request=GetFeature&amp;outputFormat=application/json&amp;srsname=EPSG:4326&amp;typename=inspire_feldstuecke_2019&amp;Filter=%3CFilter%3E%3CPropertyIsEqualTo%3E%3CPropertyName%3EFS_KENNUNG%3C/PropertyName%3E%3CLiteral%3E79707084%3C/Literal%3E%3C/PropertyIsEqualTo%3E%3C/Filter%3E">this area-of-interest</a> and October 2018 as time interval.
-</p>
+<div id="map-is-undefined-2014" class="section level3">
+<h3><span class="header-section-number">7.1.4</span> 2014 Map is undefined {#2014}</h3>
+<p>This error occurs when a component tries to add or delete something from the map while the map is not yet loaded or failed to load. It is rather unlikely that this error occurs. This could be solved by reloading the Web application; otherwise please report the error.</p>
 </div>
 </div>
-<div id="cloud-free-composite" class="section level3">
-<h3><span class="header-section-number">1.2.2</span> Cloud-free composite</h3>
-<p>Most applications for Earth observation of land consider clouds as noise and not as valid observations. One approach to manage cloud contamination that is feasible in many situations is to create a cloud-free composite, i.e., an artificial image where cloud-free pixels are selected and stitched together using some user-defined rules. Since a basic interpretation of the observations are already available in Sen2Cube.at, a cloud-free composite based on pre-selecting valid observations is easily possible. This example is an artificial image of cloud-free Vienna during Summer 2018:</p>
-<center>
-<div class="figure">
-<img src="img/cloud-free-composite-1.png" style="width:100.0%" alt="" />
-<p class="caption">Cloud-free Vienna</p>
+<div id="network-errors" class="section level2">
+<h2><span class="header-section-number">7.2</span> Network errors</h2>
+<div id="unknown-general-network-error-2201" class="section level3">
+<h3><span class="header-section-number">7.2.1</span> 2201 Unknown general network error {#2201}</h3>
+<p>This is a general network error that occurs due to unexpected reasons. Usually, it is not possible to mitigate this directly.</p>
 </div>
-</center>
-<div class="rmdtip">
-<p>
-You may notice that the extent is cropped to the borders of Vienna: You don’t have to digitize your area-of-interest manually. Every valid GeoJSON can be input, even if it is located online. Here, the borders are directly downloaded as <a href="https://data.wien.gv.at/daten/geo?service=WFS&amp;request=GetFeature&amp;version=1.1.0&amp;typeName=ogdwien:LANDESGRENZEOGD&amp;srsName=EPSG:4326&amp;outputFormat=json">OGC Web Feature Service</a> from the <a href="https://www.data.gv.at/katalog/dataset/86c29af5-c52c-423d-8764-82c1bb037936">Open Data Portal of Vienna</a>.
-</p>
+<div id="cannot-load-data-because-of-unknown-network-error-2202" class="section level3">
+<h3><span class="header-section-number">7.2.2</span> 2202 Cannot load data because of unknown network error {#2202}</h3>
+<p>This is a general network error that occurs when data can not be loaded for unexpected network reasons. It is more specific than #2102 because the reason is a network problem. Usually, it is not possible to mitigate this directly.</p>
 </div>
-<p>The Stubaital during spring reveals that there is still snow on the higher elevated areas.</p>
-<center>
-<div class="figure">
-<img src="img/cloud-free-composite-2.png" style="width:100.0%" alt="" />
-<p class="caption">Cloud-free Stubaital</p>
+<div id="cannot-save-data-because-of-unknown-network-error-2203" class="section level3">
+<h3><span class="header-section-number">7.2.3</span> 2203 Cannot save data because of unknown network error {#2203}</h3>
+<p>This is a general network error that occurs when data can not be stored/saved for unexpected network reasons. It is more specific than #2102 because the reason is a network problem. Usually, it is not possible to mitigate this directly.</p>
 </div>
-</center>
-<p>A cloud-free composite of observations from spring is not useful for your application? No problem - chose any other time interval. You don’t need to rely on pre-manufactured cloud-free composites. In Sen2Cube.at, you can configure these parameters and produce ad-hoc cloud-free composites from an area-of-interest and a time interval you are interested in.</p>
-<div class="rmdtip">
-The result of every inference is available as OGC Web Map Service - you can simply add them in your GIS.
-<center>
-<img src="img/cloud-free-composite-3.png" title="fig:" style="width:100.0%" alt="Cloud-free Stubaital in a GIS" />
-</center>
+<div id="cannot-load-data-because-requested-url-was-not-found-2204" class="section level3">
+<h3><span class="header-section-number">7.2.4</span> 2204 Cannot load data because requested URL was not found {#2204}</h3>
+<p>This error occurs when the application tries to load data from an external service (e.g. a web feature service for areas-of-interest), but the URL is invalid or does not return data. This error is only thrown for external URLs; internal URLs such as for fetching results are handled by another error. Users should check whether the URL is valid.</p>
+</div>
+<div id="cannot-load-data-because-of-an-internal-server-error-2205" class="section level3">
+<h3><span class="header-section-number">7.2.5</span> 2205 Cannot load data because of an internal server error {#2205}</h3>
+<p>This error occurs when the application tries to load data from an external service (e.g. a web feature service for areas-of-interest), but the server returns an internal error. This error is only thrown for external servers; internal servers such as for fetching results are handled by another error. Users should check whether the (external) service is generally not working or whether this error occurred, for instance, from a wrongly formatted request. If the service is generally not working, users should contact their administrators directly.</p>
+</div>
+<div id="no-serialiser-found-2206" class="section level3">
+<h3><span class="header-section-number">7.2.6</span> 2206 No serialiser found {#2206}</h3>
+<p>This error occurs when the application tries to format/serialise data, but no component for serialisation is available. It is very unlikely that this error occurs because it is usually linked to a wrongly installed or configured system. If this error occurs, please report the error.</p>
+</div>
+<div id="error-during-serialisation-2207" class="section level3">
+<h3><span class="header-section-number">7.2.7</span> 2207 Error during serialisation {#2207}</h3>
+<p>This error occurs when the application tries to format/serialise data, but a general error occurred. It is rather unlikely that this error occurs; users should check whether the input is correct (in particular special characters in text fields etc.) or report the error.</p>
+</div>
+<div id="syntax-error-during-serialisation-2208" class="section level3">
+<h3><span class="header-section-number">7.2.8</span> 2208 Syntax error during serialisation {#2208}</h3>
+<p>This error occurs when the application tries to format/serialise data, but there is a wrong syntax. It is rather unlikely that this error occurs; users should check whether the input is correct (in particular special characters in text fields etc.) or report the error.</p>
+</div>
+<div id="model-can-not-be-loaded-because-blocks-are-not-accessible-or-empty-2220" class="section level3">
+<h3><span class="header-section-number">7.2.9</span> 2220 Model can not be loaded because blocks are not accessible or empty {#2220}</h3>
+<p>This error occurs when the application tries to load a model, but the model does not contain any blocks, or the blocks are not accessible. This can also be initially an error in the backend. It is rather unlikely that this error occurs; mitigation could be to reload the application; otherwise, please report it.</p>
+</div>
+<div id="the-basemaps-associated-with-the-factbase-cannot-be-loaded-2221" class="section level3">
+<h3><span class="header-section-number">7.2.10</span> 2221 The basemaps associated with the factbase cannot be loaded {#2221}</h3>
+<p>This error occurs when the application tries to basemaps for a factbase, but no basemap is specified or accessible. This can also be initially an error in the backend. This error is rather unlikely, but if it occurs, please report it.</p>
+</div>
+<div id="retrieving-blocks-for-a-model-failed-2222" class="section level3">
+<h3><span class="header-section-number">7.2.11</span> 2222 Retrieving blocks for a model failed {#2222}</h3>
+<p>This error occurs when the application tries to load a model, but the blocks for the model are wrong, cannot be read and used. In contrast to #2220 model blocks are available but have some errors. This error is rather unlikely, but if it occurs, please report it.</p>
 </div>
 </div>
-<div id="time-series" class="section level3">
-<h3><span class="header-section-number">1.2.3</span> Time series</h3>
-<p>Continuous Earth observation with acquisition frequencies of a few days allow to extract relevant patterns based on (long) time series of a selected variable. For example, by using the appearance of “greenness” of the observations as variable of interest, it is possible to trace back the land use change of this area where an industrial/commercial building was constructed on a meadow.</p>
-<center>
-<div class="figure">
-<img src="img/time-series-example-1.png" style="width:100.0%" alt="" />
-<p class="caption">Construction of a building</p>
+<div id="user-input-settings-and-session" class="section level2">
+<h2><span class="header-section-number">7.3</span> User input, settings and session</h2>
+<div id="unknown-error-2301" class="section level3">
+<h3><span class="header-section-number">7.3.1</span> 2301 Unknown error {#2301}</h3>
+<p>This is a general error associated with user input, settings or the session that occurs due to unexpected reasons. Usually, it is not possible to mitigate this directly.</p>
 </div>
-</center>
-<p>You can see how in the first year of operational Sentinel-2 image acquisition (2015-2016) the temporal pattern indicates the yearly cycle of vegetation on northern hemisphere, while after the construction and opening of the building in May 2018 the temporal pattern changed completely. The remaining variations are due to noise and perhaps smaller patches of grass in between of the buildings.</p>
-<p>Using the same greenness variable applied to agricultural fields may reveal changes in crop types or agricultural use. In this example, the use of one agricultural field changed between 2018 and 2019. While you can identify two main peaks in the years until (and including) 2018, there is only one peak in 2019 and 2020.</p>
-<center>
-<div class="figure">
-<img src="img/time-series-example-2.png" style="width:100.0%" alt="" />
-<p class="caption">Agriculture</p>
+<div id="no-input-received-2302" class="section level3">
+<h3><span class="header-section-number">7.3.2</span> 2302 No input received {#2302}</h3>
+<p>This error occurs when a component of the system expects an input, but the input is empty. Users should check the input; otherwise, please report this error together with the input.</p>
 </div>
-</center>
-<!--
-### Area-based statistics
+<div id="invald-input-2303" class="section level3">
+<h3><span class="header-section-number">7.3.3</span> 2303 Invald input {#2303}</h3>
+<p>This error occurs when a component of the system expects an input, but the input is invalid. In contrast to Users should check the input; otherwise, please report this error together with the input.</p>
+</div>
+<div id="no-factbase-selected-2304" class="section level3">
+<h3><span class="header-section-number">7.3.4</span> 2304 No factbase selected {#2304}</h3>
+<p>This error occurs when a component tries to load factbase-specific data, but the user has not yet selected a factbase. Users should select the target factbase at the bottom and retry.</p>
+</div>
+<div id="at-least-one-setting-for-a-semantic-query-is-missing-2305" class="section level3">
+<h3><span class="header-section-number">7.3.5</span> 2305 At least one setting for a semantic query is missing {#2305}</h3>
+<p>This error occurs when not all required settings (area-of-interest, model, period, etc.) are set. Users should check the query settings and retry.</p>
+</div>
+<div id="the-submitted-area-of-interest-has-an-invalid-epsg-code-2306" class="section level3">
+<h3><span class="header-section-number">7.3.6</span> 2306 The submitted area-of-interest has an invalid EPSG code {#2306}</h3>
+<p>This error occurs when an area-of-interest is uploaded, which has an invalid EPSG code. Currently, only the EPSG code 4326 is supported. Area-of-interests that are drawn on the map have already the correct EPSG code. Users should check the EPSG code of the uploaded file or web feature service.</p>
+</div>
+<div id="the-submitted-area-of-interest-has-an-invalid-format-or-type-2307" class="section level3">
+<h3><span class="header-section-number">7.3.7</span> 2307 The submitted area-of-interest has an invalid format or type {#2307}</h3>
+<p>This error occurs when an area-of-interest is uploaded, which is not correctly formatted as GeoJSON. Currently, only GeoJSON formats are supported. Area-of-interests that are drawn on the map have already a correct format. Users should check the uploaded file or web feature service.</p>
+</div>
+<div id="the-submitted-area-of-interest-contains-geometries-with-invalid-coordinate-ranges-2308" class="section level3">
+<h3><span class="header-section-number">7.3.8</span> 2308 The submitted area-of-interest contains geometries with invalid coordinate ranges {2308}</h3>
+<p>This error occurs when an area-of-interest is uploaded, which is contains invalid coordinate ranges. Area-of-interests that are drawn on the map are already correct. Users should check the uploaded file or web feature service.</p>
+</div>
+<div id="unkonw-error-during-logging-in-2370" class="section level3">
+<h3><span class="header-section-number">7.3.9</span> 2370 Unkonw error during logging in {2370}</h3>
+<p>This error occurs when the login failes due to unknown reasons. Users should try again a few minutes later; if the error continues to occur, please contact <a href="mailto:info@sen2cube.at" class="email">info@sen2cube.at</a></p>
+</div>
+<div id="unkonw-error-during-logging-out-2371" class="section level3">
+<h3><span class="header-section-number">7.3.10</span> 2371 Unkonw error during logging out {#2371}</h3>
+<p>This error occurs when the logout fails due to unknown reasons. It is usually not possible to mitigate this, but users can wait until they are logged out automatically after some time of inactivity.</p>
+</div>
+<div id="the-current-session-is-no-longer-authenticated-2372" class="section level3">
+<h3><span class="header-section-number">7.3.11</span> 2372 The current session is no longer authenticated {#2372}</h3>
+<p>This error occurs when the user is automatically logged out after some time of inactivity. Users should log in again; usually, the login page appears automatically.</p>
+</div>
+<div id="user-has-not-accepted-usage-conditions-2373" class="section level3">
+<h3><span class="header-section-number">7.3.12</span> 2373 User has not accepted usage conditions {#2373}</h3>
+<p>This error occurs when the user has not accepted the usage conditions. Users need to accept the usage condition to work with the system.</p>
+</div>
+</div>
+<div id="semantic-querying-and-model-editing" class="section level2">
+<h2><span class="header-section-number">7.4</span> Semantic querying and model editing</h2>
+<div id="unknown-error-2401" class="section level3">
+<h3><span class="header-section-number">7.4.1</span> 2401 Unknown error {#2401}</h3>
+<p>This is a general error associated with the semantic queries that occur due to unexpected reasons. Usually, it is not possible to mitigate this directly.</p>
+</div>
+<div id="the-blockly-workspace-is-undefined-2402" class="section level3">
+<h3><span class="header-section-number">7.4.2</span> 2402 The Blockly workspace is undefined {#2402}</h3>
+<p>This error occurs when the Blockly workspace is not correctly initialised. It is rather unlikely that this error occurs. This could be solved by reloading the Web application; otherwise, please report the error.</p>
+</div>
+<div id="the-model-is-undefined-2403" class="section level3">
+<h3><span class="header-section-number">7.4.3</span> 2403 The model is undefined {#2403}</h3>
+<p>This error occurs when the model is not defined. It is rather unlikely that this error occurs. This could be solved by reloading the Web application; otherwise, please report the error.</p>
+</div>
+<div id="no-target-field-for-block-2405" class="section level3">
+<h3><span class="header-section-number">7.4.4</span> 2405 No target field for block {#2405}</h3>
+<p>This error occurs when a block cannot be attached to another block. It is rather unlikely that this error occurs. It is usually not possible to mitigate this; please report the error.</p>
+</div>
+<div id="dropdown-menu-of-a-block-can-not-be-generated-2406" class="section level3">
+<h3><span class="header-section-number">7.4.5</span> 2406 Dropdown menu of a block can not be generated {#2406}</h3>
+<p>This error occurs when the dropdown list of a block cannot be generated. It is rather unlikely that this error occurs. It is usually not possible to mitigate this; please report the error.</p>
+</div>
+<div id="unknown-block-in-a-model-2407" class="section level3">
+<h3><span class="header-section-number">7.4.6</span> 2407 Unknown block in a model {#2407}</h3>
+<p>This error occurs when there is an unknown block in the model. It is rather unlikely that this error occurs. It is usually not possible to mitigate this; please report the error.</p>
+</div>
+</div>
+<div id="result-retrieval-and-visualisation" class="section level2">
+<h2><span class="header-section-number">7.5</span> Result retrieval and visualisation</h2>
+<div id="unknown-error-during-retrieval-of-a-result-2501" class="section level3">
+<h3><span class="header-section-number">7.5.1</span> 2501 Unknown error during retrieval of a result {#2501}</h3>
+<p>This is a general error associated with the retrieval of a result that occurs due to unexpected reasons. Usually, it is not possible to mitigate this directly.</p>
+</div>
+<div id="result-cannot-be-visualised-because-it-is-empty-2502" class="section level3">
+<h3><span class="header-section-number">7.5.2</span> 2502 Result cannot be visualised because it is empty {#2502}</h3>
+<p>This error occurs when the application tries to fetch a result, but the result is empty or not available. Sometimes a model may output an empty result due to the wrong formulation of the semantic query. Users should check their model; if the error continues to occur, it is usually not possible to mitigate this directly; please report the error.</p>
+</div>
+<div id="a-result-map-has-an-invalid-epsg-code-2503" class="section level3">
+<h3><span class="header-section-number">7.5.3</span> 2503 A result map has an invalid EPSG code {#2503}</h3>
+<p>This error occurs when the application tries to fetch a result, but the result has a wrong EPSG code. It is very unlikely that this error occurs because it indicates a wrongly configured system. Please report this error.</p>
+</div>
+<div id="a-result-can-not-be-loaded-because-of-an-invalid-url-2504" class="section level3">
+<h3><span class="header-section-number">7.5.4</span> 2504 A result can not be loaded because of an invalid URL {#2504}</h3>
+<p>This error occurs when the application tries to fetch a result, but the URL is invalid. It is very unlikely that this error occurs because it indicates a wrongly configured system. Please report this error.</p>
+</div>
+<div id="a-scbir-result-is-not-linked-to-an-image-2505" class="section level3">
+<h3><span class="header-section-number">7.5.5</span> 2505 A SCBIR result is not linked to an image {#2505}</h3>
+<p>This error occurs when the model returns a SCBIR result, but no corresponding images can be found in the (external) image database. Usually, it is not possible to mitigate this error; please report it.</p>
+</div>
+</div>
+<div id="errors-associated-with-the-preparation-phase-of-semantic-queries" class="section level2">
+<h2><span class="header-section-number">7.6</span> Errors associated with the preparation phase of semantic queries</h2>
+<div id="invalid-area-of-interest-or-time-period-4101" class="section level3">
+<h3><span class="header-section-number">7.6.1</span> 4101 Invalid area-of-interest or time period {#4101}</h3>
+<p>This error occurs when the selected area-of-interest has no spatio-temporal intersection with the factbase. This means the area-of-interest or time period is simply outside the bounds. Users should check the input, make sure that the correct factbase is selected, all area-of-interest geometries are inside the footprint, and the time interval is set correctly.</p>
+</div>
+<div id="invalid-start-date-4102" class="section level3">
+<h3><span class="header-section-number">7.6.2</span> 4102 Invalid start date {#4102}</h3>
+<p>This error occurs when the start date for the inference setting is wrong. For instance, if it is later than the last observation in the factbase and no observation can be found. Users should make sure that the time period is set correctly.</p>
+</div>
+<div id="invalid-end-date-4103" class="section level3">
+<h3><span class="header-section-number">7.6.3</span> 4103 Invalid end date {#4103}</h3>
+<p>This error occurs when the end date for the inference setting is wrong. For instance, if it is earlier than the first observation in the factbase and no observation can be found. Users should make sure that the time period is set correctly.</p>
+</div>
+</div>
+<div id="runtime-errors-of-semantic-queries" class="section level2">
+<h2><span class="header-section-number">7.7</span> Runtime errors of semantic queries</h2>
+<div id="inferences-are-stopped-because-of-user-request-4201" class="section level3">
+<h3><span class="header-section-number">7.7.1</span> 4201 Inferences are stopped because of user request {#4201}</h3>
+<p>This error is thrown when a user stops/aborts an inference. It is not directly an error from a user perspective but treated as an error from the system perspective because the inference process was not successfully completed.</p>
+</div>
+<div id="inferences-are-stopped-because-of-user-timeout-4203" class="section level3">
+<h3><span class="header-section-number">7.7.2</span> 4203 Inferences are stopped because of user timeout {#4203}</h3>
+<p>This error occurs when an inference is aborted because it took longer than the user-defined timeout. Users can mitigate this by splitting the queries into multiple smaller parts. If a longer timeout is required, please contact <a href="mailto:info@sen2cube.at" class="email">info@sen2cube.at</a> for possible options.</p>
+</div>
+<div id="inferences-are-stopped-because-of-global-timeout-4204" class="section level3">
+<h3><span class="header-section-number">7.7.3</span> 4204 Inferences are stopped because of global timeout {#4204}</h3>
+<p>This error occurs when an inference is aborted because it took longer than the global timeout. The global timeout is, in almost all cases, longer than the user timeout. This error only occurs when the user timeout did not work.</p>
+</div>
+</div>
+<div id="errors-associated-with-the-status-of-a-factbase" class="section level2">
+<h2><span class="header-section-number">7.8</span> Errors associated with the status of a factbase</h2>
+<div id="unknown-factbase-status-4301" class="section level3">
+<h3><span class="header-section-number">7.8.1</span> 4301 Unknown factbase status {#4301}</h3>
+<p>This error is thrown when the factbase is in a status that is not known. It is very unlikely that this error occurs; please report it.</p>
+</div>
+<div id="factbase-is-in-maintenance-status-4302" class="section level3">
+<h3><span class="header-section-number">7.8.2</span> 4302 Factbase is in maintenance status {#4302}</h3>
+<p>This error is thrown when the factbase is in maintenance status. While this is not an error from the user perspective, it is considered an error from the system perspective because some operations cannot be conducted immediately. Users can send semantic queries, but they will be processed once the factbase is not in maintenance anymore.</p>
+</div>
+<div id="factbase-is-in-disabled-status-4303" class="section level3">
+<h3><span class="header-section-number">7.8.3</span> 4303 Factbase is in disabled status {#4303}</h3>
+<p>This error is thrown when the factbase is in disabled status. No inferences will be processed. Users should contact the owner of the factbase directly.</p>
 
-In cases when defined geographic regions area already available you may want to augment their attribute table with aggregated Earth-observation-based information. For example: What's Viennas 'greenest' district?
-
--->
 </div>
-<div id="spatially-disaggregated-information" class="section level3">
-<h3><span class="header-section-number">1.2.4</span> Spatially disaggregated information</h3>
-<p><strong>Surface water</strong></p>
-<p>Some borders that are defined in (vector) databases of geographical objects indicate only one or an averaged one One example are water bodies: While they are represented as stable with a clearly defined border, they undergo many changes over time. Spatially disaggregated information from Earth observation data allows to investigate these in unprecedented spatio-temporal detail. Earth observations of one year covering parts of the Lake of Constance reveals the dynamics at the mouth of the Rhine River and the Bregenzerach and allows to see more details than the simple polygon in the geographical database</p>
-<center>
-<div class="figure">
-<img src="img/spatial-information-3.png" style="width:100.0%" alt="" />
-<p class="caption">Lake of Constance</p>
-</div>
-</center>
-<center>
-<div class="figure">
-<img src="img/spatial-information-4.png" style="width:100.0%" alt="" />
-<p class="caption">Salzburg lakes</p>
-</div>
-</center>
-<p>Another use case of spatially disaggregated information is to detect missing or changed geographical objects in other databases. For example, the dam “Donaukraftwerk Melk” is not yet present in the geographical database …</p>
-<center>
-<div class="figure">
-<img src="img/spatial-information-1.png" style="width:100.0%" alt="" />
-<p class="caption">Dam is missing in geographical database</p>
-</div>
-</center>
-<p>… it is already clearly visible in the Earth-observation-based information.</p>
-<center>
-<div class="figure">
-<img src="img/spatial-information-2.png" style="width:100.0%" alt="" />
-<p class="caption">Dam is missing in geographical database</p>
-</div>
-</center>
-<p><strong>Urban green areas</strong></p>
-<p>Other geographical phenomena and objects might be spatially arranged within a region. For example, take the green areas within Vienna, which are an important contribution to well-being of humans and animals and are able to cool down the city in summer. We will again use the official borders as distributed by the Open Data Platform. The result map shows the percentage of valid observations (i.e. observations that are not cloud) that are associated with a vegetation type for the specified timespan.</p>
-<center>
-<div class="figure">
-<img src="img/spatial-information-5.png" style="width:100.0%" alt="" />
-<p class="caption">Viennas green areas</p>
-</div>
-</center>
-<p>Further re-use of intermediate results is also possible. For example, the color ramp produces a nice visual output, but it might be more useful to apply a threshold and finally delineate areas that might be considered stable vegetation or green spaces.</p>
-<center>
-<div class="figure">
-<img src="img/spatial-information-6.png" style="width:100.0%" alt="" />
-<p class="caption">Viennas green areas - delineated according temporal occurrency</p>
-</div>
-</center>
-</div>
-</div>
-<div id="next-steps-and-how-to-start" class="section level2">
-<h2><span class="header-section-number">1.3</span> Next steps and how to start</h2>
-<div class="rmdnote">
-<p>
-The Sen2Cube.at system was not explicitly designed for any of the use-cases presented in the last section. All of them were created using the same, generic semantic enrichment and generic building blocks of the semantic query language to construct the different queries for each example. Still, it is not necessary to do any programming - you don’t have to trade-of between the need of programming or flexibility of the software.
-</p>
-</div>
-<p>A good start to get familiar with the Sen2Cube.at system is to read how we conduct the <a href="enrichment.html#enrichment">Semantic Enrichment</a> of Earth observation data and then proceed with the <a href="start.html#start">Getting Started</a> section and try to use or build your first model.</p>
-</div>
-<div id="more-information-and-community-access" class="section level2">
-<h2><span class="header-section-number">1.4</span> More information and community access</h2>
-<p>This manual gives a lot of information how to use the Sen2Cube.at system; still, some parts might be unclear or specific question may arise. Feel free to use our community forum to ask: <a href="https://forum.sen2cube.at/">https://forum.sen2cube.at/</a>. The forum-account (including username and password) is the same as your overall Sen2Cube.at account. Thus, you can directly login by clicking on the icon below the text “Alternative Login” …</p>
-<p><img src="img/forum-login.png" style="width:100.0%" /></p>
-<p>… and you will be forwarded to the Sen2Cube.at login page and then redirected to the forum.</p>
-
 </div>
 </div>
             </section>
@@ -429,8 +475,8 @@ The Sen2Cube.at system was not explicitly designed for any of the use-cases pres
           </div>
         </div>
       </div>
-
-<a href="enrichment.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="examples.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="contact.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -462,7 +508,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/whisperingpixel/iq-manual/edit/master/index.Rmd",
+"link": "https://github.com/whisperingpixel/iq-manual/edit/master/error_codes.Rmd",
 "text": "Edit"
 },
 "history": {
