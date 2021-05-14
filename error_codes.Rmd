@@ -14,7 +14,7 @@ This is a general error that occurs when data can not be loaded due to unexpecte
 ### 2103 General error during storing of data {.unnumbered #ERROR:2103}
 This is a general error that occurs when data can not be stored/saved due to unexpected reasons. Reasons could include network error, input error, parsing errors, databases errors. Usually, it is not possible to mitigate this directly.
 
-### 2014 Map is undefined {.unnumbered #ERROR:2014}
+### 2104 Map is undefined {.unnumbered #ERROR:2104}
 This error occurs when a component tries to add or delete something from the map while the map is not yet loaded or failed to load. It is rather unlikely that this error occurs. This could be solved by reloading the Web application; otherwise please report the error.
 
 ## Network errors
@@ -78,10 +78,10 @@ This error occurs when an area-of-interest is uploaded, which is not correctly f
 ### 2308 The submitted area-of-interest contains geometries with invalid coordinate ranges {.unnumbered #ERROR:2308}
 This error occurs when an area-of-interest is uploaded, which is contains invalid coordinate ranges. Area-of-interests that are drawn on the map are already correct. Users should check the uploaded file or web feature service.
 
-### 2370 Unkonw error during logging in {.unnumbered #ERROR:2370}
+### 2370 Unknown error during logging in {.unnumbered #ERROR:2370}
 This error occurs when the login failes due to unknown reasons. Users should try again a few minutes later; if the error continues to occur, please contact info@sen2cube.at
 
-### 2371 Unkonw error during logging out {.unnumbered #ERROR:2371}
+### 2371 Unknown error during logging out {.unnumbered #ERROR:2371}
 This error occurs when the logout fails due to unknown reasons. It is usually not possible to mitigate this, but users can wait until they are logged out automatically after some time of inactivity.
 
 ### 2372 The current session is no longer authenticated {.unnumbered #ERROR:2372}
