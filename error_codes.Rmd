@@ -1,6 +1,8 @@
 # Error codes
 This chapter gives an overview of errors that may occur during the work with the Sen2Cube.at system. Some of those errors can be handled by the users by changing input parameters or settings. There are hints on how to approach a solution in these cases in the respective sections. Other errors are not possible to be solved by the users on their own. In these cases, it is recommended to report them or ask for help. In most cases, the Sen2Cube.at forum under https://forum.sen2cube.at is an appropriate place; alternatively, it is possible to write directly to info@sen2cube.at. 
 
+It is possible to access all error codes directly in a URL, for example https://manual.sen2cube.at/error-codes.html#ERROR:2101 (replace the **2101** with the error code that you receive).
+
 ## General frontend errors
 
 ### 2101 Unknown general system error {.unnumbered #ERROR:2101}
@@ -73,10 +75,10 @@ This error occurs when an area-of-interest is uploaded, which has an invalid EPS
 ### 2307 The submitted area-of-interest has an invalid format or type {.unnumbered #ERROR:2307}
 This error occurs when an area-of-interest is uploaded, which is not correctly formatted as GeoJSON. Currently, only GeoJSON formats are supported. Area-of-interests that are drawn on the map have already a correct format. Users should check the uploaded file or web feature service.
 
-### 2308 The submitted area-of-interest contains geometries with invalid coordinate ranges {2308}
+### 2308 The submitted area-of-interest contains geometries with invalid coordinate ranges {.unnumbered #ERROR:2308}
 This error occurs when an area-of-interest is uploaded, which is contains invalid coordinate ranges. Area-of-interests that are drawn on the map are already correct. Users should check the uploaded file or web feature service.
 
-### 2370 Unkonw error during logging in {2370}
+### 2370 Unkonw error during logging in {.unnumbered #ERROR:2370}
 This error occurs when the login failes due to unknown reasons. Users should try again a few minutes later; if the error continues to occur, please contact info@sen2cube.at
 
 ### 2371 Unkonw error during logging out {.unnumbered #ERROR:2371}
