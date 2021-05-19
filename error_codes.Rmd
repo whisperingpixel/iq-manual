@@ -110,6 +110,9 @@ This error occurs when the dropdown list of a block cannot be generated. It is r
 ### 2407 Unknown block in a model {.unnumbered #ERROR:2407}
 This error occurs when there is an unknown block in the model. It is rather unlikely that this error occurs. It is usually not possible to mitigate this; please report the error.
 
+### 2408 Cannot delete model because it is used by inferences {.unnumbered #ERROR:2407}
+This error occurs when a user tries to delete a model, which was used in an inference. As information processing system, Sen2Cube.at does not allow to maintain the results of inferences without the model that was used to generate them. Find more information here: https://forum.sen2cube.at/topic/7/deleting-models. Users need to delete all inferences before the model can be deleted.
+
 ## Result retrieval and visualisation
 
 ### 2501 Unknown error during retrieval of a result {.unnumbered #ERROR:2501}
