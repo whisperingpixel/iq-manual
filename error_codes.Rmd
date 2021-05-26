@@ -3,6 +3,11 @@ This chapter gives an overview of errors that may occur during the work with the
 
 It is possible to access all error codes directly in a URL, for example https://manual.sen2cube.at/error-codes.html#ERROR:2101 (replace the **2101** with the error code that you receive).
 
+## General system errors
+
+### 1100 Not implemented
+This error means that this feature is currently not accessible (for the current user) because it is still under development or in testing.
+
 ## General frontend errors
 
 ### 2101 Unknown general system error {.unnumbered #ERROR:2101}
@@ -89,6 +94,9 @@ This error occurs when the user is automatically logged out after some time of i
 
 ### 2373 User has not accepted usage conditions {.unnumbered #ERROR:2373}
 This error occurs when the user has not accepted the usage conditions. Users need to accept the usage condition to work with the system.
+
+### 2374 Not allowed {.unnumbered #ERROR:2374}
+This error occurs when a user tries to perform an action or change a setting for which the user's current account has no privileges. Users should contact info@sen2cube.at to get more information or request changes of settings and account status.
 
 ## Semantic querying and model editing
 
