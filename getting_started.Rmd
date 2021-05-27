@@ -109,6 +109,7 @@ We recommend that you download important results as they will be deleted regular
 
 In the case the query could *not* be processed successfully, an error message describing the problem will appear instead.
 
+Usually, the error message contains an error code, which can be used to get more information about what the error itself means as well as what are possible mitigation strategies. More information about errors is provided in a dedicated section about the error codes (\@ref(error-codes)).
 
 ### Examples {#exampleworkflow}
 

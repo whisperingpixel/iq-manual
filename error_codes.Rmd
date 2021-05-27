@@ -1,4 +1,4 @@
-# Error codes
+# Error codes {#error-codes}
 This chapter gives an overview of errors that may occur during the work with the Sen2Cube.at system. Some of those errors can be handled by the users by changing input parameters or settings. There are hints on how to approach a solution in these cases in the respective sections. Other errors are not possible to be solved by the users on their own. In these cases, it is recommended to report them or ask for help. In most cases, the Sen2Cube.at forum under https://forum.sen2cube.at is an appropriate place; alternatively, it is possible to write directly to info@sen2cube.at. 
 
 It is possible to access all error codes directly in a URL, for example https://manual.sen2cube.at/error-codes.html#ERROR:2101 (replace the **2101** with the error code that you receive).
@@ -118,7 +118,7 @@ This error occurs when the dropdown list of a block cannot be generated. It is r
 ### 2407 Unknown block in a model {.unnumbered #ERROR:2407}
 This error occurs when there is an unknown block in the model. It is rather unlikely that this error occurs. It is usually not possible to mitigate this; please report the error.
 
-### 2408 Cannot delete model because it is used by inferences {.unnumbered #ERROR:2407}
+### 2408 Cannot delete model because it is used by inferences {.unnumbered #ERROR:2408}
 This error occurs when a user tries to delete a model, which was used in an inference. As information processing system, Sen2Cube.at does not allow to maintain the results of inferences without the model that was used to generate them. Find more information here: https://forum.sen2cube.at/topic/7/deleting-models. Users need to delete all inferences before the model can be deleted.
 
 ## Result retrieval and visualisation
