@@ -65,7 +65,6 @@ comment
 examples
 error-codes
 general-system-errors
-not-implemented
 general-frontend-errors
 network-errors
 user-input-settings-and-session
