@@ -5,7 +5,7 @@ It is possible to access all error codes directly in a URL, for example https://
 
 ## General system errors
 
-### 1100 Not implemented
+### 1100 Not implemented {.unnumbered #ERROR:1100}
 This error means that this feature is currently not accessible (for the current user) because it is still under development or in testing.
 
 ## General frontend errors
