@@ -88,7 +88,9 @@ The following example illustrates the effect of the preview mode. They show the 
 
 It is possible to see the effects of the coarser spatial resolutions, not only less detailed outlines and crossings, but also some entities are completely hidden, e.g. the infrastructure that guides the river water and the sediments to deeper parts of the lake.
 
-In the result it will be indicated whether a query was executed in preview-mode or not.
+In the result it will be indicated whether a query was executed in preview-mode or not. You can identify that a semantic query was executed in preview mode either by the "Preview"-banner at the top of the page and the indicator in the query settings, which also show the resampling factor (here 10x).
+
+![The user interface indicates whether a semantic query was executed in preview mode](img/preview-ui.png){width=100%}
 
 ### Viewing and downloading the results
 
