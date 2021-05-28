@@ -393,10 +393,12 @@ Currently, there is *no* support for spatial subsetting of cubes or define custo
 The comment block allows you to add comments to parts of your model, such that both your future self and others can better understand what is happening. Comment blocks can be added anywhere in the model and will be ignored during evaluation.
 
 ![Example of concatenating several comment blocks to describe a model workflow](img/comment-block.png){width=100%}
-Another option is to comment a block directly, which can be achieved by a right-click on the block, which opens the context menu, and the  click on *Add Comment*. This option allows to add a comment directly, not only those on the highest level. However, The comment may be hidden if it is not opened and too many comments may overlap each other. The question mark in the blue circle indicates that there is a comment assciated to the block.
+Another option is to comment a block directly, which can be achieved by a right-click on the block, which opens the context menu, and the  click on *Add Comment*. This option allows to add a comment directly, not only those on the highest level. However, The comment may be hidden if it is not opened and too many comments may overlap each other. The question mark in the blue circle indicates that there is a comment associated to the block. The comment can be deleted by a right-click on the blue circle with the question mark and then click on *Remove Comment* in the context menu.
 
 ![Example of commenting a block directly](img/comment-inline.png){width=100%}
 
 ```{block, type='rmdcaution'}
 Remember that the comment block is not implemented to allow a certain processing in the inference engine or to provide a feature - it is for you. If you spend a lot of time to create a model you may want to avoid doing it again because the model cannot be easily understood anymore! So, similar to a programming or scripting language, it is recommended to provide a good description to the model.
 ```
+
+
