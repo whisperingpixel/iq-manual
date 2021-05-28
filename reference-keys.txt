@@ -38,7 +38,7 @@ appearance
 atmosphere
 reflectance
 topography
-artifacts
+artefacts
 metadata
 verbs
 evaluate

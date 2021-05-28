@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2021-05-27" />
+<meta name="date" content="2021-05-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -114,7 +114,7 @@
 <li class="chapter" data-level="5.2.2" data-path="blocks.html"><a href="blocks.html#atmosphere"><i class="fa fa-check"></i><b>5.2.2</b> Atmosphere</a></li>
 <li class="chapter" data-level="5.2.3" data-path="blocks.html"><a href="blocks.html#reflectance"><i class="fa fa-check"></i><b>5.2.3</b> Reflectance</a></li>
 <li class="chapter" data-level="5.2.4" data-path="blocks.html"><a href="blocks.html#topography"><i class="fa fa-check"></i><b>5.2.4</b> Topography</a></li>
-<li class="chapter" data-level="5.2.5" data-path="blocks.html"><a href="blocks.html#artifacts"><i class="fa fa-check"></i><b>5.2.5</b> Artifacts</a></li>
+<li class="chapter" data-level="5.2.5" data-path="blocks.html"><a href="blocks.html#artefacts"><i class="fa fa-check"></i><b>5.2.5</b> Artefacts</a></li>
 <li class="chapter" data-level="5.2.6" data-path="blocks.html"><a href="blocks.html#metadata"><i class="fa fa-check"></i><b>5.2.6</b> Metadata</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="blocks.html"><a href="blocks.html#verbs"><i class="fa fa-check"></i><b>5.3</b> Verbs</a><ul>
@@ -260,13 +260,13 @@
             <section class="normal" id="section-">
 <div id="enrichment" class="section level1">
 <h1><span class="header-section-number">2</span> Semantic Enrichment</h1>
-<p>Semantic enrichment in the EO imagery domain refers to interpreted content of EO imagery (i.e., mapping data to symbols that represent stable concepts). In the case of EO imagery represented in a raster (i.e., image), this means mapping each raster cell (i.e., pixel) to an interpretation that represents a stable concept. These concepts are generally non-ordinal, categorical variables, however, subsets of these variables may be ordinal (e.g., vegetation categorized by increasing greenness or intensity). The relative level of semantic enrichment can vary in terms of complexity and the “symbolic” level of the concepts/variables. Concepts represented by a relatively lower level of semantic enrichment could be considered semi-symbolic, meaning that they are a first step towards connecting sensory data to symbolic, semantic classes (e.g., color as perceived by human vision, multi-dimensional “color”, other ways of characterising the spatio-temporal context of each observation). A relatively high level of semantic enrichment refers to explicit expert knowledge or existing ontologies (e.g., land cover classification system (LCCS) developed by the United Nations Food and Agriculture Organisation (UN-FAO)). Semantically enriched EO imagery time-series can be used to create semantically-enabled EO data cubes (i.e., semantic EO data cubes).</p>
-<p>There are multiple methods and tools that exist for semantically enriching EO imagery. In the context of the Sen2Cube.at project, the <a href="enrichment.html#siam">SIAM</a> software has been used, but others are possible.</p>
+<p>Semantic enrichment in the EO imagery domain refers to interpreted content of EO imagery (i.e., mapping data to symbols that represent stable concepts). In the case of EO imagery represented in a raster (i.e., image), this means mapping each raster cell (i.e., pixel) to an interpretation that represents a stable concept. These concepts are generally non-ordinal, categorical variables. However, subsets of these variables may be ordinal (e.g., vegetation categorised by increasing greenness or intensity). The relative level of semantic enrichment can vary in complexity and the “symbolic” level of the concepts/variables. Concepts represented by a relatively lower level of semantic enrichment could be considered semi-symbolic. These concepts are a first step towards connecting sensory data to stable, symbolic, semantic classes and are required to be enriched further in semantic models. In contrast, examples of a relatively high level of semantic enrichment are existing ontologies such as the land cover classification system (LCCS) developed by the United Nations Food and Agriculture Organisation (UN-FAO), particularly the modular phase. Semantically enriched EO imagery time-series can be used to create semantically-enabled EO data cubes (i.e., semantic EO data cubes).</p>
+<p>There are multiple methods and tools that exist for semantically enriching EO imagery. In the context of the Sen2Cube.at system, the <a href="enrichment.html#siam">SIAM</a> software has been used, but others are possible.</p>
 <div id="siam" class="section level2">
 <h2><span class="header-section-number">2.1</span> Satellite Image Automatic Mapper (SIAM)</h2>
-<p>The SIAM software generates relatively low-level, generic, data-derived semantic enrichment that is application- and user-independent, meaning it is able to support multiple application domains. Using a per-pixel physical spectral model-based decision tree, SIAM automatically categorizes EO imagery that is calibrated to at least top-of-atmosphere (TOA) reflectance from multiple optical sensors (e.g., Sentinel-2, Landsat-8, AVHRR, VHR). SIAM is considered automatic because it runs without any user-defined parameterisation or training data, instead relying on <em>a priori</em> knowledge. The decision tree maps each calibrated observation to one stable, sensor-agnostic multi-spectral color name (i.e., category) based on its location in a multi-spectral reflectance hypercube. The result is a discrete and finite vocabulary for observations that refer to a hyper-polyhedra (e.g., multi-dimensional shape) within a multi-spectral feature space. This vocabulary (i.e., color names/categories) is mutually exclusive (i.e, every observation belongs to one single partition) and totally exhaustive (i.e., the entire multi-spectral reflectance hypercube is partitioned). These color names have semantic associations using a knowledge-based approach. These color names are semi-symbolic, and can be thought of as stable, sensor-agnostic visual “letters” that can be used to build “words” (i.e., symbolic concepts) that have a higher semantic level using knowledge based rules. The relatively low level semantic enrichment automatically generated by SIAM has been independently validated up to a continental scale.</p>
-<p>The software is capable of producing different granularities (i.e. different number of color names) from coarse (i.e., 18 color names) to fine (i.e., 96 color names), as well as additional data-derived information layers (e.g., multi-spectral greenness index, brightness).</p>
-<p>SIAM’s 33 color name granularity is exemplarily utilized within the Sen2Cube.at project as the basis for semantic queries.</p>
+<p>The SIAM software generates relatively low-level, generic, data-derived semantic enrichment that is application- and user-independent, meaning it can support multiple application domains. Using a per-pixel physical spectral model-based decision tree, SIAM automatically categorises EO imagery that is calibrated to at least top-of-atmosphere (TOA) reflectance from multiple optical sensors (e.g., Sentinel-2, Landsat-8, AVHRR, VHR). SIAM is considered automatic because it runs without any user-defined parameterisation or training data instead of relying on <em>a priori</em> knowledge. The decision tree maps each calibrated observation to one stable, sensor-agnostic multi-spectral colour name (i.e., category) based on its location in a multi-spectral reflectance hypercube. The result is a discrete and finite vocabulary for observations that refer to a hyper-polyhedra (e.g., multi-dimensional shape) within a multi-spectral feature space. This vocabulary (i.e., colour names/categories) is mutually exclusive (i.e, every observation belongs to one single partition) and totally exhaustive (i.e., the entire multi-spectral reflectance hypercube is partitioned). These colour names have semantic associations using a knowledge-based approach. These colour names are semi-symbolic and can be thought of as stable, sensor-agnostic visual “letters” that can be used to build “words” (i.e., symbolic concepts) that have a higher semantic level using knowledge-based rules. The relatively low-level semantic enrichment automatically generated by SIAM has been independently validated up to a continental scale.</p>
+<p>The software is capable of producing different granularities (i.e. different number of colour names) from coarse (i.e., 18 colour names) to fine (i.e., 96 colour names), as well as additional data-derived information layers (e.g., multi-spectral greenness index, brightness).</p>
+<p>SIAM’s 33 colour name granularity is exemplarily utilised within the Sen2Cube.at system as the basis for semantic queries.</p>
 <p>The following table shows the legend of the SIAM names (spectral categories) that can currently be selected and used in Sen2Cube.at for analyses and evaluations through time:</p>
 <table>
 <caption><span id="tab:siamnames">Table 2.1: </span> 33 SIAM color names available in Sen2Cube.at</caption>
@@ -433,13 +433,13 @@
 <td align="right">25</td>
 <td align="right">CL</td>
 <td align="right">Cloud</td>
-<td align="right">atmoshpere</td>
+<td align="right">atmosphere</td>
 </tr>
 <tr class="even">
 <td align="right">26</td>
 <td align="right">SMKPLM</td>
 <td align="right">Smoke Plume</td>
-<td align="right">atmoshpere</td>
+<td align="right">atmosphere</td>
 </tr>
 <tr class="odd">
 <td align="right">27</td>
@@ -518,14 +518,14 @@
 </center>
 <div id="siam_examples_austria" class="section level3">
 <h3><span class="header-section-number">2.1.1</span> Applied in Austria</h3>
-<p>Here are a few examples of the generic, low level semantic enrichment generated by SIAM at its highest granularity (i.e., 33 color names) applied to Sentinel-2 imagery. These color spaces are represented by colors based on their semantic association:</p>
+<p>Here are a few examples of the generic, low-level semantic enrichment generated by SIAM at its highest granularity (i.e., 33 colour names) applied to Sentinel-2 imagery. These colour spaces are represented by colours based on their semantic association:</p>
 <center>
 <div class="figure">
 <img src="img/SIAM33_categories_legend.jpg" style="width:100.0%" alt="" />
-<p class="caption">Legend for SIAM color names grouped by related semantic associations and represented by related colors for visualisation.</p>
+<p class="caption">Legend for SIAM colour names grouped by related semantic associations and represented by related colours for visualisation.</p>
 </div>
 </center>
-<p>Sentinel-2 imagery covering Austria from 18 September 2019, 05 April 2020 and 24 June 2020 have been exemplarily discretized into multi-spectral color spaces with SIAM.</p>
+<p>Sentinel-2 imagery covering Austria from 18 September 2019, 05 April 2020 and 24 June 2020 have been exemplarily discretised into multi-spectral colour spaces with SIAM.</p>
 <center>
 <div class="figure">
 <img src="img/20190918_TCI_33UWP.jpeg" style="width:100.0%" alt="" />

@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2021-05-27" />
+<meta name="date" content="2021-05-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -114,7 +114,7 @@
 <li class="chapter" data-level="5.2.2" data-path="blocks.html"><a href="blocks.html#atmosphere"><i class="fa fa-check"></i><b>5.2.2</b> Atmosphere</a></li>
 <li class="chapter" data-level="5.2.3" data-path="blocks.html"><a href="blocks.html#reflectance"><i class="fa fa-check"></i><b>5.2.3</b> Reflectance</a></li>
 <li class="chapter" data-level="5.2.4" data-path="blocks.html"><a href="blocks.html#topography"><i class="fa fa-check"></i><b>5.2.4</b> Topography</a></li>
-<li class="chapter" data-level="5.2.5" data-path="blocks.html"><a href="blocks.html#artifacts"><i class="fa fa-check"></i><b>5.2.5</b> Artifacts</a></li>
+<li class="chapter" data-level="5.2.5" data-path="blocks.html"><a href="blocks.html#artefacts"><i class="fa fa-check"></i><b>5.2.5</b> Artefacts</a></li>
 <li class="chapter" data-level="5.2.6" data-path="blocks.html"><a href="blocks.html#metadata"><i class="fa fa-check"></i><b>5.2.6</b> Metadata</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="blocks.html"><a href="blocks.html#verbs"><i class="fa fa-check"></i><b>5.3</b> Verbs</a><ul>
@@ -266,14 +266,14 @@
 <p>Definition blocks store the output of a collection of other blocks, such that it can be accessed anywhere else in the model. Several types of definitions exist.</p>
 <div class="rmdcaution">
 <p>
-All definitions must be named. Bear in mind that these names should be unique!
+All definitions must be named. Bear in mind that these names must be unique!
 </p>
 </div>
 <div id="entities-and-properties" class="section level3">
 <h3><span class="header-section-number">5.1.1</span> Entities and properties</h3>
 <div id="entity_definition" class="section level4">
 <h4><span class="header-section-number">5.1.1.1</span> Entities</h4>
-<p>An entity is an identifiable phenomenon of interest in the real world that is not further subdivided into phenomena of the same kind. For example, <em>a lake</em> or <em>a field</em>. The Sen2Cube.at system allows to refer to entities at different semantic levels, including <em>water</em> or <em>vegetation</em>. The capability of eventually selecting entities on a higher or lower semantic level depends on the capabilities of the Earth observation sensor, noise during the observation, and the model construction. Entity definitions describe for each observation if it is identified as being part of this type of entity or not in the spatio-temporal extent of the semantic query. For example, when we define the entity <em>water</em>, the entity definition will store a set of boolean observations having a value of <code>True</code> when it was identified as being water, and <code>False</code> otherwise. These observations are aligned along two spatial dimensions, i.e. the X and Y coordinates of the observations geographical locations, and one temporal dimension, i.e. the timestamps at which the observations were made. Therefore, we call this data structure a <em>cube</em>. See the illustration below, where blue blocks represent observations that were identified as water, and grey blocks represent observations that were not identified as water.</p>
+<p>An entity is an identifiable phenomenon of interest in the real world that is not further subdivided into phenomena of the same kind. For example, <em>a lake</em> or <em>a field</em>. The Sen2Cube.at system allows referring to entities at different semantic levels, including <em>water</em> or <em>vegetation</em>. The capability of eventually selecting entities on a higher or lower semantic level depends on the capabilities of the Earth observation sensor, noise during the observation, and the model construction. Entity definitions describe for each observation if it is identified as being part of this type of entity or not in the spatio-temporal extent of the semantic query. For example, when we define the entity <em>water</em>, the entity definition will store a set of boolean observations having a value of <code>True</code> when it was identified as being <em>water</em>, and <code>False</code> otherwise. These observations are aligned along two spatial dimensions. The dimensions are the X and Y coordinates of the observations’ geographical location and one temporal dimension. The time dimension is identified through the timestamps at which the observations were made. Therefore, we call this data structure a <em>cube</em>. See the illustration below, where blue blocks represent observations identified as water, and grey blocks represent observations that were not identified as water.</p>
 <center>
 <p><img src="img/entitycube.png" style="width:50.0%" /></p>
 </center>
@@ -285,13 +285,13 @@ The observations will be associated to an entity type, not an individual entity.
 </div>
 <div id="property_definition" class="section level4">
 <h4><span class="header-section-number">5.1.1.2</span> Properties</h4>
-<p>Entities are always defined by means of one or more <strong>properties</strong>. For example, a property of water may be its blueish color, but for larger water bodies also its approximate flatness (i.e. a slope of approximately 0%). An entity definition block thus <em>must</em> be followed by one or more property definition blocks. Properties must not be mutually exclusive and should not overlap, i.e., multiple properties will be always connected with <em>AND</em>. Consider a real-world entity lake where three properties <em>color</em>, <em>texture</em>, and <em>compactness</em>: They might be fuzzy or optional, but they are not either-or. I.e., a lake may appear blue as property color <em>AND</em> appear flat as property texture, but is not blue <em>OR</em> flat. There might be situations where one thinks of either-or options in some cases but this is an indicator that the property is not defined appropriately and should be solved differently.</p>
+<p>Entities are always defined using one or more <strong>properties</strong>. For example, a property of water may be its blueish colour, but for larger water bodies also its approximate flatness (i.e. a slope of approximately 0%). An entity definition block thus <em>must</em> be followed by one or more property definition blocks. Properties must not be mutually exclusive and should not overlap, i.e., multiple properties will always be connected with <em>AND</em>. Consider a real-world entity lake where three properties * colour<em>, </em>texture<em>, and </em>compactness<em>: They might be fuzzy or optional, but they are not either-or. For example, a lake may appear blue as property colour </em>AND* appear flat as property texture, but is not blue <em>OR</em> flat. There might be situations where one thinks of either-or options in some cases, but this indicates that the property is not defined appropriately and should be solved differently.</p>
 <p>Entity definition blocks - and their corresponding property definition blocks - are exclusively used inside the <strong>semantic concept dictionary</strong> component of the model. In the application component, stored entity definitions can be retrieved, wrangled, and exported.</p>
 </div>
 </div>
 <div id="result_definition" class="section level3">
 <h3><span class="header-section-number">5.1.2</span> Results</h3>
-<p>A result is the output of an inference, while one inference may have more than one results of different types. Depending on the processes that are used in the semantic query, results can be single values, one-dimensional arrays or multi-dimensional cubes. Result definition blocks are exclusively used inside the <strong>application</strong> component of the model. Stored result definitions can be retrieved at any place within other result definitions inside the same model. <em>Not</em> every result definition needs to be exported. That is, a result definition can also be used as a preliminary output that serves as intermediate step towards the final output of the semantic query.</p>
+<p>A result is the output of an inference, while one inference may have more than one results of different types. Depending on the processes that are used in the semantic query, results can be single values, one-dimensional arrays or multi-dimensional cubes. Result definition blocks are exclusively used inside the <strong>application</strong> component of the model. Stored result definitions can be retrieved at any place within other result definitions inside the same model. <em>Not</em> every result definition needs to be exported. A result definition can also be used as a preliminary output that serves as an intermediate step towards the final output of the semantic query.</p>
 </div>
 <div id="seasons-and-partitions" class="section level3">
 <h3><span class="header-section-number">5.1.3</span> Seasons and partitions</h3>
@@ -307,42 +307,42 @@ The observations will be associated to an entity type, not an individual entity.
 </div>
 <div id="partition_definition" class="section level4">
 <h4><span class="header-section-number">5.1.3.2</span> Partitions</h4>
-<p>Distinct, but related seasons can then be combined into a <strong>partition</strong> of the temporal dimension. Just like summer, autumn, winter and spring together form the <em>meteorological seasons</em>, the defined harvesting and sowing seasons can together form the <em>agricultural seasons</em>, and the rain and dry season the <em>tropical seasons</em>. As can be seen, the custom defined partition does not have to fill up a full year. You are free to define any desired partition, as long as the included seasons span distinct time ranges.</p>
-<p>Season and partition definition blocks are considered semantic concepts, and are therefore exclusively used inside the <strong>semantic concept dictionary</strong> component of the model. Unlike entities and results, the seasons and partition definitions are <em>not</em> evaluated at the moment they are defined. The temporal dimension of a cube is only split at the moment a specific season or partition is referenced inside the application component of the model.</p>
+<p>Distinct but related seasons can then be combined into a <strong>partition</strong> of the temporal dimension. Like summer, autumn, winter, and spring together form the <em>meteorological seasons</em>, the defined harvesting and sowing seasons can form the <em>agricultural seasons</em> and the rain and the dry season the <em>tropical seasons</em>. As can be seen, the custom-defined partition does not have to fill up an entire year. You are free to define any desired partition, as long as the included seasons span distinct time ranges.</p>
+<p>Season and partition definition blocks are considered semantic concepts and are therefore exclusively used inside the <strong>semantic concept dictionary</strong> component of the model. Unlike entities and results, the seasons and partition definitions are <em>not</em> evaluated at the moment they are defined. The temporal dimension of a cube is only split at the moment a specific season or partition is referenced inside the application component of the model.</p>
 </div>
 </div>
 </div>
 <div id="data-and-information" class="section level2">
 <h2><span class="header-section-number">5.2</span> Data and information</h2>
-<p>These blocks specify the access of the data and information in the factbase, e.g. reflectance values of satellite imagery or semantically enriched information. This is important for defining entities, but also, for example, for creating cloud-free mosaics. We separate the available data into the types <strong>appearance</strong>, <strong>atmosphere</strong>, <strong>reflectance</strong>, additional data sources such as <strong>topography</strong>, and <strong>artifacts</strong>. Further, some <strong>metadata</strong> from the Earth observation data can be accessed.</p>
+<p>These blocks specify the access of the data and information in the factbase, e.g. reflectance values of satellite imagery or semantically enriched information. This is important for defining entities but also, for example, for creating cloud-free mosaics. We separate the available data into the types <strong>appearance</strong>, <strong>atmosphere</strong>, <strong>reflectance</strong>, additional data sources such as <strong>topography</strong>, and <strong>artifacts</strong>. Further, some <strong>metadata</strong> from the Earth observation data can be accessed.</p>
 <div id="appearance" class="section level3">
 <h3><span class="header-section-number">5.2.1</span> Appearance</h3>
-<p>The <em>appearance</em> block refers to information about how an Earth observation measurement of the Earth’s surface looks based on an interpretation of what it represents. This can be calculated indices (e.g. multi-spectral greenness indices, multi-spectral brightness values) or categories (e.g. multi-spectral color spaces/categories) with some level of semantic association. In the case of the Sen2Cube.at project, SIAM semantic enrichment generates color types with low-level semantic association that are accessible using these blocks. This block is mainly used in the Sen2Cube.at system and relates to all land cover and land use questions.</p>
+<p>The <em>appearance</em> block refers to information about how an Earth observation measurement of the Earth’s surface looks based on an interpretation of what it represents. This can be calculated indices (e.g. multi-spectral greenness indices, multi-spectral brightness values) or categories (e.g. multi-spectral colour spaces/categories) with some level of semantic association. In the case of the Sen2Cube.at system, SIAM-based semantic enrichment generates colour types with low-level semantic association that are accessible using these blocks. This block is mainly used in the Sen2Cube.at system and relates to all land cover and land use questions.</p>
 </div>
 <div id="atmosphere" class="section level3">
 <h3><span class="header-section-number">5.2.2</span> Atmosphere</h3>
-<p>The <em>atmosphere</em> block refers to all interpretations of measurements or additional information associated with atmospheric phenomena or influences of an image (i.e., not the Earth’s surface). This includes estimates of haze, cloud cover, fog, airborne particulates, etc. that inhibit Earth surface applications, or are of specific interest to atmospheric applications. For example, clouds may be treated as noise in most applications related to land cover, however, might be specifically selected to query for cloud-free images.</p>
+<p>The <em>atmosphere</em> block refers to all interpretations of measurements or additional information associated with atmospheric phenomena or influences of an image (i.e., not the Earth’s surface). This includes estimates of haze, cloud cover, fog, airborne particulates, etc., that inhibit Earth surface applications or are of specific interest to atmospheric applications. For example, clouds may be treated as noise in most applications related to land cover. However, they might be specifically selected to query for cloud-free images.</p>
 </div>
 <div id="reflectance" class="section level3">
 <h3><span class="header-section-number">5.2.3</span> Reflectance</h3>
-<p>The <em>reflectance</em> block refers to calibrated reflectance values (e.g. top-of-atmosphere, bottom-of-atmosphere) of the Earth observations. The reflectance values can be directly accessed using this data block on an individual band basis for a given sensor (i.e. calibrated pixel values in each captured band for a given sensor/platform). An example application of this value is to create a cloud-free composite or retrieving the most recent image with less than 10% clouds.</p>
+<p>The <em>reflectance</em> block refers to calibrated reflectance values (e.g. top-of-atmosphere, bottom-of-atmosphere) of the Earth observations. The reflectance values of the individual bands for a given sensor can be directly accessed using this data block (i.e. calibrated pixel values in each captured band for a given sensor/platform). An example application of this value is to create a cloud-free composite or retrieving the most recent image with less than 10% clouds.</p>
 </div>
 <div id="topography" class="section level3">
 <h3><span class="header-section-number">5.2.4</span> Topography</h3>
-<p>The <em>topography</em> block refers to any data or information related to the Earth’s topography (e.g. digital elevation models with derived aspect and slope). Example applications might be to to separate observations that appear as water or shadow in mountainous areas or to stratify vegetation phenology.</p>
+<p>The <em>topography</em> block refers to any data or information related to the Earth’s topography (e.g. digital elevation models with derived aspect and slope). Example applications might be to separate observations that appear as water or shadow in mountainous areas or to stratify vegetation phenology.</p>
 <div class="rmdwarning">
 <p>
 Accessing these data is not yet supported and will be available soon.
 </p>
 </div>
 </div>
-<div id="artifacts" class="section level3">
-<h3><span class="header-section-number">5.2.5</span> Artifacts</h3>
-<p>The <em>artifacts</em> block includes all measurements or interpretations of measurements that may be associated with some errors or noise of invalid measurements (i.e., clouds don’t fall in this category). An example application of this block is to create quality layers with perceived or detected measurement errors or to investigate effects of differences in quality across an image or edges of acquisition swaths.</p>
+<div id="artefacts" class="section level3">
+<h3><span class="header-section-number">5.2.5</span> Artefacts</h3>
+<p>The * artefacts* block includes all measurements or interpretations of measurements associated with some errors or noise of invalid measurements (i.e., clouds don’t fall in this category). An example application of this block is creating quality layers with perceived or detected measurement errors or investigating the effects of differences in quality across an image or edges of acquisition swaths.</p>
 </div>
 <div id="metadata" class="section level3">
 <h3><span class="header-section-number">5.2.6</span> Metadata</h3>
-<p>The <em>metadata</em> block includes descriptive and technical metadata of the original satellite images. An example application is to identify the timestamps from individual pixels that contributed to the cloud-free composite if a best-available-pixel approach is is used.</p>
+<p>The <em>metadata</em> block includes descriptive and technical metadata of the original satellite images. An example application is to identify the timestamps from individual pixels that contributed to the cloud-free composite if a best-available-pixel approach is used.</p>
 <div class="rmdcaution">
 <p>
 Currently, timestamps are the only supported metadata return value.
@@ -352,8 +352,8 @@ Currently, timestamps are the only supported metadata return value.
 </div>
 <div id="verbs" class="section level2">
 <h2><span class="header-section-number">5.3</span> Verbs</h2>
-<p>The core processing blocks are called <em>verbs</em>. Each verb represents a specific <em>action</em> that can be applied to a data cube. The verb blocks are therefore labelled with a single action word (i.e. a <em>verb</em>) that describes what the process is doing.</p>
-<p>Such an action is always applied to a specific cube, like a stored entity or result definition, or some retrieved source data. In terms of blocks, this is modelled by a <em>with-do</em> structure, where a cube is referenced in the <em>with</em> part, and the action to be applied to it in the <em>do</em> part. For example, a single reduction over time applied to our defined <em>water</em> entity cube will look like this:</p>
+<p>The core processing blocks are called <em>verbs</em>. Each verb represents a specific <em>action</em> that can be applied to a data cube. Therefore, the verb blocks are labelled with a single action word (i.e. a <em>verb</em>) that describes what the process is doing.</p>
+<p>Such an action is always applied to a specific cube, like a stored entity or result definition or some retrieved source data. In terms of blocks, this is modelled by a <em>with-do</em> structure, where a cube is referenced in the <em>with</em> part and the action to be applied to it in the <em>do</em> part. For example, a single reduction over time applied to our defined <em>water</em> entity cube will look like this:</p>
 <center>
 <p><img src="img/withdosingle.png" style="width:50.0%" /></p>
 </center>
@@ -368,16 +368,16 @@ Currently, timestamps are the only supported metadata return value.
 <p><span class="math display">\[
 Expression = (Value, Math Operator, Value)
 \]</span></p>
-<p>In our case, the left hand value is an observation from the input cube to which the verb is applied. The right hand value can be a corresponding observation from another cube, a list of numbers, or even a single number. Since the expression is evaluated for each observation in the input cube, the output of the evaluate block is a new cube with the <em>same dimensions</em> as the input cube.</p>
-<p>This is illustrated in the figure below. The blue cube on the left forms the left hand side of the expression, the red cube in the middle forms the right hand side of the expression. The cube on the right with mixed colors is the output of the evaluation. In this case, the blue and red cube have exactly the same dimensions, meaning that each observations in the blue cube has a corresponding observation in the red cube. Lets say we use the mathematical operator <code>+</code> as our operator. Then, the value of observation #1 - lets say that is the one on the bottom-left edge - in the output cube equals the value of observation #1 in the blue cube <em>added to</em> the value of observation #1 in the red cube. The same yields for all other observations.</p>
+<p>In our case, the left-hand value is an observation from the input cube to which the verb is applied. The right-hand value can be a corresponding observation from another cube, a list of numbers, or even a single number. Since the expression is evaluated for each observation in the input cube, the output of the evaluate block is a new cube with the <em>same dimensions</em> as the input cube.</p>
+<p>This is illustrated in the figure below. The blue cube on the left forms the left-hand side of the expression, the red cube in the middle forms the right-hand side of the expression. The cube on the right with mixed colours is the output of the evaluation. In this case, the blue and red cube have exactly the same dimensions, meaning that each observation in the blue cube has a corresponding observation in the red cube. Suppose we use the mathematical operator <code>+</code> as our operator. Then, the value of observation #1 - let’s say that is the one on the bottom-left edge - in the output cube equals the value of observation #1 in the blue cube <em>added to</em> the value of observation #1 in the red cube. The same yields for all other observations.</p>
 <center>
 <p><img src="img/evaluate.png" style="width:100.0%" /></p>
 </center>
-<p>However, the cube on right hand side of the expression can have different dimensions than the one on the left hand side. For example, when our cube on the right hand side <em>only</em> has spatial dimensions, the right hand side values are <em>duplicated</em> for each timestamp in the left hand side cube. This also works the other way around. In jargon, this is called <a href="https://machinelearningmastery.com/broadcasting-with-numpy-arrays/">array broadcasting</a>.</p>
+<p>However, the cube on the right-hand side of the expression can have different dimensions than on the left-hand side. For example, consider our cube on the right-hand side has <em>only</em> spatial dimensions. In such a case, the right-hand side values are <em>duplicated</em> for each timestamp in the cube on the left-hand side. This also works the other way around. In jargon, this is called <a href="https://machinelearningmastery.com/broadcasting-with-numpy-arrays/">array broadcasting</a>.</p>
 <center>
 <p><img src="img/evaluate2.png" style="width:100.0%" /></p>
 </center>
-<p>The same principle applies when the right hand side is only a single value. Then, this value is <em>duplicated</em> for each observation in the left hand side cube.</p>
+<p>The same principle applies when the right-hand side is only a single value. Then, this value is <em>duplicated</em> for each observation in the left-hand side cube.</p>
 <center>
 <p><img src="img/evaluate3.png" style="width:100.0%" /></p>
 </center>
@@ -390,12 +390,12 @@ Expression = (Value, Math Operator, Value)
 <p>The functionality of each supported operator is illustrated with toy examples below.</p>
 <div class="rmdnote">
 <p>
-The <strong>in</strong> operator is special, in the sense that each observation in the input cube is compared to a <strong>list</strong> of values, rather than to a single value. If the observed value is <em>in</em> the given list, the result will be <em>True</em>. If not, the result will be <em>False</em>. The same list of values is used for each observation in the input cube.
+The <strong>in</strong> operator is special in the sense that each observation in the input cube is compared to a <strong>list</strong> of values rather than to a single value. If the observed value is <em>in</em> the given list, the result will be <em>True</em>. If not, the result will be <em>False</em>. The same list of values is used for each observation in the input cube.
 </p>
 </div>
 <div class="rmdcaution">
 <p>
-Be aware what type of data both sides of the expression contain. For example, the logical operators are only useful when both sides of the expression contain boolean values (i.e. <em>True</em> or <em>False</em>). The algebraic operators only make sense for numerical values, and not for categories. Et cetera.
+Be aware of what type of data both sides of the expression contain. For example the logical operators are only applicable when both sides of the expression contain boolean values (i.e. <em>True</em> or <em>False</em>). The algebraic operators only make sense for numerical values and not for categories. …
 </p>
 </div>
 <center>
@@ -406,7 +406,7 @@ Be aware what type of data both sides of the expression contain. For example, th
 </div>
 <div id="filter" class="section level3">
 <h3><span class="header-section-number">5.3.2</span> Filter</h3>
-<p>The <em>filter</em> verb should only be applied to cubes that contain boolean data values. It then keeps <em>only</em> those values that are <code>True</code>, and removes the values that are <code>False</code>. Technically, this is the same as masking (see <a href="blocks.html#mask">5.3.6</a>) a boolean cube by itself.</p>
+<p>The <em>filter</em> verb should only be applied to cubes that contain boolean data values. It then keeps <em>only</em> those values that are <code>True</code> and removes the values that are <code>False</code>. Technically, this is the same as masking (see <a href="blocks.html#mask">5.3.6</a>) a boolean cube by itself.</p>
 <center>
 <p><img src="img/filter.png" style="width:67.0%" /></p>
 </center>
@@ -415,7 +415,7 @@ Be aware what type of data both sides of the expression contain. For example, th
 <h3><span class="header-section-number">5.3.3</span> Group by and ungroup</h3>
 <div id="groupby" class="section level4">
 <h4><span class="header-section-number">5.3.3.1</span> Group by</h4>
-<p>The <em>group by</em> verb splits the input cube into distinct groups, based on a given grouping variable. All subsequent operations will the be applied to each group <em>separately</em>, until the <em>ungroup</em> verb is called. At that point, the groups will be combined back together into a single cube. This workflow is also known as <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html">Split-Apply-Combine</a>. For example, the input cube can be split into groups such that each group contains <em>exclusively</em> observations from a specific year. Then, these observations can be reduced over time and over space. What is left is a single value for each year. These values can be combined together along a new time dimension, in which each time coordinate refers to a year.</p>
+<p>The <em>group by</em> verb splits the input cube into distinct groups based on a given grouping variable. All subsequent operations will then be applied to each group <em>separately</em> until the <em>ungroup</em> verb is called. At that point, the groups will be combined back together into a single cube. This workflow is also known as <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html">Split-Apply-Combine</a>. For example, the input cube can be split into groups such that each group contains <em>exclusively</em> observations from a specific year. Then, these observations can be reduced over time and over space. What is left is a single value for each year. These values can be combined along a new time dimension, in which each time coordinate refers to a year.</p>
 <center>
 <p><img src="img/group.png" style="width:100.0%" /></p>
 </center>
@@ -424,32 +424,32 @@ Be aware what type of data both sides of the expression contain. For example, th
 <li><strong>Temporal grouping variables</strong>: grouping variables that will split the temporal dimension, such that each group contains <em>exclusively</em> observations taken within a specific time period. The variables to choose from are <code>year</code>, <code>season</code>, <code>month</code>, <code>week</code>, <code>dayofyear</code> and <code>dayofweek</code>.</li>
 <li><strong>Spatial grouping variables</strong>: grouping variables that will split the spatial dimensions, such that each group contains <em>exclusively</em> observations taken within a specific sub-area inside the defined area-of-interest. Currently, only a single variable is supported, named <code>spatialfeature</code>. This requires the area-of-interest to consist of multiple, distinct spatial features (point, lines or polygons) that do not intersect with each other. Each of these distinct features will then form a group.</li>
 </ul>
-<p>It is also possible to group based on <em>multiple</em> grouping variables. For example, when having two years of data with at least one observation each month, grouping by <code>month</code> will result in 12 different groups. Observations from January in the first year, will end up in the same group as observations from January in the second year. However, when grouping by <code>month</code> <em>and</em> <code>year</code>, there will be 24 different groups. Such multiple grouping operations are enabled in the block interface by means of a <em>group list</em> block.</p>
+<p>It is also possible to group based on <em>multiple</em> grouping variables. For example, when having two years of data with at least one observation each month, grouping by <code>month</code> will result in 12 different groups. Observations from January in the first year, will end up in the same group as observations from January in the second year. However, when grouping by <code>month</code> <em>and</em> <code>year</code>, there will be 24 different groups. Such multiple grouping operations are enabled in the block interface using a <em>group list</em> block.</p>
 <p>Thirdly, you can also provide a defined custom partition (see <a href="#partition"><strong>??</strong></a>) of the time dimension as a grouping variable.</p>
 <center>
 <p><img src="img/group_single.png" style="width:32.0%" /> <img src="img/group_multi.png" style="width:32.0%" /> <img src="img/group_custom.png" style="width:32.0%" /></p>
 </center>
 <div class="rmdcaution">
 <p>
-Currently, the Sen2Cube.at interface does not support cubes that have <em>more than one</em> temporal dimension, or <em>more than two</em> spatial dimensions. When grouping with a temporal grouping variable, each group represents a specific time period like a year, season or month. When combined back together into a single cube during ungrouping, a <em>new</em> time dimension is created in which each time coordinate refers to one of those groups. Since multiple time dimensions are not allowed, the <em>original</em> time dimension <em>must</em> be reduced before ungrouping. The same yields for spatial grouping operations. The <em>original</em> spatial dimensions <em>must</em> be reduced before ungrouping.
+Currently, the Sen2Cube.at interface does not support cubes with <em>more than one</em> temporal dimension or <em>more than two</em> spatial dimensions. When grouping with a temporal grouping variable, each group represents a specific time period like a year, season or month. When combined back together into a single cube during ungrouping, a <em>new</em> time dimension is created in which each time coordinate refers to one of those groups. Since multiple time dimensions are not allowed, the <em>original</em> time dimension <em>must</em> be reduced before ungrouping — the same yields for spatial grouping operations. The <em>original</em> spatial dimensions <em>must</em> be reduced before ungrouping.
 </p>
 </div>
 </div>
 <div id="ungroup" class="section level4">
 <h4><span class="header-section-number">5.3.3.2</span> Ungroup</h4>
-<p>After grouping, all subsequent operations will the be applied to each group <em>separately</em>, until the <em>ungroup</em> verb is called. At that point, the groups will be combined back together into a single cube.</p>
+<p>After grouping, all subsequent operations will then be applied to each group <em>separately</em> until the <em>ungroup</em> verb is called. At that point, the groups will be combined back together into a single cube.</p>
 </div>
 </div>
 <div id="invert" class="section level3">
 <h3><span class="header-section-number">5.3.4</span> Invert</h3>
-<p>The <em>invert</em> verb should only be applied to cubes that contain boolean data values. It then replaces all <code>True</code> values by <code>False</code> values, and vice versa.</p>
+<p>The <em>invert</em> verb should only be applied to cubes that contain boolean data values. It then replaces all <code>True</code> values with <code>False</code> values and vice versa.</p>
 <center>
 <p><img src="img/invert.png" style="width:67.0%" /></p>
 </center>
 </div>
 <div id="label" class="section level3">
 <h3><span class="header-section-number">5.3.5</span> Label</h3>
-<p>The <em>label</em> verb does not influence the data values in any way. It simply stores a label for the entire input cube. This is useful for example before concatenating (see <a href="blocks.html#concatenate">5.4.1</a>) several cubes over a new dimension. The label of each cube will then serve as coordinate value of the new dimension.</p>
+<p>The <em>label</em> verb does not influence the data values in any way. It simply stores a label for the entire input cube. This is useful, for example, before concatenating (see <a href="blocks.html#concatenate">5.4.1</a>) several cubes over a new dimension. The label of each cube will then serve as the coordinate value of the new dimension.</p>
 </div>
 <div id="mask" class="section level3">
 <h3><span class="header-section-number">5.3.6</span> Mask</h3>
@@ -467,18 +467,18 @@ Currently, the Sen2Cube.at interface does not support cubes that have <em>more t
 </div>
 <div id="reduce" class="section level3">
 <h3><span class="header-section-number">5.3.7</span> Reduce</h3>
-<p>The <em>reduce</em> verb applies a reduction function over a certain dimension or set of dimensions. That means that for each unique combination of coordinate values of all other dimension in the input cube, the values of the dimension(s) to be reduced over are summarized to a single value, based on some function. For example, assume a input cube with one temporal and two spatial dimensions. Basically, this means that for a each location in space, we have multiple observations, each made at a different moment in time. When we reduce this cube over the time dimension, using <em>mean</em> as reduction function, we reduce our observed values to only <em>a single</em> value per spatial location, equal to the <em>average</em> of all observed values at that location. This removes the time dimension, leaving us with a cube that only has spatial dimensions.</p>
+<p>The <em>reduce</em> verb applies a reduction function over a certain dimension or set of dimensions. That means that for each unique combination of coordinate values of all other dimension in the input cube, the values of the dimension(s) to be reduced over are summarized to a single value, based on some function. For example, assume an input cube with one temporal and two spatial dimensions. Basically, this means that for each location in space, we have multiple observations, each made at a different moment in time. When we reduce this cube over the time dimension, using <em>mean</em> as reduction function, we reduce our observed values to only <em>a single</em> value per spatial location, equal to the <em>average</em> of all observed values at that location. This removes the time dimension, leaving us with a cube that only has spatial dimensions.</p>
 <center>
 <p><img src="img/reduce_time.png" style="width:67.0%" /></p>
 </center>
-<p>Similarly, we can also reduce the spatial dimensions instead, ending up with a single value per timestamp. The Sen2Cube.at interface only supports reduction of the two spatial dimensions at once, and <em>not</em> of either the X or Y dimension separately.</p>
+<p>Similarly, we can also reduce the spatial dimensions instead, ending up with a single value per timestamp. The Sen2Cube.at interface only supports the reduction of the two spatial dimensions at once and <em>not</em> of either the X or Y dimension separately.</p>
 <center>
 <p><img src="img/reduce_space.png" style="width:67.0%" /></p>
 </center>
 <p>Sen2Cube.at has several built-in reduction functions that can be used.</p>
 <div class="rmdcaution">
 <p>
-Be aware what type of data and what dimensions both the input cube contains. Some reduction functions are only useful when applied to boolean values (i.e. <em>True</em> and <em>False</em>). Others, for example calculation of the mean or the sum, make sense for numerical data, but not for categorical or boolean data. Et cetera. Also, some reduction functions are only meant to be applied to the time dimension, while others are only meant to be applied to the spatial dimensions.
+Be aware of what type of data and what dimensions both the input cube contains. Some reduction functions are only useful when applied to boolean values (i.e. <em>True</em> and <em>False</em>). Others, for example, calculation of the mean or the sum, make sense for numerical data but not for categorical or boolean data, etc. Also, some reduction functions are only meant to be applied to the time dimension, while others are only meant to be applied to the spatial dimensions.
 </p>
 </div>
 <center>
@@ -488,7 +488,7 @@ Be aware what type of data and what dimensions both the input cube contains. Som
 <p><img src="img/mean.png" style="width:32.0%" /> <img src="img/median.png" style="width:32.0%" /> <img src="img/mode.png" style="width:32.0%" /></p>
 <p><img src="img/sum.png" style="width:32.0%" /> <img src="img/product.png" style="width:32.0%" /></p>
 </center>
-<p>Two special reduction functions are <code>area</code> and <code>duration</code>. The first is meant to be applied to the <em>spatial dimensions</em>, and equals the count over space multiplied by the area of a single pixel in square meters. The latter is meant to be applied to the <em>temporal dimension</em>, and equals the count over time, after resampling the observations to day-level. That is, when there are two observations on the same day, they will be counted as <em>one</em>.</p>
+<p>Two special reduction functions are <code>area</code> and <code>duration</code>. The first is meant to be applied to the <em>spatial dimensions</em> and equals the count over space multiplied by the area of a single pixel in square meters. The latter is meant to be applied to the <em>temporal dimension</em> and equals the count over time after resampling the observations to day-level. That is, when there are two observations on the same day, they will be counted as <em>one</em>.</p>
 <center>
 <p><img src="img/area.png" style="width:32.0%" /> <img src="img/duration.png" style="width:32.0%" /></p>
 </center>
@@ -502,23 +502,23 @@ Be aware what type of data and what dimensions both the input cube contains. Som
 </div>
 <div id="select" class="section level3">
 <h3><span class="header-section-number">5.3.9</span> Select</h3>
-<p>The <em>select</em> verb selects a subset of the coordinates of a certain dimension, and keeps only the observations in the input cube that align to those coordinate values. Currently, only subsetting the temporal dimension is possible. To do so, you can use one or more of the time value blocks (see <a href="blocks.html#time">5.5</a>), which represent either a <em>time instant</em>, <em>time collection</em> or <em>time period</em>. For example, a select operation could be to only keep those observations that were made within the time period between March 2020 and June 2020.</p>
+<p>The <em>select</em> verb selects a subset of the coordinates of a certain dimension. It keeps only the observations in the input cube that align to those coordinate values. Currently, only subsetting the temporal dimension is possible. To do so, you can use one or more of the time value blocks (see <a href="blocks.html#time">5.5</a>), which represent either a <em>time instant</em>, <em>time collection</em> or <em>time period</em>. For example, a select operation could only keep those observations made within the time period between March 2020 and June 2020.</p>
 <center>
 <p><img src="img/select.png" style="width:67.0%" /></p>
 </center>
 <div class="rmdnote">
 <p>
-Selection is similar to masking, in the sense that they both take a subset of the data. During masking, the subset is defined by another cube containing boolean values. During selection, however, the subset is defined by addressing coordinate values directly.
+Selection is similar to masking in the sense that they both take a subset of the data. During masking, the subset is defined by another cube containing boolean values. During selection, however, the subset is defined by addressing coordinate values directly.
 </p>
 </div>
 </div>
 </div>
 <div id="combiners" class="section level2">
 <h2><span class="header-section-number">5.4</span> Combiners</h2>
-<p>Verbs are applied to a single input cube, such as a stored entity or result definition, or some retrieved source data. However, it is also possible to first combine several cubes together into a single one, and apply verbs to that combined cube. The <em>combiner</em> blocks that facilitate this are described below.</p>
+<p>Verbs are applied to a single input cube, such as a stored entity or result definition or some retrieved source data. However, it is also possible to first combine several cubes together into a single one and then apply verbs to that combined cube. The <em>combiner</em> blocks that facilitate this are described below.</p>
 <div id="concatenate" class="section level3">
 <h3><span class="header-section-number">5.4.1</span> Concatenate</h3>
-<p>The <em>concatenate</em> combiner combines multiple input cubes along an existing or a new dimension into a single, larger cube. When combining along an existing dimension, this dimension must be present in all input cubes, and all input cubes need to have <em>different</em> coordinate values for that dimension. For example, input cube A has a time dimension with 01-01-2020 and 02-01-2020 as coordinate values. Input cube B has a time dimension with 03-01-2020 as coordinate values. Concatenating the two along the time dimension, results in a single cube with a time dimension of length 3, containing 01-01-20, 02-01-2020 <em>and</em> 03-01-2020 as coordinate values.</p>
+<p>The <em>concatenate</em> combiner combines multiple input cubes along an existing or a new dimension into a single, larger cube. When combining along an existing dimension, this dimension must be present in all input cubes, and all input cubes need to have <em>different</em> coordinate values for that dimension. For example, input cube A has a time dimension with 01-01-2020 and 02-01-2020 as coordinate values. Input cube B has a time dimension with 03-01-2020 as coordinate values. Concatenating the two along the time dimension results in a single cube with a time dimension of length 3, containing 01-01-20, 02-01-2020 <em>and</em> 03-01-2020 as coordinate values.</p>
 <center>
 <p><img src="img/concatenate_exs.png" style="width:100.0%" /></p>
 </center>
@@ -528,35 +528,35 @@ Selection is similar to masking, in the sense that they both take a subset of th
 </center>
 <div class="rmdcaution">
 <p>
-Except the dimension to be concatenated over, all cubes provided to the concatenate combiner are expected to have <em>matching shapes</em>.
+All cubes provided to the concatenate combiner are expected to have <em>matching shapes</em>, except for the dimension to be concatenated.
 </p>
 </div>
 </div>
 <div id="compose" class="section level3">
 <h3><span class="header-section-number">5.4.2</span> Compose</h3>
-<p>The <em>compose</em> combines multiple cubes with <em>boolean</em> data values, into a single cube with <em>categorical</em> data values. It requires the input cubes to be <em>distinct</em>. With that we mean, when an observation in input cube A is <code>True</code>, the corresponding observations (i.e. having the same coordinates) in the other input cubes can <em>not</em> be <code>True</code>. Then, the output cube will assign category value 1 to all True-observations of input cube A, category value 2 to all True-observations of input cube B, et cetera.</p>
+<p>The <em>compose</em> combines multiple cubes with <em>boolean</em> data values into a single cube with <em>categorical</em> data values. It requires the input cubes to be <em>distinct</em>. This means, when an observation in input cube A is <code>True</code>, the corresponding observations (i.e. having the same coordinates) in the other input cubes can <em>not</em> be <code>True</code>. Then, the output cube will assign category value 1 to all True-observations of input cube A, category value 2 to all True-observations of input cube B, et cetera.</p>
 <center>
 <p><img src="img/compose.png" style="width:100.0%" /></p>
 </center>
 </div>
 <div id="combine" class="section level3">
 <h3><span class="header-section-number">5.4.3</span> Merge</h3>
-<p>The <em>merge</em> combiner works the same as the <em>evaluate</em> verb (see <a href="blocks.html#evaluate">5.3.1</a>), but allows for an expression with more than two variables. For example, <em>cube A + cube B + … + cube n</em>. It offers only the logical and algebraic operators. The output cube will always have the same dimensions as the <em>first</em> input cube.</p>
+<p>The <em>merge</em> combiner works the same as the <em>evaluate</em> verb (see <a href="blocks.html#evaluate">5.3.1</a>) but allows for an expression with more than two variables. For example, <em>cube A + cube B + … + cube n</em>. It offers only logical and algebraic operators. The output cube will always have the same dimensions as the <em>first</em> input cube.</p>
 </div>
 </div>
 <div id="time" class="section level2">
 <h2><span class="header-section-number">5.5</span> Time</h2>
-<p>Time value blocks refer to the temporal dimension of the query. They allow to subuset cubes by time, customly define seasons, et cetera. There are three different time value blocks.</p>
+<p>Time value blocks refer to the temporal dimension of the query. They allow to subset cubes by time, define custom seasons, et cetera. There are three different time value blocks.</p>
 <div id="time_instant" class="section level3">
 <h3><span class="header-section-number">5.5.1</span> Time instant</h3>
-<p>A <em>time instant</em> is a specific moment in time. It can be modelled with three components: the <em>year</em>, the <em>month</em> and the <em>day</em>. That is, a fully specified time instant can be 2020-07-23. However, not all components need to be specified. One can also leave out the year, and create the time instant XXXX-07-23, which will refer to <em>all</em> 23rd of July dates in the overall time interval of the query. Similarly, 2020-07-XX will refer to all days in July 2020, and XXXX-07-XX to all days in July, for all years in the time interval.</p>
+<p>A <em>time instant</em> is a specific moment in time. It can be modelled with three components: the <em>year</em>, the <em>month</em> and the <em>day</em>. That is, a fully specified time instant can be 2020-07-23. However, not all components need to be specified. One can also leave out the year and create the time instant XXXX-07-23, which will refer to <em>all</em> 23rd of July dates in the overall time interval of the query. Similarly, 2020-07-XX will refer to all days in July 2020, and XXXX-07-XX to all days in July, for all years in the time interval.</p>
 </div>
 <div id="time_period" class="section level3">
 <h3><span class="header-section-number">5.5.2</span> Time periods</h3>
-<p>A <em>time period</em> is a consecutive period of time, defined with a <em>from</em> time instant and a <em>to</em> time instant. The interval is closed at both sides, so both the from and to time instants are included in the time period. It is also possible to use not fully specified time instants. For example, the time period from XXXX-05-XX to XXXX-08-XX is the time period from May to August, no matter the year. Thus, when subsetting the time dimension of a cube with this time period, all timestamps that are in either May, June, July or August will be selected, for each year in the overall time interval.</p>
+<p>A <em>time period</em> is a consecutive period of time, defined with a <em>from</em> time instant and a <em>to</em> time instant. The interval is closed at both sides, so both the from and to time instants are included in the time period. It is also possible to use not fully specified time instants. For example, the time period from XXXX-05-XX to XXXX-08-XX is the time period from May to August, no matter the year. Thus, when subsetting the time dimension of a cube with this time period, all timestamps in either May, June, July or August will be selected for each year in the overall time interval.</p>
 <div class="rmdwarning">
 <p>
-In a time period, the <em>from</em> time instant should always preceed the <em>to</em> time instant. Currently, that means it is not possible to create time periods like [from XXXX-11-XX to XXXX-01-XX], meaning from November to January. If you want to model such a period of time, you can use a time collection instead
+In a time period, the <em>from</em> time instant should always precede the <em>to</em> time instant. Currently, that means it is impossible to create time periods like [from XXXX-11-XX to XXXX-01-XX], meaning from November to January. To model such a period of time, it is possible to use a time collection instead.
 </p>
 </div>
 </div>
@@ -569,13 +569,13 @@ In a time period, the <em>from</em> time instant should always preceed the <em>t
 <h2><span class="header-section-number">5.6</span> Space</h2>
 <div class="rmdwarning">
 <p>
-Currently there is <em>no</em> support for spatial subsetting of cubes, or customly defining areas that divide the overall area-of-interest. Such functionalities might be added in the future.
+Currently, there is <em>no</em> support for spatial subsetting of cubes or define custom areas that divide the overall area-of-interest. Such functionalities might be added in the future.
 </p>
 </div>
 </div>
 <div id="comment" class="section level2">
 <h2><span class="header-section-number">5.7</span> Comments</h2>
-<p>The comment block allows you to add comments to parts of your model, such that both your future self and others can better understand what is happening. Comment blocks can be added anywhere in the model, and will be ignored during evaluation.</p>
+<p>The comment block allows you to add comments to parts of your model, such that both your future self and others can better understand what is happening. Comment blocks can be added anywhere in the model and will be ignored during evaluation.</p>
 
 </div>
 </div>

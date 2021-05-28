@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2021-05-27" />
+<meta name="date" content="2021-05-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -114,7 +114,7 @@
 <li class="chapter" data-level="5.2.2" data-path="blocks.html"><a href="blocks.html#atmosphere"><i class="fa fa-check"></i><b>5.2.2</b> Atmosphere</a></li>
 <li class="chapter" data-level="5.2.3" data-path="blocks.html"><a href="blocks.html#reflectance"><i class="fa fa-check"></i><b>5.2.3</b> Reflectance</a></li>
 <li class="chapter" data-level="5.2.4" data-path="blocks.html"><a href="blocks.html#topography"><i class="fa fa-check"></i><b>5.2.4</b> Topography</a></li>
-<li class="chapter" data-level="5.2.5" data-path="blocks.html"><a href="blocks.html#artifacts"><i class="fa fa-check"></i><b>5.2.5</b> Artifacts</a></li>
+<li class="chapter" data-level="5.2.5" data-path="blocks.html"><a href="blocks.html#artefacts"><i class="fa fa-check"></i><b>5.2.5</b> Artefacts</a></li>
 <li class="chapter" data-level="5.2.6" data-path="blocks.html"><a href="blocks.html#metadata"><i class="fa fa-check"></i><b>5.2.6</b> Metadata</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="blocks.html"><a href="blocks.html#verbs"><i class="fa fa-check"></i><b>5.3</b> Verbs</a><ul>
@@ -260,16 +260,17 @@
             <section class="normal" id="section-">
 <div id="model" class="section level1">
 <h1><span class="header-section-number">4</span> Model structure</h1>
-<p>The model itself defines the output. Besides choosing from pre-constructed models within the knowledgebase, new models can be constructed from scratch. There are two main components that define a model:</p>
+<p>The model itself defines the output. Besides choosing from pre-constructed models within the knowledgebase, new models can be constructed from scratch. Three main components define a model:</p>
 <ul>
-<li>The <strong>semantic concept dictionary</strong> serves as a translator between descriptions of real-world entities and raw image data. For example, if we want to know which observations can be identified as <em>water</em>, we need to specify <em>how</em> we define water given the data that we have. What does <em>water</em> mean in terms of our data values? Creating a semantic concept dictionary requires expert knowledge and is usually not a task that non-experts take on by themselves.</li>
-<li>The <strong>application</strong> component is then used to formulate the semantic query by using the defined semantic concepts directly. Since it is defined what <em>water</em> means in terms of the data, we don’t have to worry about the raw data anymore, but can use common language to describe our desired output. For example “how many observations where defined as water inside my area-of-interest, during July 2020”. Such a question forms a single result. A model can contain multiple results.</li>
+<li><p>The <strong>semantic concept dictionary</strong> serves as a translator between descriptions of real-world entities and raw image data. For example, suppose we want to know which observations can be identified as <em>water</em>. In that case, we need to specify <em>how</em> we define water given our data. What does <em>water</em> mean in terms of our data values? Creating a semantic concept dictionary requires expert knowledge. It is usually not a task that non-experts take on by themselves.</p></li>
+<li><p>The <strong>application</strong> component is then used to directly formulate the semantic query by using the defined semantic concepts. Since it is defined what <em>water</em> means in terms of the data, we don’t have to worry about the data anymore but can use common language to describe the desired output. For example, “how many observations were defined as <em>water</em> inside my area-of-interest, during July 2020”. Such a question forms a single result. A model can contain multiple results.</p></li>
+<li><p>For each model, a set of <strong>metadata</strong> is stored, which includes owner (creator), create date, description, and name.</p></li>
 </ul>
 <p>The model construction is designed to be as intuitive as possible by connecting several <em>building blocks</em>, that all represent a distinct, clearly defined task or value. See the building blocks chapter (<a href="blocks.html#blocks">5</a>) for an in-depth description of them. The starting point is an <em>empty model</em>:</p>
 <center>
 <img src="img/emptymodel.png" style="width:50.0%" />
 </center>
-<p>See below an example of a simple model. In the semantic concept dictionary, the entity <em>water</em> is defined in terms of the data. Each observation inside the spatio-temporal extent of the query is labelled as either being water, or not. The application component contains a single result, in which the number of water observations are counted over time.</p>
+<p>See below an example of a simple model. In the semantic concept dictionary, the entity <em>water</em> is defined in terms of the data. Each observation inside the spatio-temporal extent of the query is labelled as either being water or not. The application component contains a single result, in which the number of water observations is counted over time.</p>
 <center>
 <div class="figure">
 <img src="img/watercountmodel.png" style="width:100.0%" alt="" />
