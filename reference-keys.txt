@@ -63,6 +63,16 @@ time_collection
 space
 comment
 disabling-blocks
+advanced-usage-of-the-sen2cube.at-system
+factbases
+metadata-information-about-factbases
+switching-between-factbases
+knowledgebase
+metadata-information-about-models
+marking-models-as-favourite
+inferences-and-semantic-queries
+marking-inferences-as-favourite
+cloning-inference-settings
 examples
 error-codes
 general-system-errors
