@@ -401,4 +401,12 @@ Another option is to comment a block directly, which can be achieved by a right-
 Remember that the comment block is not implemented to allow a certain processing in the inference engine or to provide a feature - it is for you. If you spend a lot of time to create a model you may want to avoid doing it again because the model cannot be easily understood anymore! So, similar to a programming or scripting language, it is recommended to provide a good description to the model.
 ```
 
+## Disabling blocks {#disabling-blocks}
 
+Blocks can be (temporarily) disabled. The inference engine will then ignore the block and all blocks that are directly depending on it. Disabling a block can be done by a right-click on the block and clicking on *Disable Block* in the context menu.
+
+The blocks, which are disabled will be indicated by a yellow hatch. Of course, it does not make sense to disable every type of block. Disabling a block may even lead to a crash within the inference process. However, it makes sense for an entire entity or result (if they are not referenced later anymore) or a single verb in a chain.
+
+Disabled blocks can be enabled again by a right-click on the block and on *Enable Block* in the context menu.
+
+![Disabled blocks are indicated with a yellow hatch and will not be executed](img/blocks-disable.png){width=100%}
