@@ -140,6 +140,7 @@
 </ul></li>
 <li class="chapter" data-level="5.6" data-path="blocks.html"><a href="blocks.html#space"><i class="fa fa-check"></i><b>5.6</b> Space</a></li>
 <li class="chapter" data-level="5.7" data-path="blocks.html"><a href="blocks.html#comment"><i class="fa fa-check"></i><b>5.7</b> Comments</a></li>
+<li class="chapter" data-level="5.8" data-path="blocks.html"><a href="blocks.html#disabling-blocks"><i class="fa fa-check"></i><b>5.8</b> Disabling blocks</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="examples.html"><a href="examples.html"><i class="fa fa-check"></i><b>6</b> Examples</a></li>
 <li class="chapter" data-level="7" data-path="error-codes.html"><a href="error-codes.html"><i class="fa fa-check"></i><b>7</b> Error codes</a><ul>
@@ -577,7 +578,7 @@ Currently, there is <em>no</em> support for spatial subsetting of cubes or defin
 <h2><span class="header-section-number">5.7</span> Comments</h2>
 <p>The comment block allows you to add comments to parts of your model, such that both your future self and others can better understand what is happening. Comment blocks can be added anywhere in the model and will be ignored during evaluation.</p>
 <p><img src="img/comment-block.png" style="width:100.0%" alt="Example of concatenating several comment blocks to describe a model workflow" />
-Another option is to comment a block directly, which can be achieved by a right-click on the block, which opens the context menu, and the click on <em>Add Comment</em>. This option allows to add a comment directly, not only those on the highest level. However, The comment may be hidden if it is not opened and too many comments may overlap each other. The question mark in the blue circle indicates that there is a comment assciated to the block.</p>
+Another option is to comment a block directly, which can be achieved by a right-click on the block, which opens the context menu, and the click on <em>Add Comment</em>. This option allows to add a comment directly, not only those on the highest level. However, The comment may be hidden if it is not opened and too many comments may overlap each other. The question mark in the blue circle indicates that there is a comment associated to the block. The comment can be deleted by a right-click on the blue circle with the question mark and then click on <em>Remove Comment</em> in the context menu.</p>
 <div class="figure">
 <img src="img/comment-inline.png" style="width:100.0%" alt="" />
 <p class="caption">Example of commenting a block directly</p>
@@ -586,6 +587,16 @@ Another option is to comment a block directly, which can be achieved by a right-
 <p>
 Remember that the comment block is not implemented to allow a certain processing in the inference engine or to provide a feature - it is for you. If you spend a lot of time to create a model you may want to avoid doing it again because the model cannot be easily understood anymore! So, similar to a programming or scripting language, it is recommended to provide a good description to the model.
 </p>
+</div>
+</div>
+<div id="disabling-blocks" class="section level2">
+<h2><span class="header-section-number">5.8</span> Disabling blocks</h2>
+<p>Blocks can be (temporarily) disabled. The inference engine will then ignore the block and all blocks that are directly depending on it. Disabling a block can be done by a right-click on the block and clicking on <em>Disable Block</em> in the context menu.</p>
+<p>The blocks, which are disabled will be indicated by a yellow hatch. Of course, it does not make sense to disable every type of block. Disabling a block may even lead to a crash within the inference process. However, it makes sense for an entire entity or result (if they are not referenced later anymore) or a single verb in a chain.</p>
+<p>Disabled blocks can be enabled again by a right-click on the block and on <em>Enable Block</em> in the context menu.</p>
+<div class="figure">
+<img src="img/blocks-disable.png" style="width:100.0%" alt="" />
+<p class="caption">Disabled blocks are indicated with a yellow hatch and will not be executed</p>
 </div>
 
 </div>
