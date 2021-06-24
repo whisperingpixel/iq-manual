@@ -68,11 +68,11 @@ Here is an example of how areas-of-interest can be selected
 
 The time interval is defined by a start date and an end date. The interval is *closed* at both sides, meaning that both the specified start date and end date are included. Currently, the Austrian semantic data and information cube contains data since the beginning of the operational phase of Sentinel-2 in Summer 2015 and is constantly updated with the most recent data.
 
-### Executing the query and inferring new information
+### Executing the semantic query and inferring new information
 
 Once the model, the area-of-interest and the time interval are set, the semantic query can be executed by clicking `Start inference`. Depending on the size and complexity of the query, execution might take some time.
 
-Every semantic query, i.e., inference, will be created internally and executed by a worker as soon as resources are available. If the system is already busy, it may therefore take some time until the inference can be started. Please note that the inferences will **stop automatically after 10 minutes**. Please contact us if you want to process larger volumes of data.
+Every semantic query, i.e., inference, will be created internally and executed by a worker as soon as resources are available. If the system is already busy, it may therefore take some time until the inference can be started. Please note that the inferences will **stop automatically after a specified time**. This is usually 10 minutes for personalised access but are lower for demo-accounts. Please contact info@sen2cube.at if you want to process larger data volumes.
 
 It is possible to stop an inference any time by clicking `Abort inference`. It may take some seconds until you receive the final notification that the inference was aborted.
 
