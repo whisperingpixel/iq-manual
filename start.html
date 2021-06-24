@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2021-05-28" />
+<meta name="date" content="2021-06-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -94,7 +94,7 @@
 <li class="chapter" data-level="3.2.1" data-path="start.html"><a href="start.html#selecting-the-model"><i class="fa fa-check"></i><b>3.2.1</b> Selecting the model</a></li>
 <li class="chapter" data-level="3.2.2" data-path="start.html"><a href="start.html#selecting-the-area-of-interest"><i class="fa fa-check"></i><b>3.2.2</b> Selecting the area-of-interest</a></li>
 <li class="chapter" data-level="3.2.3" data-path="start.html"><a href="start.html#selecting-the-time-interval"><i class="fa fa-check"></i><b>3.2.3</b> Selecting the time interval</a></li>
-<li class="chapter" data-level="3.2.4" data-path="start.html"><a href="start.html#executing-the-query-and-inferring-new-information"><i class="fa fa-check"></i><b>3.2.4</b> Executing the query and inferring new information</a></li>
+<li class="chapter" data-level="3.2.4" data-path="start.html"><a href="start.html#executing-the-semantic-query-and-inferring-new-information"><i class="fa fa-check"></i><b>3.2.4</b> Executing the semantic query and inferring new information</a></li>
 <li class="chapter" data-level="3.2.5" data-path="start.html"><a href="start.html#preview-mode"><i class="fa fa-check"></i><b>3.2.5</b> Preview-mode</a></li>
 <li class="chapter" data-level="3.2.6" data-path="start.html"><a href="start.html#viewing-and-downloading-the-results"><i class="fa fa-check"></i><b>3.2.6</b> Viewing and downloading the results</a></li>
 <li class="chapter" data-level="3.2.7" data-path="start.html"><a href="start.html#error-handling"><i class="fa fa-check"></i><b>3.2.7</b> Error handling</a></li>
@@ -332,10 +332,10 @@ A semantic query is the execution of a model from the knowledgebase against a se
 <h3><span class="header-section-number">3.2.3</span> Selecting the time interval</h3>
 <p>The time interval is defined by a start date and an end date. The interval is <em>closed</em> at both sides, meaning that both the specified start date and end date are included. Currently, the Austrian semantic data and information cube contains data since the beginning of the operational phase of Sentinel-2 in Summer 2015 and is constantly updated with the most recent data.</p>
 </div>
-<div id="executing-the-query-and-inferring-new-information" class="section level3">
-<h3><span class="header-section-number">3.2.4</span> Executing the query and inferring new information</h3>
+<div id="executing-the-semantic-query-and-inferring-new-information" class="section level3">
+<h3><span class="header-section-number">3.2.4</span> Executing the semantic query and inferring new information</h3>
 <p>Once the model, the area-of-interest and the time interval are set, the semantic query can be executed by clicking <code>Start inference</code>. Depending on the size and complexity of the query, execution might take some time.</p>
-<p>Every semantic query, i.e., inference, will be created internally and executed by a worker as soon as resources are available. If the system is already busy, it may therefore take some time until the inference can be started. Please note that the inferences will <strong>stop automatically after 10 minutes</strong>. Please contact us if you want to process larger volumes of data.</p>
+<p>Every semantic query, i.e., inference, will be created internally and executed by a worker as soon as resources are available. If the system is already busy, it may therefore take some time until the inference can be started. Please note that the inferences will <strong>stop automatically after a specified time</strong>. This is usually 10 minutes for personalised access but are lower for demo-accounts. Please contact <a href="mailto:info@sen2cube.at" class="email">info@sen2cube.at</a> if you want to process larger data volumes.</p>
 <p>It is possible to stop an inference any time by clicking <code>Abort inference</code>. It may take some seconds until you receive the final notification that the inference was aborted.</p>
 </div>
 <div id="preview-mode" class="section level3">

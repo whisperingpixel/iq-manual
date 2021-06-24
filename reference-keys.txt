@@ -17,7 +17,7 @@ workflow
 selecting-the-model
 selecting-the-area-of-interest
 selecting-the-time-interval
-executing-the-query-and-inferring-new-information
+executing-the-semantic-query-and-inferring-new-information
 preview-mode
 viewing-and-downloading-the-results
 error-handling
